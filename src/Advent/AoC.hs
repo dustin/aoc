@@ -76,10 +76,13 @@ pred' a
   | a == minBound = maxBound
   | otherwise = pred a
 
+-- | zipWith, but along a two-dimensional input.
+zipWith2D :: (x -> y -> a -> r) -> [x] -> [y] -> [[a]] -> [r]
+zipWith2D f xs ys = foldMap (\(y, l) -> zipWith (\x -> f x y) xs l) . zip ys
+
 -- | Parse a grid into a map of (x,y) pairs.
 parseGrid :: (Char -> a) -> String -> Map (Int,Int) a
-parseGrid f = Map.fromList . concatMap (\(y,r) -> map (\(x,c) -> ((x,y),f c)) $ zip [0..] r) . zip [0..] . lines
-
+parseGrid f = Map.fromList . zipWith2D (\x y a -> ((x,y), f a)) [0..] [0..] . lines
 
 fst3 :: (a,b,c) -> a
 fst3 (a,_,_) = a
