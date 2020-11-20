@@ -30,7 +30,7 @@ type Parser = Parsec Void Text
 
 -- | Load a file (e.g. "input/day24") with the given parser.
 parseFile :: Parser a -> String -> IO a
-parseFile f s = pack <$> readFile s >>= either (fail.errorBundlePretty) pure . parse f s
+parseFile f s = readFile s >>= (either (fail . errorBundlePretty) pure . parse f s) . pack
 
 -- | Parse a literal example.
 parseLit :: Parser a -> Text -> a
@@ -78,7 +78,7 @@ pred' a
 
 -- | zipWith, but along a two-dimensional input.
 zipWith2D :: (x -> y -> a -> r) -> [x] -> [y] -> [[a]] -> [r]
-zipWith2D f xs ys = foldMap (\(y, l) -> zipWith (\x -> f x y) xs l) . zip ys
+zipWith2D f xs ys = foldMap (\(y, l) -> zipWith (`f` y) xs l) . zip ys
 
 -- | Parse a grid into a map of (x,y) pairs.
 parseGrid :: (Char -> a) -> String -> Map (Int,Int) a
