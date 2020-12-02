@@ -20,7 +20,8 @@ module Advent.AoC (
 
 import           Data.Map.Strict       (Map)
 import qualified Data.Map.Strict       as Map
-import           Data.Text             (Text, pack)
+import           Data.Text             (Text)
+import qualified Data.Text.IO          as TIO
 import           Data.Void             (Void)
 import           Text.Megaparsec       (Parsec, parse)
 import           Text.Megaparsec.Error (errorBundlePretty)
@@ -30,7 +31,7 @@ type Parser = Parsec Void Text
 
 -- | Load a file (e.g. "input/day24") with the given parser.
 parseFile :: Parser a -> String -> IO a
-parseFile f s = readFile s >>= (either (fail . errorBundlePretty) pure . parse f s) . pack
+parseFile f s = TIO.readFile s >>= either (fail . errorBundlePretty) pure . parse f s
 
 -- | Parse a literal example.
 parseLit :: Parser a -> Text -> a
