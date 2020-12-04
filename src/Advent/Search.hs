@@ -13,7 +13,7 @@ Things I use for searching space in AoC.
 {-# LANGUAGE LambdaCase #-}
 
 module Advent.Search (dijkstra', dijkstra, resolveDijkstra, binSearch, autoBinSearch, binSearchM,
-                      findCycle, findRepeated, findMin, findMax, bfs, bfsOn) where
+                      findCycle, findRepeated, findMin, findMax, bfs, bfsOn, countIf) where
 
 import qualified Advent.Queue                as Queue
 import           Control.Parallel.Strategies (parList, rseq, using)
@@ -162,3 +162,7 @@ findMax f (x:xs) = go xs x
         go (x':xs') r
           | f x' < f r = r
           | otherwise = go xs' x'
+
+-- | Count the number of items for which this is true.
+countIf :: (a -> Bool) -> [a] -> Int
+countIf f = length . filter f
