@@ -54,8 +54,7 @@ intersection (BitSet i a) (BitSet _ b) = BitSet i (a .&. b)
 toList :: (Bits w, Ix i) => BitSet i w -> [i]
 toList bs@(BitSet r _) = filter (`member` bs) $ range r
 
-instance Bits w => Semigroup (BitSet i w) where
-  (BitSet r a) <> (BitSet _ b) = BitSet r (a .|. b)
+instance Bits w => Semigroup (BitSet i w) where (<>) = union
 
 instance (Bits w, Show i, Ix i) => Show (BitSet i w) where
   show bs@(BitSet r _) = "fromList " <> show r <> " [" <> intercalate ", " (map show (toList bs)) <> "]"
