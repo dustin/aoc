@@ -15,6 +15,7 @@ newtype SomeLowers = SomeLowers [Char] deriving Show
 
 instance Arbitrary SomeLowers where
   arbitrary = SomeLowers <$> (choose (0, 32) >>= \n -> vectorOf n (choose charRange))
+  shrink (SomeLowers x) = SomeLowers <$> shrink x
 
 type CharSet = BitSet Char Word32
 
