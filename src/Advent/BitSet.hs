@@ -51,8 +51,11 @@ union (BitSet i a) (BitSet _ b) = BitSet i (a .|. b)
 intersection :: Bits w => BitSet i w -> BitSet i w -> BitSet i w
 intersection (BitSet i a) (BitSet _ b) = BitSet i (a .&. b)
 
+disjoint :: Bits w => BitSet i w -> BitSet i w -> Bool
+disjoint (BitSet _ a) (BitSet _ b) = a .&. b == zeroBits
+
 toList :: (Bits w, Ix i) => BitSet i w -> [i]
-toList bs@(BitSet r _) = filter (`member` bs) $ range r
+toList bs@(BitSet r _) = Prelude.filter (`member` bs) $ range r
 
 instance Bits w => Semigroup (BitSet i w) where (<>) = union
 
@@ -61,3 +64,9 @@ instance (Bits w, Show i, Ix i) => Show (BitSet i w) where
 
 fromList :: (Bits w, Ix i) => (i,i) -> [i] -> BitSet i w
 fromList r = foldr insert (bitSet r)
+
+filter :: (Bits w, Ix i) => (i -> Bool) -> BitSet i w -> BitSet i w
+filter f bs@(BitSet i _) = fromList i . Prelude.filter f . toList $ bs
+
+findMin :: (Bits w, Ix i) => BitSet i w -> i
+findMin = head . toList
