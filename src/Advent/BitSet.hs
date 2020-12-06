@@ -51,6 +51,9 @@ union (BitSet i a) (BitSet _ b) = BitSet i (a .|. b)
 intersection :: Bits w => BitSet i w -> BitSet i w -> BitSet i w
 intersection (BitSet i a) (BitSet _ b) = BitSet i (a .&. b)
 
+difference :: Bits w => BitSet i w -> BitSet i w -> BitSet i w
+difference (BitSet i a) (BitSet _ b) = BitSet i (a .&. complement b)
+
 disjoint :: Bits w => BitSet i w -> BitSet i w -> Bool
 disjoint (BitSet _ a) (BitSet _ b) = a .&. b == zeroBits
 

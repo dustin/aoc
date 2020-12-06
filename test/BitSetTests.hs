@@ -75,6 +75,9 @@ propUnion = comp2 Set.union BitSet.union
 propIntersection :: SomeLowers -> SomeLowers -> Property
 propIntersection = comp2 Set.intersection BitSet.intersection
 
+propDifference :: SomeLowers -> SomeLowers -> Property
+propDifference = comp2 Set.difference BitSet.difference
+
 propFilter :: SomeLowers -> Property
 propFilter (SomeLowers a) = Set.filter isVowel (Set.fromList a) =.= BitSet.filter isVowel (fromChars a)
   where isVowel = (`elem` ['a', 'e', 'i', 'o', 'u'])
@@ -95,6 +98,7 @@ tests = [
   testProperty "disjoint" propDisjoint,
   testProperty "union" propUnion,
   testProperty "intersection" propIntersection,
+  testProperty "difference" propDifference,
   testProperty "filter" propFilter,
   testProperty "findMin" propFindMin
   ]
