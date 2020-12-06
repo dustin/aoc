@@ -3,11 +3,9 @@
 module Advent.BitSet where
 
 import           Control.DeepSeq (NFData (..))
-import           Data.Bits       (Bits (..), clearBit, popCount, setBit,
-                                  testBit, (.|.))
+import           Data.Bits       (Bits (..), clearBit, popCount, setBit, testBit, (.|.))
 import           Data.Ix         (Ix (..))
 import           Data.List       (intercalate)
-import           Data.Semigroup  (Semigroup (..))
 
 data BitSet i w = BitSet !(i,i) !w
 
@@ -46,6 +44,12 @@ delete i (BitSet r x) = BitSet r $ x `clearBit` index r i
 
 isSubsetOf :: Bits w => BitSet i w -> BitSet i w -> Bool
 isSubsetOf (BitSet _ a) (BitSet _ b) = b == b .|. a
+
+union :: Bits w => BitSet i w -> BitSet i w -> BitSet i w
+union (BitSet i a) (BitSet _ b) = BitSet i (a .|. b)
+
+intersection :: Bits w => BitSet i w -> BitSet i w -> BitSet i w
+intersection (BitSet i a) (BitSet _ b) = BitSet i (a .&. b)
 
 toList :: (Bits w, Ix i) => BitSet i w -> [i]
 toList bs@(BitSet r _) = filter (`member` bs) $ range r
