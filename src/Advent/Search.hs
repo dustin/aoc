@@ -63,7 +63,7 @@ bfsOn rep next start = loop Set.empty (Queue.singleton start)
         r = rep x
         Just (x, xs) = Queue.pop inq
 
--- Tests for this are in Day22.
+-- Tests for this are in 2018 Day 22.
 
 -- | 'dijkstra'' uses [Dijkstra's
 -- Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) to
