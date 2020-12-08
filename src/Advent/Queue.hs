@@ -1,6 +1,18 @@
 {-# LANGUAGE PatternSynonyms #-}
 {-# LANGUAGE ViewPatterns    #-}
 
+{-|
+Module      : Queue
+Description : A simple queue.
+Copyright   : (c) Dustin Sallings, 2019
+License     : MIT
+Maintainer  : dustin@spy.net
+Stability   : experimental
+Portability : POSIX
+
+A simple queue.
+-}
+
 module Advent.Queue where
 
 import           Data.Foldable (Foldable (..))

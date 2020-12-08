@@ -1,5 +1,16 @@
 {-# LANGUAGE FlexibleInstances #-}
 
+{-|
+Module      : Vis
+Description : Visualization helpers.
+Copyright   : (c) Dustin Sallings, 2019
+License     : MIT
+Maintainer  : dustin@spy.net
+Stability   : experimental
+Portability : POSIX
+
+Various things to help visualize data.
+-}
 module Advent.Vis where
 
 import           Codec.Picture       (PixelRGB8 (..), generateImage, writePng)

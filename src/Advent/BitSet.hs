@@ -1,5 +1,16 @@
 {-# LANGUAGE FlexibleInstances #-}
 
+{-|
+Module      : BitSet
+Description : A Set-type structure that stores values as bits.
+Copyright   : (c) Dustin Sallings, 2019
+License     : MIT
+Maintainer  : dustin@spy.net
+Stability   : experimental
+Portability : POSIX
+
+A Set-type structure that stores values as bits in a bitmap.
+-}
 module Advent.BitSet where
 
 import           Control.DeepSeq (NFData (..))
