@@ -49,6 +49,13 @@ pred' :: (Bounded a, Enum a, Eq a) => a -> a
 fst3 :: (a, b, c) -> a
 snd3 :: (a, b, c) -> b
 thrd :: (a, b, c) -> c
+
+-- | expand a list to all of the variants of the list with an element
+--   removed.
+--   
+--   <pre>
+--   select "cat"  -&gt;  [('c',"at"),('a',"ct"),('t',"ca")]
+--   </pre>
 select :: [a] -> [(a, [a])]
 
 module Advent.BitSet
@@ -138,7 +145,17 @@ findMin :: Ord b => (a -> b) -> [a] -> a
 
 -- | Find a local maximum.
 findMax :: Ord b => (a -> b) -> [a] -> a
+
+-- | bfs finds all reachable states from a given value and a function to
+--   find its neighbors.
 bfs :: Ord a => (a -> [a]) -> a -> [a]
+
+-- | bfsOn finds all reachable states from a given value and a function to
+--   find its neighbors using a representative function.
+--   
+--   The representative function allows a separation between the structure
+--   of a state and how it's represented, removing the Ord requirement for
+--   the state.
 bfsOn :: Ord r => (a -> r) -> (a -> [a]) -> a -> [a]
 
 -- | Count the number of items for which this is true.
