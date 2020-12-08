@@ -12,9 +12,17 @@ Things I use for searching space in AoC.
 
 {-# LANGUAGE LambdaCase #-}
 
-module Advent.Search (dijkstra', dijkstra, resolveDijkstra, binSearch, autoBinSearch, binSearchM,
-                      findCycle, findRepeated, findRepeatedOn, findMin, findMax, bfs, bfsOn, countIf,
-                      perturb) where
+module Advent.Search (
+  -- * Graph searching
+  dijkstra', dijkstra, resolveDijkstra,
+  bfs, bfsOn,
+  -- * Binary searching
+  binSearch, autoBinSearch, binSearchM,
+  -- * List cycle/repeat detection
+  findCycle, findRepeated, findRepeatedOn,
+  findMin, findMax, countIf,
+  -- * List expansion
+  perturb) where
 
 import qualified Advent.Queue                as Queue
 import           Control.Parallel.Strategies (parList, rseq, using)

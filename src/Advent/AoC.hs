@@ -10,11 +10,16 @@ Portability : POSIX
 Common stuff across AoC solutions.
 -}
 module Advent.AoC (
+  -- * Parsing
   Parser, parseFile, parseLit, parseGrid,
+  -- * Distances
   mdist2, mdist3, mdist4,
-  zipt2, zipt3, zipt4,
-  succ', pred',
+  -- * Tuple Helpers
   fst3, snd3, thrd,
+  zipt2, zipt3, zipt4,
+  -- * Going around in circles
+  succ', pred',
+  -- * Selection
   select
   ) where
 
