@@ -31,6 +31,9 @@ mdist3 :: (Int, Int, Int) -> (Int, Int, Int) -> Int
 
 -- | Four dimensional manhattan distance.
 mdist4 :: (Int, Int, Int, Int) -> (Int, Int, Int, Int) -> Int
+fst3 :: (a, b, c) -> a
+snd3 :: (a, b, c) -> b
+thrd :: (a, b, c) -> c
 
 -- | Parallel application of a function across elements of a tuple.
 zipt2 :: (a -> b -> c) -> (a, a) -> (b, b) -> (c, c)
@@ -46,9 +49,6 @@ succ' :: (Bounded a, Enum a, Eq a) => a -> a
 
 -- | A circular pred
 pred' :: (Bounded a, Enum a, Eq a) => a -> a
-fst3 :: (a, b, c) -> a
-snd3 :: (a, b, c) -> b
-thrd :: (a, b, c) -> c
 
 -- | expand a list to all of the variants of the list with an element
 --   removed.
@@ -58,6 +58,8 @@ thrd :: (a, b, c) -> c
 --   </pre>
 select :: [a] -> [(a, [a])]
 
+
+-- | A Set-type structure that stores values as bits in a bitmap.
 module Advent.BitSet
 data BitSet i w
 BitSet :: !(i, i) -> !w -> BitSet i w
@@ -83,6 +85,8 @@ instance Control.DeepSeq.NFData (Advent.BitSet.BitSet i w)
 instance Data.Bits.Bits w => GHC.Base.Semigroup (Advent.BitSet.BitSet i w)
 instance (Data.Bits.Bits w, GHC.Show.Show i, GHC.Arr.Ix i) => GHC.Show.Show (Advent.BitSet.BitSet i w)
 
+
+-- | A simple queue.
 module Advent.Queue
 data Queue a
 Queue :: [a] -> [a] -> Queue a
@@ -118,6 +122,18 @@ dijkstra :: Ord v => (v -> [(Int, v)]) -> v -> (v -> Bool) -> Maybe (Int, [v])
 --   the start to a destination.
 resolveDijkstra :: Ord v => Map v Int -> Map v v -> v -> v -> Maybe (Int, [v])
 
+-- | bfs finds all reachable states from a given value and a function to
+--   find its neighbors.
+bfs :: Ord a => (a -> [a]) -> a -> [a]
+
+-- | bfsOn finds all reachable states from a given value and a function to
+--   find its neighbors using a representative function.
+--   
+--   The representative function allows a separation between the structure
+--   of a state and how it's represented, removing the Ord requirement for
+--   the state.
+bfsOn :: Ord r => (a -> r) -> (a -> [a]) -> a -> [a]
+
 -- | <a>binSearch</a> performs a binary search to find the boundary
 --   function where a function returns its highest <a>LT</a> value.
 binSearch :: Integral a => (a -> Ordering) -> a -> a -> a
@@ -146,39 +162,41 @@ findMin :: Ord b => (a -> b) -> [a] -> a
 -- | Find a local maximum.
 findMax :: Ord b => (a -> b) -> [a] -> a
 
--- | bfs finds all reachable states from a given value and a function to
---   find its neighbors.
-bfs :: Ord a => (a -> [a]) -> a -> [a]
-
--- | bfsOn finds all reachable states from a given value and a function to
---   find its neighbors using a representative function.
---   
---   The representative function allows a separation between the structure
---   of a state and how it's represented, removing the Ord requirement for
---   the state.
-bfsOn :: Ord r => (a -> r) -> (a -> [a]) -> a -> [a]
-
 -- | Count the number of items for which this is true.
 countIf :: (a -> Bool) -> [a] -> Int
 
 -- | Make variations of a list by changing an element.
 perturb :: (a -> [a]) -> [a] -> [[a]]
 
+
+-- | Functions for working in 2D space.
 module Advent.TwoD
+
+-- | A point in 2D space.
 type Point = (Int, Int)
+
+-- | Get the points around a point (not including diagonals).
 around :: Point -> [Point]
+
+-- | Get the points around a point (including diagonals).
 aroundD :: Point -> [Point]
+
+-- | Directions.
 data Dir
 N :: Dir
 E :: Dir
 S :: Dir
 W :: Dir
-fwd :: Dir -> (Int, Int) -> (Int, Int)
+
+-- | Move a point in a particular direction.
+fwd :: Dir -> Point -> Point
 instance GHC.Classes.Eq Advent.TwoD.Dir
 instance GHC.Enum.Enum Advent.TwoD.Dir
 instance GHC.Enum.Bounded Advent.TwoD.Dir
 instance GHC.Show.Show Advent.TwoD.Dir
 
+
+-- | Various things to help visualize data.
 module Advent.Vis
 white :: PixelRGB8
 black :: PixelRGB8
