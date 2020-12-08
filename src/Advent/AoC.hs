@@ -94,6 +94,9 @@ snd3 (_,b,_) = b
 thrd :: (a,b,c) -> c
 thrd (_,_,c) = c
 
+-- | expand a list to all of the variants of the list with an element removed.
+--
+-- > select "cat"  ->  [('c',"at"),('a',"ct"),('t',"ca")]
 select :: [a] -> [(a,[a])]
 select []     = []
 select (x:xs) = [(x,xs)] <> (fmap (x:) <$> select xs)
