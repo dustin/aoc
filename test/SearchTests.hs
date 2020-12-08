@@ -70,6 +70,11 @@ prop_findMinNotMin (NonEmpty xs) = let mn = minimum xs
                                        l = xs <> [succ mn, (pred.pred) mn] in
                                      findMin id l /= minimum l
 
+testPerturb :: Assertion
+testPerturb = do
+  let p = perturb (\x -> case even x of True -> [x * 2, negate x]; _ -> []) [1..5]
+  assertEqual "" [[1,4,3,4,5],[1,-2,3,4,5],[1,2,3,8,5],[1,2,3,-4,5]] p
+
 tests :: [TestTree]
 tests = [
   testProperty "find cycle" prop_findCycle,
@@ -81,5 +86,6 @@ tests = [
 
   testProperty "bin search" propBinSearch,
   testProperty "monadic bin search" propBinSearchM,
-  testProperty "auto bin search'" propAutoBinSearch
+  testProperty "auto bin search'" propAutoBinSearch,
+  testCase "perturb" testPerturb
   ]
