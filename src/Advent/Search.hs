@@ -13,7 +13,8 @@ Things I use for searching space in AoC.
 {-# LANGUAGE LambdaCase #-}
 
 module Advent.Search (dijkstra', dijkstra, resolveDijkstra, binSearch, autoBinSearch, binSearchM,
-                      findCycle, findRepeated, findMin, findMax, bfs, bfsOn, countIf, perturb) where
+                      findCycle, findRepeated, findRepeatedOn, findMin, findMax, bfs, bfsOn, countIf,
+                      perturb) where
 
 import qualified Advent.Queue                as Queue
 import           Control.Parallel.Strategies (parList, rseq, using)
@@ -25,7 +26,11 @@ import qualified Data.Set                    as Set
 
 -- | Get the first repeated element.
 findRepeated :: Eq a => [a] -> Maybe a
-findRepeated xs = listToMaybe [a | (a,b) <- zip xs (tail xs), a == b]
+findRepeated = findRepeatedOn id
+
+-- | Get the first repeated element using a comparator function
+findRepeatedOn :: Eq b => (a -> b) -> [a] -> Maybe a
+findRepeatedOn f xs = listToMaybe [a | (a,b) <- zip xs (tail xs), f a == f b]
 
 -- | Get the position of the start of the first cycle and the cycle length from a list.
 findCycle :: Ord b => (a -> b) -> [a] -> (Int,Int,a)
