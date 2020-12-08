@@ -171,7 +171,5 @@ countIf f = length . filter f
 perturb :: (a -> [a]) -> [a] -> [[a]]
 perturb f = go
   where
-    go [] = []
-    go (x:xs) = case f x of
-                  [] -> (x:) <$> go xs
-                  x' -> ((:xs) <$> x') <> ((x:) <$> go xs)
+    go []     = []
+    go (x:xs) = let x' = f x in ((:xs) <$> x') <> ((x:) <$> go xs)
