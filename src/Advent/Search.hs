@@ -33,20 +33,28 @@ findRepeatedOn :: Eq b => (a -> b) -> [a] -> Maybe a
 findRepeatedOn f xs = listToMaybe [a | (a,b) <- zip xs (tail xs), f a == f b]
 
 -- | Get the position of the start of the first cycle and the cycle length from a list.
-findCycle :: Ord b => (a -> b) -> [a] -> (Int,Int,a)
+findCycle :: Ord b => (a -> b) -> [a] -> (Int, Int, a)
 findCycle f = go 0 mempty
   where
     go _ _ [] = error "findCycle: no inputs"
     go n mem (x:xs) = case Map.lookup t mem of
                         Nothing -> go (n+1) (Map.insert t n mem) xs
-                        Just o  -> (o,n - o,x)
+                        Just o  -> (o, n - o, x)
       where t = f x
 
-
+-- | bfs finds all reachable states from a given value and a function
+-- to find its neighbors.
 bfs :: Ord a => (a -> [a]) -> a -> [a]
 bfs = bfsOn id
 
 -- this is based on glguy's thing because he makes a good API.
+
+-- | bfsOn finds all reachable states from a given value and a
+-- function to find its neighbors using a representative function.
+--
+-- The representative function allows a separation between the
+-- structure of a state and how it's represented, removing the Ord
+-- requirement for the state.
 bfsOn ::
   Ord r =>
   (a -> r)   {- ^ representative function -} ->
