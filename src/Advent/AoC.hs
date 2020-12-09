@@ -20,7 +20,9 @@ module Advent.AoC (
   -- * Going around in circles
   succ', pred',
   -- * Selection
-  select
+  select,
+  -- * Strange Loops
+  möb, löb
   ) where
 
 import           Data.Map.Strict       (Map)
@@ -105,3 +107,15 @@ thrd (_,_,c) = c
 select :: [a] -> [(a,[a])]
 select []     = []
 select (x:xs) = [(x,xs)] <> (fmap (x:) <$> select xs)
+
+-- | Löb's theorem.
+-- https://en.wikipedia.org/wiki/L%C3%B6b%27s_theorem
+-- https://github.com/quchen/articles/blob/master/loeb-moeb.md
+möb :: (((a -> b) -> b) -> c -> a) -> c -> a
+möb f x = go where go = f ($ go) x
+
+-- | Löb's theorem.
+-- https://en.wikipedia.org/wiki/L%C3%B6b%27s_theorem
+-- https://github.com/quchen/articles/blob/master/loeb-moeb.md
+löb :: Functor f => f (f a -> a) -> f a
+löb = möb fmap
