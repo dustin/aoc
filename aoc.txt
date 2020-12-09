@@ -58,6 +58,16 @@ pred' :: (Bounded a, Enum a, Eq a) => a -> a
 --   </pre>
 select :: [a] -> [(a, [a])]
 
+-- | Löb's theorem.
+--   <a>https://en.wikipedia.org/wiki/L%C3%B6b%27s_theorem</a>
+--   <a>https://github.com/quchen/articles/blob/master/loeb-moeb.md</a>
+möb :: (((a -> b) -> b) -> c -> a) -> c -> a
+
+-- | Löb's theorem.
+--   <a>https://en.wikipedia.org/wiki/L%C3%B6b%27s_theorem</a>
+--   <a>https://github.com/quchen/articles/blob/master/loeb-moeb.md</a>
+löb :: Functor f => f (f a -> a) -> f a
+
 
 -- | A Set-type structure that stores values as bits in a bitmap.
 module Advent.BitSet
