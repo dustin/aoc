@@ -25,9 +25,21 @@ aroundD (x,y) = [(x+xo, y+yo) | xo <- [-1..1], yo <- [-1..1], xo /= 0 || yo /= 0
 -- | Directions.
 data Dir = N | E | S | W deriving (Show, Bounded, Enum, Eq)
 
--- | Move a point in a particular direction.
+-- | Move a point one position in a particular direction.
 fwd :: Dir -> Point -> Point
-fwd S (x,y) = (x,y+1)
-fwd N (x,y) = (x,y-1)
-fwd W (x,y) = (x-1,y)
-fwd E (x,y) = (x+1,y)
+fwd = fwdBy 1
+
+-- | Move a point some amount in a particular direction.
+fwdBy :: Int -> Dir -> Point -> Point
+fwdBy n N = addPoint (0, n)
+fwdBy n S = addPoint (0, -n)
+fwdBy n W = addPoint (-n, 0)
+fwdBy n E = addPoint (n, 0)
+
+-- | Add some to points.
+addPoint :: (Int,Int) -> Point -> Point
+addPoint (dx, dy) (x, y) = (dx+x,dy+y)
+
+-- | Multiply x and y values in a point by the given amounts.
+mulPoint :: (Int,Int) -> Point -> Point
+mulPoint (dx, dy) (x, y) = (dx*x,dy*y)
