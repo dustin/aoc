@@ -198,8 +198,17 @@ E :: Dir
 S :: Dir
 W :: Dir
 
--- | Move a point in a particular direction.
+-- | Move a point one position in a particular direction.
 fwd :: Dir -> Point -> Point
+
+-- | Move a point some amount in a particular direction.
+fwdBy :: Int -> Dir -> Point -> Point
+
+-- | Add some to points.
+addPoint :: (Int, Int) -> Point -> Point
+
+-- | Multiply x and y values in a point by the given amounts.
+mulPoint :: (Int, Int) -> Point -> Point
 instance GHC.Classes.Eq Advent.TwoD.Dir
 instance GHC.Enum.Enum Advent.TwoD.Dir
 instance GHC.Enum.Bounded Advent.TwoD.Dir
