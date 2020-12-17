@@ -21,10 +21,14 @@ module Advent.Search (
   -- * List cycle/repeat detection
   findCycle, findRepeated, findRepeatedOn,
   findMin, findMax, countIf,
+  -- * Fitting
+  arranger,
   -- * List expansion
   perturb) where
 
+import           Advent.AoC
 import qualified Advent.Queue                as Queue
+import           Control.Applicative         ((<|>))
 import           Control.Parallel.Strategies (parList, rseq, using)
 import           Data.Map                    (Map)
 import qualified Data.Map.Strict             as Map
@@ -194,3 +198,13 @@ perturb f = go
   where
     go []     = []
     go (x:xs) = ((:xs) <$> f x) <> ((x:) <$> go xs)
+
+-- Find arrangements of a such that our predicate is happy.
+arranger :: (a -> b -> Bool) -> [a] -> [b] -> Maybe [a]
+arranger p as bs = go (select as) bs []
+  where
+    go [] [] r = Just (reverse r)
+    go ((a,as'):more) allb@(b:bs') r
+      | p a b = go (select as') bs' (a:r) <|> go more allb r
+      | otherwise = go more allb r
+    go _ _ _ = Nothing

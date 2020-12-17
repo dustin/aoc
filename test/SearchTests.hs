@@ -75,6 +75,9 @@ testPerturb = do
   let p = perturb (\x -> case even x of True -> [x * 2, negate x]; _ -> []) [1..5]
   assertEqual "" [[1,4,3,4,5],[1,-2,3,4,5],[1,2,3,8,5],[1,2,3,-4,5]] p
 
+prop_arranger :: [Int] -> Property
+prop_arranger alist = arranger (==) alist (sort alist) === Just (sort alist)
+
 tests :: [TestTree]
 tests = [
   testProperty "find cycle" prop_findCycle,
@@ -87,5 +90,6 @@ tests = [
   testProperty "bin search" propBinSearch,
   testProperty "monadic bin search" propBinSearchM,
   testProperty "auto bin search'" propAutoBinSearch,
-  testCase "perturb" testPerturb
+  testCase "perturb" testPerturb,
+  testProperty "arranger" prop_arranger
   ]
