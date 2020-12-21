@@ -44,11 +44,26 @@ zipt3 :: (a -> b -> c) -> (a, a, a) -> (b, b, b) -> (c, c, c)
 -- | Parallel application of a function across elements of a tuple.
 zipt4 :: (a -> b -> c) -> (a, a, a, a) -> (b, b, b, b) -> (c, c, c, c)
 
+-- | fmap for uniform tuples.
+ftup :: (a -> b) -> (a, a) -> (b, b)
+
+-- | fmap for uniform tuples
+ftup3 :: (a -> b) -> (a, a, a) -> (b, b, b)
+
+-- | fmap for uniform tuples
+ftup4 :: (a -> b) -> (a, a, a, a) -> (b, b, b, b)
+
+-- | zipWith, but along a two-dimensional input.
+zipWith2D :: (x -> y -> a -> r) -> [x] -> [y] -> [[a]] -> [r]
+
 -- | A circular succ
 succ' :: (Bounded a, Enum a, Eq a) => a -> a
 
 -- | A circular pred
 pred' :: (Bounded a, Enum a, Eq a) => a -> a
+
+-- | Repeat an operation n times.
+ntimes :: Int -> (a -> a) -> a -> a
 
 -- | expand a list to all of the variants of the list with an element
 --   removed.
