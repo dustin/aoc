@@ -17,8 +17,11 @@ module Advent.AoC (
   -- * Tuple Helpers
   fst3, snd3, thrd,
   zipt2, zipt3, zipt4,
+  ftup, ftup3, ftup4,
+  zipWith2D,
   -- * Going around in circles
   succ', pred',
+  ntimes,
   -- * Selection
   select,
   -- * Strange Loops
@@ -55,6 +58,21 @@ zipt3 f (a1,b1,c1) (a2,b2,c2) = (f a1 a2, f b1 b2, f c1 c2)
 -- | Parallel application of a function across elements of a tuple.
 zipt4 :: (a -> b -> c) -> (a,a,a,a) -> (b,b,b,b) -> (c,c,c,c)
 zipt4 f (a1,b1,c1,d1) (a2,b2,c2,d2) = (f a1 a2, f b1 b2, f c1 c2, f d1 d2)
+
+-- | fmap for uniform tuples.
+ftup :: (a -> b) -> (a,a) -> (b,b)
+ftup f (a,b) = (f a, f b)
+{-# INLINE ftup #-}
+
+-- | fmap for uniform tuples
+ftup3 :: (a -> b) -> (a,a,a) -> (b,b,b)
+ftup3 f (a,b,c) = (f a, f b, f c)
+{-# INLINE ftup3 #-}
+
+-- | fmap for uniform tuples
+ftup4 :: (a -> b) -> (a,a,a,a) -> (b,b,b,b)
+ftup4 f (a,b,c,d) = (f a, f b, f c, f d)
+{-# INLINE ftup4 #-}
 
 -- | Two dimensional manhattan distance.
 mdist2 :: (Int,Int) -> (Int,Int) -> Int
@@ -100,6 +118,10 @@ snd3 (_,b,_) = b
 
 thrd :: (a,b,c) -> c
 thrd (_,_,c) = c
+
+-- | Repeat an operation n times.
+ntimes :: Int -> (a -> a) -> a -> a
+ntimes n f a = iterate f a !! n
 
 -- | expand a list to all of the variants of the list with an element removed.
 --
