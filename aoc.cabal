@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 399ecd7c8b3f6fc7f7b80a87894608233d0eb1aa400a4119617a677f3c9cfd10
+-- hash: aac781fe87afd3a4c9b5659ae338f06f901272271c042acddf7322f4fc55277d
 
 name:           aoc
 version:        0.1.0.0
@@ -37,7 +37,10 @@ library
       Paths_aoc
   hs-source-dirs:
       src
-  default-extensions: OverloadedStrings RecordWildCards NamedFieldPuns
+  default-extensions:
+      OverloadedStrings
+      RecordWildCards
+      NamedFieldPuns
   ghc-options: -Wall
   build-depends:
       JuicyPixels
@@ -62,7 +65,10 @@ test-suite aoc-test
       Paths_aoc
   hs-source-dirs:
       test
-  default-extensions: OverloadedStrings RecordWildCards NamedFieldPuns
+  default-extensions:
+      OverloadedStrings
+      RecordWildCards
+      NamedFieldPuns
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       HUnit
