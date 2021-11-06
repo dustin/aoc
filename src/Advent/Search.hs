@@ -16,6 +16,7 @@ module Advent.Search (
   -- * Graph searching
   dijkstra', dijkstra, resolveDijkstra,
   bfs, bfsOn,
+  bfsM, bfsOnM,
   -- * Binary searching
   binSearch, autoBinSearch, binSearchM,
   -- * List cycle/repeat detection
@@ -79,6 +80,35 @@ bfsOn rep next start = loop Set.empty (Queue.singleton start)
     loop seen inq
       | Set.member r seen =     loop seen xs
       | otherwise         = x : loop (Set.insert r seen) (Queue.appendList xs $ next x)
+      where
+        r = rep x
+        Just (x, xs) = Queue.pop inq
+
+-- | bfsM finds all reachable states from a given value and a function
+-- to find its neighbors.
+bfsM :: (Monad m, Ord a)
+     => (a -> m [a]) -- ^ neighbors
+     -> a            -- ^ initial state
+     -> m [a]        -- ^ reachable states
+bfsM = bfsOnM id
+
+-- | bfsOn finds all reachable states from a given value and a
+-- function to find its neighbors using a representative function.
+--
+-- The representative function allows a separation between the
+-- structure of a state and how it's represented, removing the Ord
+-- requirement for the state.
+bfsOnM :: (Monad m, Ord r)
+       => (a -> r)     -- ^ representative function
+       -> (a -> m [a]) -- ^ neighbors
+       -> a            -- ^ initial state
+       -> m [a]        -- ^ reachable states
+bfsOnM rep next start = loop Set.empty (Queue.singleton start)
+  where
+    loop _ Queue.Empty = pure []
+    loop seen inq
+      | Set.member r seen = loop seen xs
+      | otherwise         = next x >>= \n -> (x:) <$> loop (Set.insert r seen) (Queue.appendList xs n)
       where
         r = rep x
         Just (x, xs) = Queue.pop inq
