@@ -3,8 +3,6 @@ cabal-version: 1.12
 -- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
---
--- hash: aac781fe87afd3a4c9b5659ae338f06f901272271c042acddf7322f4fc55277d
 
 name:           aoc
 version:        0.1.0.0

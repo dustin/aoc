@@ -21,8 +21,15 @@ testLöb = let fs = [ succ . (!! 1)
                    ] in
             assertEqual "" [3, 2, 4, 1] (löb fs)
 
+testFinal :: Assertion
+testFinal = assertEqual "" [3] (final safeTail [1, 2, 3])
+  where
+    safeTail (_:xs) | not (null xs) = Just xs
+    safeTail _ = Nothing
+
 tests :: [TestTree]
 tests = [
   testCase "parse grid test" testParseGrid,
-  testCase "Löb's theorem" testLöb
+  testCase "Löb's theorem" testLöb,
+  testCase "final" testFinal
   ]

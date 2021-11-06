@@ -21,7 +21,7 @@ module Advent.AoC (
   zipWith2D,
   -- * Going around in circles
   succ', pred',
-  ntimes,
+  ntimes, final,
   -- * Selection
   select,
   -- * Strange Loops
@@ -141,3 +141,7 @@ möb f x = go where go = f ($ go) x
 -- https://github.com/quchen/articles/blob/master/loeb-moeb.md
 löb :: Functor f => f (f a -> a) -> f a
 löb = möb fmap
+
+-- | Iterate until Nothing and then return the last Just value.
+final :: (a -> Maybe a) -> a -> a
+final f a = maybe a (final f) (f a)
