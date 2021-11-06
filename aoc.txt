@@ -65,6 +65,9 @@ pred' :: (Bounded a, Enum a, Eq a) => a -> a
 -- | Repeat an operation n times.
 ntimes :: Int -> (a -> a) -> a -> a
 
+-- | Iterate until Nothing and then return the last Just value.
+final :: (a -> Maybe a) -> a -> a
+
 -- | expand a list to all of the variants of the list with an element
 --   removed.
 --   
@@ -158,6 +161,18 @@ bfs :: Ord a => (a -> [a]) -> a -> [a]
 --   of a state and how it's represented, removing the Ord requirement for
 --   the state.
 bfsOn :: Ord r => (a -> r) -> (a -> [a]) -> a -> [a]
+
+-- | bfsM finds all reachable states from a given value and a function to
+--   find its neighbors.
+bfsM :: (Monad m, Ord a) => (a -> m [a]) -> a -> m [a]
+
+-- | bfsOn finds all reachable states from a given value and a function to
+--   find its neighbors using a representative function.
+--   
+--   The representative function allows a separation between the structure
+--   of a state and how it's represented, removing the Ord requirement for
+--   the state.
+bfsOnM :: (Monad m, Ord r) => (a -> r) -> (a -> m [a]) -> a -> m [a]
 
 -- | <a>binSearch</a> performs a binary search to find the boundary
 --   function where a function returns its highest <a>LT</a> value.
