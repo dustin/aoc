@@ -229,7 +229,12 @@ perturb f = go
     go []     = []
     go (x:xs) = ((:xs) <$> f x) <> ((x:) <$> go xs)
 
--- Find arrangements of a such that our predicate is happy.
+-- | Find an arrangement of @a@ such that our predicate is happy for each element in @b@.
+--
+-- e.g.
+--
+-- >>> arranger (<) [1,3,2,4] [3,6,2,6]
+-- Just [2, 3, 1, 4]
 arranger :: (a -> b -> Bool) -> [a] -> [b] -> Maybe [a]
 arranger p as bs = go (select as) bs []
   where
