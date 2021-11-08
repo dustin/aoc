@@ -154,7 +154,7 @@ resolveDijkstra m l start end = case Map.lookup end m of
       | otherwise = next : go next
       where next = l Map.! pt
 
--- | 'dijkstra''' uses [Dijkstra's
+-- | 'dijkstra' uses [Dijkstra's
 -- Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) to
 -- find the lowest cost path to a given destination.
 dijkstra :: Ord v => (v -> [(Int,v)]) -- ^ Provide a list of all neighbors of v with their associated costs.
