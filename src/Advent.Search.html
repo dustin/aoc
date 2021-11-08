@@ -848,10 +848,11 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-232"></span><span class="hs-comment">-- | Find an arrangement of @a@ such that our predicate is happy for each element in @b@.</span><span>
 </span><span id="line-233"></span><span class="hs-comment">--</span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- e.g.</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- &gt;&gt;&gt; arranger (&lt;) [1,3,2,4] [3,6,2,6]</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- Just [2, 3, 1, 4]</span><span>
-</span><span id="line-237"></span><span id="local-6989586621679056771"><span id="local-6989586621679056772"><span class="annot"><a href="Advent.Search.html#arranger"><span class="hs-identifier hs-type">arranger</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="#local-6989586621679056772"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679056771"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="#local-6989586621679056772"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="#local-6989586621679056771"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="#local-6989586621679056772"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">]</span></span></span><span>
-</span><span id="line-238"></span><span id="arranger"><span class="annot"><span class="annottext">arranger :: (a -&gt; b -&gt; Bool) -&gt; [a] -&gt; [b] -&gt; Maybe [a]
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- &gt;&gt;&gt; arranger (&lt;) [1,3,2,4] [3,6,2,6]</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Just [2, 3, 1, 4]</span><span>
+</span><span id="line-238"></span><span id="local-6989586621679056771"><span id="local-6989586621679056772"><span class="annot"><a href="Advent.Search.html#arranger"><span class="hs-identifier hs-type">arranger</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="#local-6989586621679056772"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679056771"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="#local-6989586621679056772"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="#local-6989586621679056771"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="#local-6989586621679056772"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">]</span></span></span><span>
+</span><span id="line-239"></span><span id="arranger"><span class="annot"><span class="annottext">arranger :: (a -&gt; b -&gt; Bool) -&gt; [a] -&gt; [b] -&gt; Maybe [a]
 </span><a href="Advent.Search.html#arranger"><span class="hs-identifier hs-var hs-var">arranger</span></a></span></span><span> </span><span id="local-6989586621679056770"><span class="annot"><span class="annottext">a -&gt; b -&gt; Bool
 </span><a href="#local-6989586621679056770"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span id="local-6989586621679056769"><span class="annot"><span class="annottext">[a]
 </span><a href="#local-6989586621679056769"><span class="hs-keyword hs-var">as</span></a></span></span><span> </span><span id="local-6989586621679056768"><span class="annot"><span class="annottext">[b]
@@ -861,8 +862,8 @@ forall a. [a] -&gt; [(a, [a])]
 </span><a href="Advent.AoC.html#select"><span class="hs-identifier hs-var">select</span></a></span><span> </span><span class="annot"><span class="annottext">[a]
 </span><a href="#local-6989586621679056769"><span class="hs-keyword hs-var">as</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[b]
 </span><a href="#local-6989586621679056768"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span>
-</span><span id="line-239"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-240"></span><span>    </span><span id="local-6989586621679056767"><span class="annot"><span class="annottext">go :: [(a, [a])] -&gt; [b] -&gt; [a] -&gt; Maybe [a]
+</span><span id="line-240"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-241"></span><span>    </span><span id="local-6989586621679056767"><span class="annot"><span class="annottext">go :: [(a, [a])] -&gt; [b] -&gt; [a] -&gt; Maybe [a]
 </span><a href="#local-6989586621679056767"><span class="hs-identifier hs-var hs-var">go</span></a></span></span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span> </span><span id="local-6989586621679056765"><span class="annot"><span class="annottext">[a]
 </span><a href="#local-6989586621679056765"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[a] -&gt; Maybe [a]
 forall a. a -&gt; Maybe a
@@ -870,7 +871,7 @@ forall a. a -&gt; Maybe a
 forall a. [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">[a]
 </span><a href="#local-6989586621679056765"><span class="hs-identifier hs-var">r</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-241"></span><span>    </span><span class="annot"><a href="#local-6989586621679056767"><span class="hs-identifier hs-var">go</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span id="local-6989586621679056764"><span class="annot"><span class="annottext">a
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="#local-6989586621679056767"><span class="hs-identifier hs-var">go</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span id="local-6989586621679056764"><span class="annot"><span class="annottext">a
 </span><a href="#local-6989586621679056764"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span id="local-6989586621679056763"><span class="annot"><span class="annottext">[a]
 </span><a href="#local-6989586621679056763"><span class="hs-identifier hs-var">as'</span></a></span></span><span class="hs-special">)</span><span class="annot"><span class="hs-glyph hs-type">:</span></span><span id="local-6989586621679056762"><span class="annot"><span class="annottext">[(a, [a])]
 </span><a href="#local-6989586621679056762"><span class="hs-identifier hs-var">more</span></a></span></span><span class="hs-special">)</span><span> </span><span id="local-6989586621679056761"><span class="annot"><span class="annottext">allb :: [b]
@@ -878,7 +879,7 @@ forall a. [a] -&gt; [a]
 </span><a href="#local-6989586621679056760"><span class="hs-identifier hs-var">b</span></a></span></span><span class="annot"><span class="hs-glyph hs-type">:</span></span><span id="local-6989586621679056759"><span class="annot"><span class="annottext">[b]
 </span><a href="#local-6989586621679056759"><span class="hs-identifier hs-var">bs'</span></a></span></span><span class="hs-special">)</span><span> </span><span id="local-6989586621679056758"><span class="annot"><span class="annottext">[a]
 </span><a href="#local-6989586621679056758"><span class="hs-identifier hs-var">r</span></a></span></span><span>
-</span><span id="line-242"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">a -&gt; b -&gt; Bool
+</span><span id="line-243"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">a -&gt; b -&gt; Bool
 </span><a href="#local-6989586621679056770"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">a
 </span><a href="#local-6989586621679056764"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">b
 </span><a href="#local-6989586621679056760"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[(a, [a])] -&gt; [b] -&gt; [a] -&gt; Maybe [a]
@@ -897,16 +898,16 @@ forall (f :: * -&gt; *) a. Alternative f =&gt; f a -&gt; f a -&gt; f a
 </span><a href="#local-6989586621679056762"><span class="hs-identifier hs-var">more</span></a></span><span> </span><span class="annot"><span class="annottext">[b]
 </span><a href="#local-6989586621679056761"><span class="hs-identifier hs-var">allb</span></a></span><span> </span><span class="annot"><span class="annottext">[a]
 </span><a href="#local-6989586621679056758"><span class="hs-identifier hs-var">r</span></a></span><span>
-</span><span id="line-243"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span id="line-244"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[(a, [a])] -&gt; [b] -&gt; [a] -&gt; Maybe [a]
 </span><a href="#local-6989586621679056767"><span class="hs-identifier hs-var">go</span></a></span><span> </span><span class="annot"><span class="annottext">[(a, [a])]
 </span><a href="#local-6989586621679056762"><span class="hs-identifier hs-var">more</span></a></span><span> </span><span class="annot"><span class="annottext">[b]
 </span><a href="#local-6989586621679056761"><span class="hs-identifier hs-var">allb</span></a></span><span> </span><span class="annot"><span class="annottext">[a]
 </span><a href="#local-6989586621679056758"><span class="hs-identifier hs-var">r</span></a></span><span>
-</span><span id="line-244"></span><span>    </span><span class="annot"><a href="#local-6989586621679056767"><span class="hs-identifier hs-var">go</span></a></span><span> </span><span class="annot"><span class="annottext">[(a, [a])]
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="#local-6989586621679056767"><span class="hs-identifier hs-var">go</span></a></span><span> </span><span class="annot"><span class="annottext">[(a, [a])]
 </span><span class="hs-identifier">_</span></span><span> </span><span class="annot"><span class="annottext">[b]
 </span><span class="hs-identifier">_</span></span><span> </span><span class="annot"><span class="annottext">[a]
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [a]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Nothing</span></span><span>
-</span><span id="line-245"></span></pre></body></html>
+</span><span id="line-246"></span></pre></body></html>
