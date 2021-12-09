@@ -20,8 +20,8 @@ parseFile :: Parser a -> String -> IO a
 -- | Parse a literal example.
 parseLit :: Parser a -> Text -> a
 
--- | Parse a grid into a map of (x,y) pairs.
-parseGrid :: (Char -> a) -> String -> Map (Int, Int) a
+-- | Parse a grid into ((x,y),a) pairs.
+parseGrid :: (Char -> a) -> String -> [((Int, Int), a)]
 
 -- | Two dimensional manhattan distance.
 mdist2 :: (Int, Int) -> (Int, Int) -> Int
