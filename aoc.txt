@@ -162,6 +162,12 @@ bfs :: Ord a => (a -> [a]) -> a -> [a]
 --   the state.
 bfsOn :: Ord r => (a -> r) -> (a -> [a]) -> a -> [a]
 
+-- | bfsOnInt finds all reachable states from a given value and a function
+--   to find its neighbors using a representative function.
+--   
+--   This is a specialization of bfsOn where the representation is an Int.
+bfsOnInt :: (a -> Int) -> (a -> [a]) -> a -> [a]
+
 -- | bfsM finds all reachable states from a given value and a function to
 --   find its neighbors.
 bfsM :: (Monad m, Ord a) => (a -> m [a]) -> a -> m [a]
