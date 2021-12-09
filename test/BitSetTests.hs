@@ -85,6 +85,10 @@ propFilter (SomeLowers a) = Set.filter isVowel (Set.fromList a) =.= BitSet.filte
 propFindMin :: SomeLowers -> Property
 propFindMin (SomeLowers a) = (not.null) a ==> (Set.findMin . Set.fromList) a === (BitSet.findMin . fromChars) a
 
+bigOne :: IO ()
+bigOne = do
+  let big = BitSet.fromList (0, 8192) [0, 8000] :: BitSet Integer Integer
+  assertEqual "" [0,8000] (BitSet.toList big)
 tests :: [TestTree]
 tests = [
   testProperty "fromList" propFromToList,
@@ -100,5 +104,6 @@ tests = [
   testProperty "intersection" propIntersection,
   testProperty "difference" propDifference,
   testProperty "filter" propFilter,
-  testProperty "findMin" propFindMin
+  testProperty "findMin" propFindMin,
+  testCase "big one" bigOne
   ]

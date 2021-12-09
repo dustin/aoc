@@ -14,9 +14,10 @@ A Set-type structure that stores values as bits in a bitmap.
 module Advent.BitSet where
 
 import           Control.DeepSeq (NFData (..))
-import           Data.Bits       (Bits (..), clearBit, popCount, setBit, testBit, (.|.))
+import           Data.Bits       (Bits (..), bitSizeMaybe, clearBit, popCount, setBit, testBit, (.|.))
 import           Data.Ix         (Ix (..))
 import           Data.List       (intercalate)
+import           Data.Maybe      (fromMaybe)
 
 data BitSet i w = BitSet !(i,i) !w
 
@@ -33,8 +34,10 @@ instance NFData (BitSet i w) where
 
 bitSet :: (Bits w, Ix i) => (i,i) -> BitSet i w
 bitSet ins
-  | rangeSize ins > 32 = error "e too big"
-  | otherwise = BitSet ins zeroBits
+  | rangeSize ins > fromMaybe maxBound (bitSizeMaybe z) = error "bitset range exceeds storage capacity"
+  | otherwise = BitSet ins z
+  where
+    z = zeroBits
 
 {-# INLINE insert #-}
 insert :: (Bits w, Ix i) => i -> BitSet i w -> BitSet i w
