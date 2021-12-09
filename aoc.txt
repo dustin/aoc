@@ -5,7 +5,7 @@
 -- | Please see the README on GitHub at
 --   <a>https://github.com/dustin/aoc#readme</a>
 @package aoc
-@version 0.1.0.0
+@version 0.2.0.0
 
 
 -- | Common stuff across AoC solutions.
