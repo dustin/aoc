@@ -15,7 +15,7 @@ Things I use for searching space in AoC.
 module Advent.Search (
   -- * Graph searching
   dijkstra', dijkstra, resolveDijkstra,
-  bfs, bfsOn,
+  bfs, bfsOn, bfsOnInt,
   bfsM, bfsOnM,
   -- * Binary searching
   binSearch, autoBinSearch, binSearchM,
@@ -31,6 +31,7 @@ import           Advent.AoC
 import qualified Advent.Queue                as Queue
 import           Control.Applicative         ((<|>))
 import           Control.Parallel.Strategies (parList, rseq, using)
+import qualified Data.IntSet                 as IntSet
 import           Data.Map                    (Map)
 import qualified Data.Map.Strict             as Map
 import           Data.Maybe                  (listToMaybe)
@@ -80,6 +81,25 @@ bfsOn rep next start = loop Set.empty (Queue.singleton start)
     loop seen inq
       | Set.member r seen =     loop seen xs
       | otherwise         = x : loop (Set.insert r seen) (Queue.appendList xs $ next x)
+      where
+        r = rep x
+        Just (x, xs) = Queue.pop inq
+
+-- | bfsOnInt finds all reachable states from a given value and a
+-- function to find its neighbors using a representative function.
+--
+-- This is a specialization of bfsOn where the representation is an Int.
+bfsOnInt ::
+  (a -> Int)   {- ^ representative function -} ->
+  (a -> [a]) {- ^ neighbors               -} ->
+  a          {- ^ initial state           -} ->
+  [a]        {- ^ reachable states        -}
+bfsOnInt rep next start = loop IntSet.empty (Queue.singleton start)
+  where
+    loop _ Queue.Empty = []
+    loop seen inq
+      | IntSet.member r seen =     loop seen xs
+      | otherwise            = x : loop (IntSet.insert r seen) (Queue.appendList xs $ next x)
       where
         r = rep x
         Just (x, xs) = Queue.pop inq
