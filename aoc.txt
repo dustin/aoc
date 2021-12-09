@@ -142,8 +142,8 @@ module Advent.Search
 --   resulting values.
 dijkstra' :: Ord v => (v -> [(Int, v)]) -> v -> (v -> Bool) -> (v, Map v Int, Map v v)
 
--- | <tt>dijkstra''</tt> uses <a>Dijkstra's Algorithm</a> to find the
---   lowest cost path to a given destination.
+-- | <a>dijkstra</a> uses <a>Dijkstra's Algorithm</a> to find the lowest
+--   cost path to a given destination.
 dijkstra :: Ord v => (v -> [(Int, v)]) -> v -> (v -> Bool) -> Maybe (Int, [v])
 
 -- | Using maps computed by <a>dijkstra'</a>, find the cost and path from
