@@ -77,13 +77,13 @@ bfsOn ::
   [a]        {- ^ reachable states        -}
 bfsOn rep next start = loop Set.empty (Queue.singleton start)
   where
-    loop _ Queue.Empty = []
-    loop seen inq
-      | Set.member r seen =     loop seen xs
-      | otherwise         = x : loop (Set.insert r seen) (Queue.appendList xs $ next x)
-      where
-        r = rep x
-        Just (x, xs) = Queue.pop inq
+    loop seen inq =
+      case Queue.pop inq of
+        Nothing -> []
+        Just (x,xs)
+          | Set.member r seen ->     loop seen xs
+          | otherwise            -> x : loop (Set.insert r seen) (Queue.appendList xs $ next x)
+          where r = rep x
 
 -- | bfsOnInt finds all reachable states from a given value and a
 -- function to find its neighbors using a representative function.
@@ -96,13 +96,13 @@ bfsOnInt ::
   [a]        {- ^ reachable states        -}
 bfsOnInt rep next start = loop IntSet.empty (Queue.singleton start)
   where
-    loop _ Queue.Empty = []
-    loop seen inq
-      | IntSet.member r seen =     loop seen xs
-      | otherwise            = x : loop (IntSet.insert r seen) (Queue.appendList xs $ next x)
-      where
-        r = rep x
-        Just (x, xs) = Queue.pop inq
+    loop seen inq =
+      case Queue.pop inq of
+        Nothing -> []
+        Just (x,xs)
+          | IntSet.member r seen ->     loop seen xs
+          | otherwise            -> x : loop (IntSet.insert r seen) (Queue.appendList xs $ next x)
+          where r = rep x
 
 -- | bfsM finds all reachable states from a given value and a function
 -- to find its neighbors.
@@ -125,13 +125,13 @@ bfsOnM :: (Monad m, Ord r)
        -> m [a]        -- ^ reachable states
 bfsOnM rep next start = loop Set.empty (Queue.singleton start)
   where
-    loop _ Queue.Empty = pure []
-    loop seen inq
-      | Set.member r seen = loop seen xs
-      | otherwise         = next x >>= \n -> (x:) <$> loop (Set.insert r seen) (Queue.appendList xs n)
-      where
-        r = rep x
-        Just (x, xs) = Queue.pop inq
+    loop seen inq = case Queue.pop inq of
+      Nothing -> pure []
+      Just (x, xs)
+        | Set.member r seen -> loop seen xs
+        | otherwise         -> next x >>= \n -> (x:) <$> loop (Set.insert r seen) (Queue.appendList xs n)
+        where
+          r = rep x
 
 -- Tests for this are in 2018 Day 22.
 
