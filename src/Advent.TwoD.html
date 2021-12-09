@@ -17,26 +17,26 @@ Functions for working in 2D space.
 </span><span id="line-17"></span><span class="hs-comment">-- | Get the points around a point (not including diagonals).</span><span>
 </span><span id="line-18"></span><span class="annot"><a href="Advent.TwoD.html#around"><span class="hs-identifier hs-type">around</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-19"></span><span id="around"><span class="annot"><span class="annottext">around :: Point -&gt; [Point]
-</span><a href="Advent.TwoD.html#around"><span class="hs-identifier hs-var hs-var">around</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057320"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057320"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">,</span><span id="local-6989586621679057319"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057319"><span class="hs-identifier hs-var">y</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057320"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057319"><span class="hs-identifier hs-var">y</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
+</span><a href="Advent.TwoD.html#around"><span class="hs-identifier hs-var hs-var">around</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057319"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057319"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">,</span><span id="local-6989586621679057318"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057318"><span class="hs-identifier hs-var">y</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057319"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057318"><span class="hs-identifier hs-var">y</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-glyph hs-var">-</span></span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057320"><span class="hs-identifier hs-var">x</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
+</span><a href="#local-6989586621679057319"><span class="hs-identifier hs-var">x</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-glyph hs-var">-</span></span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057319"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057320"><span class="hs-identifier hs-var">x</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
+</span><a href="#local-6989586621679057318"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057319"><span class="hs-identifier hs-var">x</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">+</span></span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057319"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057320"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057319"><span class="hs-identifier hs-var">y</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
+</span><a href="#local-6989586621679057318"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057319"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057318"><span class="hs-identifier hs-var">y</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">+</span></span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
@@ -44,35 +44,35 @@ forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span id="line-21"></span><span class="hs-comment">-- | Get the points around a point (including diagonals).</span><span>
 </span><span id="line-22"></span><span class="annot"><a href="Advent.TwoD.html#aroundD"><span class="hs-identifier hs-type">aroundD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-23"></span><span id="aroundD"><span class="annot"><span class="annottext">aroundD :: Point -&gt; [Point]
-</span><a href="Advent.TwoD.html#aroundD"><span class="hs-identifier hs-var hs-var">aroundD</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057316"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057316"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">,</span><span id="local-6989586621679057315"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057315"><span class="hs-identifier hs-var">y</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057316"><span class="hs-identifier hs-var">x</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
+</span><a href="Advent.TwoD.html#aroundD"><span class="hs-identifier hs-var hs-var">aroundD</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057315"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057315"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">,</span><span id="local-6989586621679057314"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057314"><span class="hs-identifier hs-var">y</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057315"><span class="hs-identifier hs-var">x</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">+</span></span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057314"><span class="hs-identifier hs-var">xo</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057315"><span class="hs-identifier hs-var">y</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
+</span><a href="#local-6989586621679057313"><span class="hs-identifier hs-var">xo</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057314"><span class="hs-identifier hs-var">y</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">+</span></span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057313"><span class="hs-identifier hs-var">yo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">|</span><span> </span><span id="local-6989586621679057314"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057314"><span class="hs-identifier hs-var">xo</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="hs-special">[</span><span class="hs-glyph">-</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057312"><span class="hs-identifier hs-var">yo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">|</span><span> </span><span id="local-6989586621679057313"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057313"><span class="hs-identifier hs-var">xo</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="hs-special">[</span><span class="hs-glyph">-</span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-glyph">..</span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">1</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057313"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057313"><span class="hs-identifier hs-var">yo</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="hs-special">[</span><span class="hs-glyph">-</span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">1</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057312"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057312"><span class="hs-identifier hs-var">yo</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="hs-special">[</span><span class="hs-glyph">-</span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-glyph">..</span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057314"><span class="hs-identifier hs-var">xo</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><a href="#local-6989586621679057313"><span class="hs-identifier hs-var">xo</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">0</span></span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool -&gt; Bool
 </span><span class="hs-operator hs-var">||</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057313"><span class="hs-identifier hs-var">yo</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><a href="#local-6989586621679057312"><span class="hs-identifier hs-var">yo</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">0</span></span><span class="hs-special">]</span><span>
 </span><span id="line-24"></span><span>
 </span><span id="line-25"></span><span class="hs-comment">-- | Directions.</span><span>
-</span><span id="line-26"></span><span class="hs-keyword">data</span><span> </span><span id="Dir"><span class="annot"><a href="Advent.TwoD.html#Dir"><span class="hs-identifier hs-var">Dir</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="N"><span class="annot"><a href="Advent.TwoD.html#N"><span class="hs-identifier hs-var">N</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="E"><span class="annot"><a href="Advent.TwoD.html#E"><span class="hs-identifier hs-var">E</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="S"><span class="annot"><a href="Advent.TwoD.html#S"><span class="hs-identifier hs-var">S</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="W"><span class="annot"><a href="Advent.TwoD.html#W"><span class="hs-identifier hs-var">W</span></a></span></span><span> </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057301"><span id="local-6989586621679057303"><span id="local-6989586621679057305"><span class="annot"><span class="annottext">Int -&gt; Dir -&gt; ShowS
+</span><span id="line-26"></span><span class="hs-keyword">data</span><span> </span><span id="Dir"><span class="annot"><a href="Advent.TwoD.html#Dir"><span class="hs-identifier hs-var">Dir</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="N"><span class="annot"><a href="Advent.TwoD.html#N"><span class="hs-identifier hs-var">N</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="E"><span class="annot"><a href="Advent.TwoD.html#E"><span class="hs-identifier hs-var">E</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="S"><span class="annot"><a href="Advent.TwoD.html#S"><span class="hs-identifier hs-var">S</span></a></span></span><span> </span><span class="hs-glyph">|</span><span> </span><span id="W"><span class="annot"><a href="Advent.TwoD.html#W"><span class="hs-identifier hs-var">W</span></a></span></span><span> </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057300"><span id="local-6989586621679057302"><span id="local-6989586621679057304"><span class="annot"><span class="annottext">Int -&gt; Dir -&gt; ShowS
 [Dir] -&gt; ShowS
 Dir -&gt; String
 (Int -&gt; Dir -&gt; ShowS)
@@ -85,14 +85,14 @@ show :: Dir -&gt; String
 $cshow :: Dir -&gt; String
 showsPrec :: Int -&gt; Dir -&gt; ShowS
 $cshowsPrec :: Int -&gt; Dir -&gt; ShowS
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057296"><span id="local-6989586621679057298"><span class="annot"><span class="annottext">Dir
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057295"><span id="local-6989586621679057297"><span class="annot"><span class="annottext">Dir
 Dir -&gt; Dir -&gt; Bounded Dir
 forall a. a -&gt; a -&gt; Bounded a
 maxBound :: Dir
 $cmaxBound :: Dir
 minBound :: Dir
 $cminBound :: Dir
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Bounded</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057279"><span id="local-6989586621679057281"><span id="local-6989586621679057283"><span id="local-6989586621679057285"><span id="local-6989586621679057287"><span id="local-6989586621679057289"><span id="local-6989586621679057291"><span id="local-6989586621679057293"><span class="annot"><span class="annottext">Int -&gt; Dir
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Bounded</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057278"><span id="local-6989586621679057280"><span id="local-6989586621679057282"><span id="local-6989586621679057284"><span id="local-6989586621679057286"><span id="local-6989586621679057288"><span id="local-6989586621679057290"><span id="local-6989586621679057292"><span class="annot"><span class="annottext">Int -&gt; Dir
 Dir -&gt; Int
 Dir -&gt; [Dir]
 Dir -&gt; Dir
@@ -133,7 +133,7 @@ pred :: Dir -&gt; Dir
 $cpred :: Dir -&gt; Dir
 succ :: Dir -&gt; Dir
 $csucc :: Dir -&gt; Dir
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Enum</span></span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057274"><span id="local-6989586621679057276"><span class="annot"><span class="annottext">Dir -&gt; Dir -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Enum</span></span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057273"><span id="local-6989586621679057275"><span class="annot"><span class="annottext">Dir -&gt; Dir -&gt; Bool
 (Dir -&gt; Dir -&gt; Bool) -&gt; (Dir -&gt; Dir -&gt; Bool) -&gt; Eq Dir
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Dir -&gt; Dir -&gt; Bool
@@ -152,62 +152,62 @@ $c== :: Dir -&gt; Dir -&gt; Bool
 </span><span id="line-32"></span><span class="hs-comment">-- | Move a point some amount in a particular direction.</span><span>
 </span><span id="line-33"></span><span class="annot"><a href="Advent.TwoD.html#fwdBy"><span class="hs-identifier hs-type">fwdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Dir"><span class="hs-identifier hs-type">Dir</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span>
 </span><span id="line-34"></span><span id="fwdBy"><span class="annot"><span class="annottext">fwdBy :: Int -&gt; Dir -&gt; Point -&gt; Point
-</span><a href="Advent.TwoD.html#fwdBy"><span class="hs-identifier hs-var hs-var">fwdBy</span></a></span></span><span> </span><span id="local-6989586621679057270"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057270"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="annot"><span class="annottext">Dir
+</span><a href="Advent.TwoD.html#fwdBy"><span class="hs-identifier hs-var hs-var">fwdBy</span></a></span></span><span> </span><span id="local-6989586621679057269"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057269"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="annot"><span class="annottext">Dir
 </span><a href="Advent.TwoD.html#N"><span class="hs-identifier hs-var">N</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Point -&gt; Point -&gt; Point
 </span><a href="Advent.TwoD.html#addPoint"><span class="hs-identifier hs-var">addPoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">0</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057270"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-35"></span><span class="annot"><a href="Advent.TwoD.html#fwdBy"><span class="hs-identifier hs-var">fwdBy</span></a></span><span> </span><span id="local-6989586621679057268"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057268"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="annot"><span class="annottext">Dir
+</span><a href="#local-6989586621679057269"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span class="annot"><a href="Advent.TwoD.html#fwdBy"><span class="hs-identifier hs-var">fwdBy</span></a></span><span> </span><span id="local-6989586621679057267"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057267"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="annot"><span class="annottext">Dir
 </span><a href="Advent.TwoD.html#S"><span class="hs-identifier hs-var">S</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Point -&gt; Point -&gt; Point
 </span><a href="Advent.TwoD.html#addPoint"><span class="hs-identifier hs-var">addPoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">0</span></span><span class="hs-special">,</span><span> </span><span class="hs-glyph">-</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057268"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-36"></span><span class="annot"><a href="Advent.TwoD.html#fwdBy"><span class="hs-identifier hs-var">fwdBy</span></a></span><span> </span><span id="local-6989586621679057267"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057267"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="annot"><span class="annottext">Dir
+</span><a href="#local-6989586621679057267"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="annot"><a href="Advent.TwoD.html#fwdBy"><span class="hs-identifier hs-var">fwdBy</span></a></span><span> </span><span id="local-6989586621679057266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057266"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="annot"><span class="annottext">Dir
 </span><a href="Advent.TwoD.html#W"><span class="hs-identifier hs-var">W</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Point -&gt; Point -&gt; Point
 </span><a href="Advent.TwoD.html#addPoint"><span class="hs-identifier hs-var">addPoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">-</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057267"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057266"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">0</span></span><span class="hs-special">)</span><span>
-</span><span id="line-37"></span><span class="annot"><a href="Advent.TwoD.html#fwdBy"><span class="hs-identifier hs-var">fwdBy</span></a></span><span> </span><span id="local-6989586621679057266"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057266"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="annot"><span class="annottext">Dir
+</span><span id="line-37"></span><span class="annot"><a href="Advent.TwoD.html#fwdBy"><span class="hs-identifier hs-var">fwdBy</span></a></span><span> </span><span id="local-6989586621679057265"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057265"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="annot"><span class="annottext">Dir
 </span><a href="Advent.TwoD.html#E"><span class="hs-identifier hs-var">E</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Point -&gt; Point -&gt; Point
 </span><a href="Advent.TwoD.html#addPoint"><span class="hs-identifier hs-var">addPoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057266"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057265"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">0</span></span><span class="hs-special">)</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- | Add some to points.</span><span>
 </span><span id="line-40"></span><span class="annot"><a href="Advent.TwoD.html#addPoint"><span class="hs-identifier hs-type">addPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span class="hs-special">,</span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span>
 </span><span id="line-41"></span><span id="addPoint"><span class="annot"><span class="annottext">addPoint :: Point -&gt; Point -&gt; Point
-</span><a href="Advent.TwoD.html#addPoint"><span class="hs-identifier hs-var hs-var">addPoint</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057265"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057265"><span class="hs-identifier hs-var">dx</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057264"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057264"><span class="hs-identifier hs-var">dy</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057263"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057263"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057262"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057262"><span class="hs-identifier hs-var">y</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057265"><span class="hs-identifier hs-var">dx</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
+</span><a href="Advent.TwoD.html#addPoint"><span class="hs-identifier hs-var hs-var">addPoint</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057264"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057264"><span class="hs-identifier hs-var">dx</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057263"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057263"><span class="hs-identifier hs-var">dy</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057262"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057262"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057261"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057261"><span class="hs-identifier hs-var">y</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057264"><span class="hs-identifier hs-var">dx</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">+</span></span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057263"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057264"><span class="hs-identifier hs-var">dy</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
+</span><a href="#local-6989586621679057262"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057263"><span class="hs-identifier hs-var">dy</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">+</span></span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057262"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679057261"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- | Multiply x and y values in a point by the given amounts.</span><span>
 </span><span id="line-44"></span><span class="annot"><a href="Advent.TwoD.html#mulPoint"><span class="hs-identifier hs-type">mulPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span class="hs-special">,</span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span>
 </span><span id="line-45"></span><span id="mulPoint"><span class="annot"><span class="annottext">mulPoint :: Point -&gt; Point -&gt; Point
-</span><a href="Advent.TwoD.html#mulPoint"><span class="hs-identifier hs-var hs-var">mulPoint</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057260"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057260"><span class="hs-identifier hs-var">dx</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057259"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057259"><span class="hs-identifier hs-var">dy</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057258"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057258"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057257"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057257"><span class="hs-identifier hs-var">y</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057260"><span class="hs-identifier hs-var">dx</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
+</span><a href="Advent.TwoD.html#mulPoint"><span class="hs-identifier hs-var hs-var">mulPoint</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057259"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057259"><span class="hs-identifier hs-var">dx</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057258"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057258"><span class="hs-identifier hs-var">dy</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679057257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057257"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679057256"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057256"><span class="hs-identifier hs-var">y</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057259"><span class="hs-identifier hs-var">dx</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">*</span></span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057258"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057259"><span class="hs-identifier hs-var">dy</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
+</span><a href="#local-6989586621679057257"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679057258"><span class="hs-identifier hs-var">dy</span></a></span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">*</span></span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679057257"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679057256"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span></pre></body></html>
