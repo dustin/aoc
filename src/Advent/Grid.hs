@@ -1,3 +1,18 @@
+{-|
+Module      : Advent.Grid
+Description : Accessing a rectangular file as (Int,Int) -> Word8
+Copyright   : (c) Dustin Sallings, 2021
+License     : MIT
+Maintainer  : dustin@spy.net
+Stability   : experimental
+Portability : POSIX
+
+This is useful any time you've got a map of x,y coordinates you want
+to fetch values from without having to put everything into a data
+structure.  Lookups are O(1), storage is approximately the number of
+bytes of the input, etc...
+-}
+
 {-# LANGUAGE DeriveGeneric  #-}
 {-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE ViewPatterns   #-}
