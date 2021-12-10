@@ -1,5 +1,5 @@
 name:                aoc
-version:             0.2.0.1
+version:             0.2.0.2
 github:              "dustin/aoc"
 license:             BSD3
 author:              "Dustin Sallings"
@@ -29,6 +29,7 @@ dependencies:
 - parallel
 - pqueue
 - ansi-terminal
+- bytestring
 
 library:
   source-dirs: src

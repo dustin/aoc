@@ -5,7 +5,7 @@ cabal-version: 1.12
 -- see: https://github.com/sol/hpack
 
 name:           aoc
-version:        0.2.0.0
+version:        0.2.0.2
 description:    Please see the README on GitHub at <https://github.com/dustin/aoc#readme>
 homepage:       https://github.com/dustin/aoc#readme
 bug-reports:    https://github.com/dustin/aoc/issues
@@ -27,6 +27,7 @@ library
   exposed-modules:
       Advent.AoC
       Advent.BitSet
+      Advent.Grid
       Advent.Queue
       Advent.Search
       Advent.TwoD
@@ -44,6 +45,7 @@ library
       JuicyPixels
     , ansi-terminal
     , base >=4.7 && <5
+    , bytestring
     , containers
     , deepseq
     , megaparsec
@@ -75,6 +77,7 @@ test-suite aoc-test
     , ansi-terminal
     , aoc
     , base >=4.7 && <5
+    , bytestring
     , containers
     , deepseq
     , megaparsec
