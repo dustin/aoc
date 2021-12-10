@@ -4,7 +4,7 @@
 
 module Advent.Grid (
   Grid,
-  loadInput, parseInput,
+  readFile, parseInput,
   bounds, range, index, inRange,
   lookup, unsafeLookup, assocs, assocsMap, b2c
   ) where
@@ -19,7 +19,7 @@ import           Data.Tuple             (swap)
 import           Data.Word              (Word8)
 import           GHC.Base               (unsafeChr)
 import           GHC.Generics           (Generic)
-import           Prelude                hiding (lookup)
+import           Prelude                hiding (readFile, lookup)
 
 -- | Grid represents byte data from a file with equal length lines of
 -- newline separated data.
@@ -57,8 +57,8 @@ inRange Grid{_bounds} = Ix.inRange _bounds . swap
 -- | Load a 'Grid' from a given file path.
 --
 -- There's not a lot of checking here.  Use this on proper grid data.
-loadInput :: FilePath -> IO Grid
-loadInput = fmap parseInput . BS.readFile
+readFile :: FilePath -> IO Grid
+readFile = fmap parseInput . BS.readFile
 
 -- | Parse a 'ByteString' into a 'Grid'.
 --
