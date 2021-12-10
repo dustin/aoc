@@ -16,7 +16,7 @@ module Advent.BitSet where
 import           Control.DeepSeq (NFData (..))
 import           Data.Bits       (Bits (..), bitSizeMaybe, clearBit, popCount, setBit, testBit, (.|.))
 import           Data.Ix         (Ix (..))
-import           Data.List       (intercalate)
+import           Data.List       (foldl', intercalate)
 import           Data.Maybe      (fromMaybe)
 
 data BitSet i w = BitSet !(i,i) !w
@@ -94,7 +94,7 @@ instance (Bits w, Show i, Ix i) => Show (BitSet i w) where
   show bs@(BitSet r _) = "fromList " <> show r <> " [" <> intercalate ", " (map show (toList bs)) <> "]"
 
 fromList :: (Bits w, Ix i) => (i,i) -> [i] -> BitSet i w
-fromList r = foldr insert (bitSet r)
+fromList r = BitSet r . foldl' (\o x -> o `setBit` index r x) zeroBits
 
 filter :: (Bits w, Ix i) => (i -> Bool) -> BitSet i w -> BitSet i w
 filter f bs@(BitSet i _) = fromList i . Prelude.filter f . toList $ bs
