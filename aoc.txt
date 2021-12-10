@@ -295,6 +295,11 @@ drawingBracket :: IO a -> IO a
 instance GHC.Show.Show Advent.Vis.DrawSpec
 instance GHC.Real.Integral a => Advent.Vis.Bounded2D (Data.Map.Internal.Map (a, a) b)
 
+
+-- | This is useful any time you've got a map of x,y coordinates you want
+--   to fetch values from without having to put everything into a data
+--   structure. Lookups are O(1), storage is approximately the number of
+--   bytes of the input, etc...
 module Advent.Grid
 
 -- | Grid represents byte data from a file with equal length lines of
