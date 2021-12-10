@@ -345,6 +345,12 @@ assocsMap :: (Word8 -> a) -> Grid -> [(Point, a)]
 -- | Convert a <a>Word8</a> to a <a>Char</a> in a fairly unsafe but quick
 --   way.
 b2c :: Word8 -> Char
+
+-- | Map all the values in the grid.
+map :: (Word8 -> Word8) -> Grid -> Grid
+
+-- | Map all of the values from the grid including the index.
+ixmap :: (Point -> Word8 -> Word8) -> Grid -> Grid
 instance GHC.Generics.Generic Advent.Grid.Grid
 instance Control.DeepSeq.NFData Advent.Grid.Grid
 instance Advent.Vis.Bounded2D Advent.Grid.Grid
