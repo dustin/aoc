@@ -21,7 +21,8 @@ module Advent.Grid (
   Grid,
   readFile, parseInput,
   bounds, range, index, inRange,
-  lookup, unsafeLookup, assocs, assocsMap, b2c
+  lookup, unsafeLookup, assocs, assocsMap, b2c,
+  map, ixmap
   ) where
 
 import           Advent.TwoD            (Point)
@@ -34,7 +35,7 @@ import           Data.Tuple             (swap)
 import           Data.Word              (Word8)
 import           GHC.Base               (unsafeChr)
 import           GHC.Generics           (Generic)
-import           Prelude                hiding (readFile, lookup)
+import           Prelude                hiding (readFile, lookup, map)
 
 -- | Grid represents byte data from a file with equal length lines of
 -- newline separated data.
@@ -108,3 +109,15 @@ assocsMap f (Grid b@(_,(_,mx)) _ bs) = (\p -> (swap p, f (BS.unsafeIndex bs (Ix.
 b2c :: Word8 -> Char
 b2c = unsafeChr . fromIntegral
 {-# INLINE b2c #-}
+
+-- | Map all the values in the grid.
+map :: (Word8 -> Word8) -> Grid -> Grid
+map f g = g{_bytes = BS.map f (_bytes g)}
+
+-- | Map all of the values from the grid including the index.
+ixmap :: (Point -> Word8 -> Word8) -> Grid -> Grid
+ixmap f grid@(Grid b@(_,(_,mx)) _ bs) = grid{_bytes = snd (BS.mapAccumL g (Ix.range b) bs)}
+  where
+    g ((y,x):ps) w
+      | x == mx = (ps, w)
+      | otherwise = (ps, f (x,y) w)
