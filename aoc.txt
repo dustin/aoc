@@ -5,7 +5,7 @@
 -- | Please see the README on GitHub at
 --   <a>https://github.com/dustin/aoc#readme</a>
 @package aoc
-@version 0.2.0.2
+@version 0.2.0.3
 
 
 -- | Common stuff across AoC solutions.
@@ -304,7 +304,7 @@ data Grid
 -- | Load a <a>Grid</a> from a given file path.
 --   
 --   There's not a lot of checking here. Use this on proper grid data.
-loadInput :: FilePath -> IO Grid
+readFile :: FilePath -> IO Grid
 
 -- | Parse a <tt>ByteString</tt> into a <a>Grid</a>.
 --   
