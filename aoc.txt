@@ -5,7 +5,7 @@
 -- | Please see the README on GitHub at
 --   <a>https://github.com/dustin/aoc#readme</a>
 @package aoc
-@version 0.2.0.0
+@version 0.2.0.2
 
 
 -- | Common stuff across AoC solutions.
@@ -294,3 +294,52 @@ withHiddenCursor :: IO a -> IO a
 drawingBracket :: IO a -> IO a
 instance GHC.Show.Show Advent.Vis.DrawSpec
 instance GHC.Real.Integral a => Advent.Vis.Bounded2D (Data.Map.Internal.Map (a, a) b)
+
+module Advent.Grid
+
+-- | Grid represents byte data from a file with equal length lines of
+--   newline separated data.
+data Grid
+
+-- | Load a <a>Grid</a> from a given file path.
+--   
+--   There's not a lot of checking here. Use this on proper grid data.
+loadInput :: FilePath -> IO Grid
+
+-- | Parse a <tt>ByteString</tt> into a <a>Grid</a>.
+--   
+--   There's not a lot of checking here. Use this on proper grid data.
+parseInput :: ByteString -> Grid
+
+-- | Return the bounds of this <a>Grid</a>.
+bounds :: Grid -> (Point, Point)
+
+-- | Produce a list of all (x,y) <a>Point</a>s within this <a>Grid</a>.
+range :: Grid -> [Point]
+
+-- | Return the numeric index of a point within this <a>Grid</a>.
+index :: Grid -> Point -> Int
+
+-- | Return True if the given <a>Point</a> is within this <a>Grid</a>.
+inRange :: Grid -> Point -> Bool
+
+-- | Get the value at the given <a>Point</a> from this <a>Grid</a> iff it's
+--   within range.
+lookup :: Grid -> Point -> Maybe Word8
+
+-- | Get the value at the given <a>Point</a> from this <a>Grid</a>.
+unsafeLookup :: Grid -> Point -> Word8
+
+-- | Return all of the <a>Point</a>s and values from this <a>Grid</a>.
+assocs :: Grid -> [(Point, Word8)]
+
+-- | Return all of the <a>Point</a>s and values mapped to a particular
+--   value. from this <a>Grid</a>.
+assocsMap :: (Word8 -> a) -> Grid -> [(Point, a)]
+
+-- | Convert a <a>Word8</a> to a <a>Char</a> in a fairly unsafe but quick
+--   way.
+b2c :: Word8 -> Char
+instance GHC.Generics.Generic Advent.Grid.Grid
+instance Control.DeepSeq.NFData Advent.Grid.Grid
+instance Advent.Vis.Bounded2D Advent.Grid.Grid
