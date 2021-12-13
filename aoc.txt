@@ -5,7 +5,7 @@
 -- | Please see the README on GitHub at
 --   <a>https://github.com/dustin/aoc#readme</a>
 @package aoc
-@version 0.2.0.4
+@version 0.2.0.5
 
 
 -- | Common stuff across AoC solutions.
@@ -294,6 +294,7 @@ withHiddenCursor :: IO a -> IO a
 drawingBracket :: IO a -> IO a
 instance GHC.Show.Show Advent.Vis.DrawSpec
 instance GHC.Real.Integral a => Advent.Vis.Bounded2D (Data.Map.Internal.Map (a, a) b)
+instance GHC.Real.Integral a => Advent.Vis.Bounded2D (Data.Set.Internal.Set (a, a))
 
 
 -- | This is useful any time you've got a map of x,y coordinates you want
