@@ -20,8 +20,9 @@ import           Data.List           (intercalate)
 import           Data.Map.Strict     (Map)
 import qualified Data.Map.Strict     as Map
 import           Data.Semigroup      (Max (..), Min (..))
+import           Data.Set            (Set)
+import qualified Data.Set            as Set
 import           System.Console.ANSI
-
 
 white :: PixelRGB8
 white = PixelRGB8 255 255 255
@@ -63,6 +64,9 @@ listBounds = coerce . foldMap f
 
 instance Integral a => Bounded2D (Map (a, a) b) where
   bounds2d = listBounds . Map.keys
+
+instance Integral a => Bounded2D (Set (a, a)) where
+  bounds2d = listBounds . Set.toList
 
 data DrawSpec = DrawSpec {
   width     :: Int,
