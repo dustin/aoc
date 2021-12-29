@@ -1,3 +1,5 @@
+{-# LANGUAGE BangPatterns #-}
+
 {-|
 Module      : AoC
 Description : Common stuff for AoC
@@ -117,9 +119,15 @@ snd3 (_,b,_) = b
 thrd :: (a,b,c) -> c
 thrd (_,_,c) = c
 
+-- | An iterate with strict accumulation.
+iterate' :: (a -> a) -> a -> [a]
+iterate' f = go
+  where
+    go !x = x : go (f x)
+
 -- | Repeat an operation n times.
 ntimes :: Int -> (a -> a) -> a -> a
-ntimes n f a = iterate f a !! n
+ntimes n f a = iterate' f a !! n
 
 -- | expand a list to all of the variants of the list with an element removed.
 --
