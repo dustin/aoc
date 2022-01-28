@@ -43,7 +43,7 @@ default-extensions:
 
 tests:
   aoc-test:
-    main:                Spec.hs
+    main:                Main.hs
     source-dirs:         test
     ghc-options:
     - -threaded
@@ -53,6 +53,7 @@ tests:
     - aoc
     - HUnit
     - tasty
+    - tasty-discover
     - tasty-hunit
     - tasty-quickcheck
     - QuickCheck

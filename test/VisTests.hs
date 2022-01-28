@@ -14,8 +14,3 @@ prop_listBounds (NonEmpty xsin) (NonEmpty ysin) =
     z = zip xsin ysin
     xs = fst <$> z
     ys = snd <$> z
-
-tests :: [TestTree]
-tests = [
-  testProperty "listBounds" prop_listBounds
-  ]
