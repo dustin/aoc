@@ -107,11 +107,12 @@ toList :: (Bits w, Ix i) => BitSet i w -> [i]
 fromList :: (Bits w, Ix i) => (i, i) -> [i] -> BitSet i w
 filter :: (Bits w, Ix i) => (i -> Bool) -> BitSet i w -> BitSet i w
 findMin :: (Bits w, Ix i) => BitSet i w -> i
+alterF :: (Bits w, Ix i, Functor f) => (Bool -> f Bool) -> i -> BitSet i w -> f (BitSet i w)
 instance GHC.Classes.Eq w => GHC.Classes.Eq (Advent.BitSet.BitSet i w)
 instance GHC.Classes.Ord w => GHC.Classes.Ord (Advent.BitSet.BitSet i w)
 instance Control.DeepSeq.NFData (Advent.BitSet.BitSet i w)
-instance Data.Bits.Bits w => GHC.Base.Semigroup (Advent.BitSet.BitSet i w)
-instance (Data.Bits.Bits w, GHC.Show.Show i, GHC.Ix.Ix i) => GHC.Show.Show (Advent.BitSet.BitSet i w)
+instance GHC.Bits.Bits w => GHC.Base.Semigroup (Advent.BitSet.BitSet i w)
+instance (GHC.Bits.Bits w, GHC.Show.Show i, GHC.Ix.Ix i) => GHC.Show.Show (Advent.BitSet.BitSet i w)
 
 
 -- | A simple queue.
