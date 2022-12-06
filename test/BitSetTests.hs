@@ -1,5 +1,6 @@
 module BitSetTests where
 
+import           Control.Monad         (foldM)
 import           Data.Set              (Set)
 import qualified Data.Set              as Set
 import           Data.Word             (Word32)
@@ -25,6 +26,9 @@ charRange = ('a', 'z')
 (=.=) :: Set Char -> CharSet -> Property
 s =.= b = Set.toList s === BitSet.toList b
 
+(=?=) :: Maybe (Set Char) -> Maybe CharSet -> Property
+s =?= b = fmap Set.toList s === fmap BitSet.toList b
+
 fromChars :: [Char] -> CharSet
 fromChars = BitSet.fromList charRange
 
@@ -48,6 +52,23 @@ unit_alterF = do
   assertEqual "just false" (Just (fromChars "abd")) s3
   assertEqual "add z" (Just (fromChars "abcdz")) s4
   assertEqual "nothing" Nothing s5
+
+data AlterFunction = AlterJustTrue | AlterJustFalse | AlterNothing
+  deriving (Eq, Show, Bounded, Enum)
+
+instance Arbitrary AlterFunction where arbitrary = arbitraryBoundedEnum
+
+prop_alterF :: SomeLowers -> SomeLowers -> AlterFunction -> Property
+prop_alterF (SomeLowers ls) (SomeLowers xs) afun =
+  foldM (flip $ Set.alterF f) s xs =?= foldM (flip $ BitSet.alterF f) bs xs
+
+  where
+    s = Set.fromList ls
+    bs = fromChars ls
+    f = const $ case afun of
+          AlterJustTrue  -> Just True
+          AlterJustFalse -> Just False
+          AlterNothing   -> Nothing
 
 prop_null :: SomeLowers -> Property
 prop_null (SomeLowers ls) = Set.null (Set.fromList ls) === BitSet.null (fromChars ls)
