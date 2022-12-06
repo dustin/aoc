@@ -37,6 +37,18 @@ prop_fromToList (SomeLowers ls) = Set.fromList ls =.= fromChars ls
 prop_insert :: SomeLowers -> Property
 prop_insert (SomeLowers ls) = foldr Set.insert mempty ls =.= foldr BitSet.insert emptyBS ls
 
+unit_alterF :: IO ()
+unit_alterF = do
+  let s1 = fromChars "abcd"
+      s2 = BitSet.alterF (const $ Just True) 'c' s1
+      s3 = BitSet.alterF (const $ Just False) 'c' s1
+      s4 = BitSet.alterF (const $ Just True) 'z' s1
+      s5 = BitSet.alterF (const Nothing) 'c' s1
+  assertEqual "just true" (Just s1) s2
+  assertEqual "just false" (Just (fromChars "abd")) s3
+  assertEqual "add z" (Just (fromChars "abcdz")) s4
+  assertEqual "nothing" Nothing s5
+
 prop_null :: SomeLowers -> Property
 prop_null (SomeLowers ls) = Set.null (Set.fromList ls) === BitSet.null (fromChars ls)
 

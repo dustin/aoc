@@ -101,3 +101,9 @@ filter f bs@(BitSet i _) = fromList i . Prelude.filter f . toList $ bs
 
 findMin :: (Bits w, Ix i) => BitSet i w -> i
 findMin = head . toList
+
+alterF :: (Bits w, Ix i, Functor f) => (Bool -> f Bool) -> i -> BitSet i w -> f (BitSet i w)
+alterF f k s = fmap alter (f (member k s))
+  where
+    alter True = insert k s
+    alter False = delete k s
