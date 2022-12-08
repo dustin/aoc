@@ -40,7 +40,7 @@ import           Prelude                hiding (readFile, lookup, map)
 -- | Grid represents byte data from a file with equal length lines of
 -- newline separated data.
 data Grid = Grid {
-  _bounds  :: !(Point,Point),
+  _bounds  :: !(Point, Point),
   _vBounds :: !(Point, Point),
   _bytes   :: !BS.ByteString
   } deriving Generic
@@ -67,7 +67,7 @@ index Grid{_bounds} = Ix.index _bounds . swap
 
 -- | Return True if the given 'Point' is within this 'Grid'.
 inRange :: Grid -> Point -> Bool
-inRange Grid{_bounds} = Ix.inRange _bounds . swap
+inRange Grid{_vBounds} = Ix.inRange _vBounds . swap
 {-# INLINE inRange #-}
 
 -- | Load a 'Grid' from a given file path.
