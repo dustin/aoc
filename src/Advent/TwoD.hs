@@ -18,6 +18,10 @@ type Point = (Int,Int)
 around :: Point -> [Point]
 around (x,y) = [(x,y-1), (x-1,y), (x+1,y), (x,y+1)]
 
+-- | Diagonal neighbors.
+diags :: Point -> [Point]
+diags (x,y) = [(x-1,y-1), (x-1,y+1), (x+1,y+1), (x+1,y-1)]
+
 -- | Get the points around a point (including diagonals).
 aroundD :: Point -> [Point]
 aroundD (x,y) = [(x+xo, y+yo) | xo <- [-1..1], yo <- [-1..1], xo /= 0 || yo /= 0]
