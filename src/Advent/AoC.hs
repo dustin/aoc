@@ -24,12 +24,14 @@ module Advent.AoC (
   -- * Going around in circles
   succ', pred',
   ntimes, final,
+  zipWithTail, mZipWith, mZipWithTail,
   -- * Selection
   select,
   -- * Strange Loops
   möb, löb
   ) where
 
+import           Data.Foldable         (fold)
 import           Data.Text             (Text)
 import qualified Data.Text.IO          as TIO
 import           Data.Void             (Void)
@@ -151,3 +153,15 @@ löb = möb fmap
 -- | Iterate until Nothing and then return the last Just value.
 final :: (a -> Maybe a) -> a -> a
 final f a = maybe a (final f) (f a)
+
+-- | zip elements of a list against the next element in the list.
+zipWithTail :: (a -> a -> b) -> [a] -> [b]
+zipWithTail f a = zipWith f a $ tail a
+
+-- | zip into a monoid
+mZipWith :: Monoid m => (a -> b -> m) -> [a] -> [b] -> m
+mZipWith f a = fold . zipWith f a
+
+-- | zip elements of a list against the next element of a list into a monoid
+mZipWithTail :: Monoid m => (a -> a -> m) -> [a] -> m
+mZipWithTail f = fold . zipWithTail f
