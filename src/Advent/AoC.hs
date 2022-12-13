@@ -24,7 +24,7 @@ module Advent.AoC (
   -- * Going around in circles
   succ', pred',
   ntimes, final,
-  zipWithTail, mZipWith, mZipWithTail,
+  zipWithTail, foldZipWith, foldZipWithTail,
   -- * Selection
   select,
   -- * Strange Loops
@@ -159,9 +159,9 @@ zipWithTail :: (a -> a -> b) -> [a] -> [b]
 zipWithTail f a = zipWith f a $ tail a
 
 -- | zip into a monoid
-mZipWith :: Monoid m => (a -> b -> m) -> [a] -> [b] -> m
-mZipWith f a = fold . zipWith f a
+foldZipWith :: Monoid m => (a -> b -> m) -> [a] -> [b] -> m
+foldZipWith f a = fold . zipWith f a
 
 -- | zip elements of a list against the next element of a list into a monoid
-mZipWithTail :: Monoid m => (a -> a -> m) -> [a] -> m
-mZipWithTail f = fold . zipWithTail f
+foldZipWithTail :: Monoid m => (a -> a -> m) -> [a] -> m
+foldZipWithTail f = fold . zipWithTail f
