@@ -236,6 +236,9 @@ type Point = (Int, Int)
 -- | Get the points around a point (not including diagonals).
 around :: Point -> [Point]
 
+-- | Diagonal neighbors.
+diags :: Point -> [Point]
+
 -- | Get the points around a point (including diagonals).
 aroundD :: Point -> [Point]
 
@@ -353,6 +356,12 @@ map :: (Word8 -> Word8) -> Grid -> Grid
 
 -- | Map all of the values from the grid including the index.
 ixmap :: (Point -> Word8 -> Word8) -> Grid -> Grid
+
+-- | Show a Grid.
+showGrid :: Grid -> String
+
+-- | Show grid with the given byte -&gt; char mapping.
+showGridWith :: (Word8 -> Char) -> Grid -> String
 instance GHC.Generics.Generic Advent.Grid.Grid
 instance Control.DeepSeq.NFData Advent.Grid.Grid
 instance Advent.Vis.Bounded2D Advent.Grid.Grid
