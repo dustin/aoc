@@ -68,6 +68,16 @@ ntimes :: Int -> (a -> a) -> a -> a
 -- | Iterate until Nothing and then return the last Just value.
 final :: (a -> Maybe a) -> a -> a
 
+-- | zip elements of a list against the next element in the list.
+zipWithTail :: (a -> a -> b) -> [a] -> [b]
+
+-- | zip into a monoid
+mZipWith :: Monoid m => (a -> b -> m) -> [a] -> [b] -> m
+
+-- | zip elements of a list against the next element of a list into a
+--   monoid
+mZipWithTail :: Monoid m => (a -> a -> m) -> [a] -> m
+
 -- | expand a list to all of the variants of the list with an element
 --   removed.
 --   
