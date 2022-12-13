@@ -22,11 +22,11 @@ module Advent.Grid (
   readFile, parseInput,
   bounds, range, index, inRange,
   lookup, unsafeLookup, assocs, assocsMap, b2c,
-  map, ixmap
+  map, ixmap, showGrid, showGridWith
   ) where
 
 import           Advent.TwoD            (Point)
-import           Advent.Vis             (Bounded2D (..))
+import           Advent.Vis             (Bounded2D (..), drawString)
 import           Control.DeepSeq        (NFData (..))
 import qualified Data.ByteString        as BS
 import qualified Data.ByteString.Unsafe as BS
@@ -121,3 +121,11 @@ ixmap f grid@(Grid b@(_,(_,mx)) _ bs) = grid{_bytes = snd (BS.mapAccumL g (Ix.ra
     g ((y,x):ps) w
       | x == mx = (ps, w)
       | otherwise = (ps, f (x,y) w)
+
+-- | Show grid with the given byte -> char mapping.
+showGridWith :: (Word8 -> Char) -> Grid -> String
+showGridWith f g = drawString g (maybe ' ' f . lookup g)
+
+-- | Show a Grid.
+showGrid :: Grid -> String
+showGrid = showGridWith b2c
