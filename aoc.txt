@@ -5,7 +5,7 @@
 -- | Please see the README on GitHub at
 --   <a>https://github.com/dustin/aoc#readme</a>
 @package aoc
-@version 0.2.0.5
+@version 0.3.0.0
 
 
 -- | Common stuff across AoC solutions.
@@ -149,9 +149,9 @@ module Advent.Search
 -- | <a>dijkstra'</a> uses <a>Dijkstra's Algorithm</a> to find the costs
 --   and links from a starting point to various points on a graph.
 --   
---   See <a>resolveDijkstra</a> for a means of determining a path from the
+--   See <a>resolveAStar</a> for a means of determining a path from the
 --   resulting values.
-dijkstra' :: Ord v => (v -> [(Int, v)]) -> v -> (v -> Bool) -> (v, Map v Int, Map v v)
+dijkstra' :: Ord v => (v -> [(Int, v)]) -> v -> (v -> Bool) -> Maybe (v, Map v Int, Map v v)
 
 -- | <a>dijkstra</a> uses <a>Dijkstra's Algorithm</a> to find the lowest
 --   cost path to a given destination.
@@ -159,7 +159,7 @@ dijkstra :: Ord v => (v -> [(Int, v)]) -> v -> (v -> Bool) -> Maybe (Int, [v])
 
 -- | Using maps computed by <a>dijkstra'</a>, find the cost and path from
 --   the start to a destination.
-resolveDijkstra :: Ord v => Map v Int -> Map v v -> v -> v -> Maybe (Int, [v])
+resolveAStar :: Ord v => Map v Int -> Map v v -> v -> v -> Maybe (Int, [v])
 
 -- | bfs finds all reachable states from a given value and a function to
 --   find its neighbors.
@@ -178,6 +178,12 @@ bfsOn :: Ord r => (a -> r) -> (a -> [a]) -> a -> [a]
 --   
 --   This is a specialization of bfsOn where the representation is an Int.
 bfsOnInt :: (a -> Int) -> (a -> [a]) -> a -> [a]
+
+-- | A* search.
+astar :: Ord v => (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (Int, [v])
+
+-- | A* search.
+astar' :: Ord v => (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (v, Map v Int, Map v v)
 
 -- | bfsM finds all reachable states from a given value and a function to
 --   find its neighbors.
