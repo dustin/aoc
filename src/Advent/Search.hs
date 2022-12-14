@@ -14,8 +14,8 @@ Things I use for searching space in AoC.
 
 module Advent.Search (
   -- * Graph searching
-  dijkstra', dijkstra, resolveDijkstra,
-  bfs, bfsOn, bfsOnInt,
+  dijkstra', dijkstra, resolveAStar,
+  bfs, bfsOn, bfsOnInt, astar, astar',
   bfsM, bfsOnM,
   -- * Binary searching
   binSearch, autoBinSearch, binSearchM,
@@ -140,34 +140,20 @@ bfsOnM rep next start = loop Set.empty (Queue.singleton start)
 -- find the costs and links from a starting point to various points on
 -- a graph.
 --
--- See 'resolveDijkstra' for a means of determining a path from the
+-- See 'resolveAStar' for a means of determining a path from the
 -- resulting values.
 dijkstra' :: Ord v => (v -> [(Int,v)]) -- ^ Provide a list of all neighbors of v with their associated costs.
   -> v -- ^ The starting point.
   -> (v -> Bool) -- ^ Predicate allowing early termination of search (if True).
-  -> (v, Map v Int, Map v v) -- ^ (cost from origin to v, links from points to points)
-dijkstra' neighbrf start done = go (Q.singleton (0,start)) (Map.singleton start 0) mempty mempty
-  where
-    go q m l seen
-      | Q.null q = (pt, m,l)
-      | done pt = (pt, m',l)
-      | Set.member pt seen = go odo m l seen
-      | otherwise = go (odo <> psd) m' l' (Set.insert pt seen)
-
-      where
-        ([(d,pt)], odo) = Q.splitAt 1 q
-        moves = filter (\(c,p') -> c+d < Map.findWithDefault (c+d+1) p' m) (neighbrf pt) `using` parList rseq
-        m' = Map.union (Map.fromList [(p',c+d) | (c,p') <- moves]) m
-        l' = Map.union (Map.fromList [(p',pt) | (_,p') <- moves]) l
-        psd = Q.fromList [(d+c,x) | (c,x) <- moves]
-
+  -> Maybe (v, Map v Int, Map v v) -- ^ (cost from origin to v, links from points to points)
+dijkstra' nf start done = astar' nf (const 0) start done
 
 -- | Using maps computed by 'dijkstra'', find the cost and path from the
 -- start to a destination.
-resolveDijkstra :: Ord v => Map v Int -> Map v v -> v -> v -> Maybe (Int,[v])
-resolveDijkstra m l start end = case Map.lookup end m of
-                                  Nothing   -> Nothing
-                                  Just cost -> Just (cost, reverse $ end : go end)
+resolveAStar :: Ord v => Map v Int -> Map v v -> v -> v -> Maybe (Int,[v])
+resolveAStar m l start end = case Map.lookup end m of
+                               Nothing   -> Nothing
+                               Just cost -> Just (cost, reverse $ end : go end)
   where
     go pt
       | pt == start = []
@@ -181,8 +167,41 @@ dijkstra :: Ord v => (v -> [(Int,v)]) -- ^ Provide a list of all neighbors of v 
          -> v -- ^ The starting point.
          -> (v -> Bool) -- ^ Goal function
          -> Maybe (Int,[v])  -- ^ The cost to the destination, and the path to get there.
-dijkstra neighbrf start goal = resolve (dijkstra' neighbrf start goal)
-  where resolve (e, m,l) = resolveDijkstra m l start e
+dijkstra neighbrf start goal = resolve =<< dijkstra' neighbrf start goal
+  where resolve (e, m,l) = resolveAStar m l start e
+
+-- | A* search.
+astar' :: Ord v
+  => (v -> [(Int,v)]) -- ^ Provide a list of all neighbors of v with their associated costs.
+  -> (v -> Int) -- ^ Heuristic
+  -> v -- ^ The starting point.
+  -> (v -> Bool) -- ^ Predicate allowing early termination of search (if True).
+  -> Maybe (v, Map v Int, Map v v) -- ^ (cost from origin to v, links from points to points)
+astar' nf hf start done = go (Q.singleton (0,0,start)) (Map.singleton start 0) mempty mempty
+  where
+    go q m l seen
+      | Q.null q = Nothing
+      | done pt = Just (pt, m',l)
+      | Set.member pt seen = go odo m l seen
+      | otherwise = go (odo <> psd) m' l' (Set.insert pt seen)
+
+      where
+        ([(_,d,pt)], odo) = Q.splitAt 1 q
+        moves = filter (\(c,p') -> c+d < Map.findWithDefault (c+d+1) p' m) (nf pt) `using` parList rseq
+        m' = Map.union (Map.fromList [(p',c+d) | (c,p') <- moves]) m
+        l' = Map.union (Map.fromList [(p',pt) | (_,p') <- moves]) l
+        psd = Q.fromList [(hf x, d+c,x) | (c,x) <- moves]
+
+-- | A* search.
+astar :: Ord v
+      => (v -> [(Int,v)]) -- ^ Provide a list of all neighbors of v with their associated costs.
+      -> (v -> Int) -- ^ Heuristic
+      -> v -- ^ The starting point.
+      -> (v -> Bool) -- ^ Goal function
+      -> Maybe (Int,[v])  -- ^ The cost to the destination, and the path to get there.
+astar neighbrf hf start goal = resolve =<< astar' neighbrf hf start goal
+  where resolve (e, m, l) = resolveAStar m l start e
+
 
 -- | 'binSearch' performs a binary search to find the boundary
 -- function where a function returns its highest 'LT' value.
