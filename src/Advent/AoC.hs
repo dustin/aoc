@@ -26,7 +26,7 @@ module Advent.AoC (
   ntimes, final,
   zipWithTail, foldZipWith, foldZipWithTail,
   -- * Selection
-  select,
+  select, combinations,
   -- * Strange Loops
   möb, löb
   ) where
@@ -137,6 +137,16 @@ ntimes n f a = iterate' f a !! n
 select :: [a] -> [(a,[a])]
 select []     = []
 select (x:xs) = [(x,xs)] <> (fmap (x:) <$> select xs)
+
+-- | All combinations of a list taken k at a time.
+combinations :: Int -> [a] -> [[a]]
+combinations n xs = let l = length xs
+                    in if (n > l) then []
+                       else go xs !! (l-n)
+ where
+   go [] = [[[]]]
+   go (x:xs) = let next = go xs
+               in zipWith (<>) ([]:next) (fmap (fmap (x:)) next <> [[]])
 
 -- | Löb's theorem.
 -- https://en.wikipedia.org/wiki/L%C3%B6b%27s_theorem
