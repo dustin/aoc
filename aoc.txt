@@ -5,7 +5,7 @@
 -- | Please see the README on GitHub at
 --   <a>https://github.com/dustin/aoc#readme</a>
 @package aoc
-@version 0.3.0.0
+@version 0.3.1.0
 
 
 -- | Common stuff across AoC solutions.
@@ -85,6 +85,9 @@ foldZipWithTail :: Monoid m => (a -> a -> m) -> [a] -> m
 --   select "cat"  -&gt;  [('c',"at"),('a',"ct"),('t',"ca")]
 --   </pre>
 select :: [a] -> [(a, [a])]
+
+-- | All combinations of a list taken k at a time.
+combinations :: Int -> [a] -> [[a]]
 
 -- | Löb's theorem.
 --   <a>https://en.wikipedia.org/wiki/L%C3%B6b%27s_theorem</a>
