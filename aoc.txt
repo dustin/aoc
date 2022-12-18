@@ -298,7 +298,7 @@ bounds2d :: Bounded2D a => a -> ((Int, Int), (Int, Int))
 type PixelFun = (Int, Int) -> PixelRGB8
 mapPixelFun :: Map (Int, Int) a -> (a -> PixelRGB8) -> PixelFun
 mapPixelFunTrans :: Ord a => Map (Int, Int) a -> [(a, PixelRGB8)] -> PixelFun
-listBounds :: Integral a => [(a, a)] -> ((Int, Int), (Int, Int))
+listBounds :: (Foldable t, Integral a) => t (a, a) -> ((Int, Int), (Int, Int))
 data DrawSpec
 DrawSpec :: Int -> Int -> (Int -> Int) -> (Int -> Int) -> (Int -> Int) -> (Int -> Int) -> DrawSpec
 [width] :: DrawSpec -> Int
