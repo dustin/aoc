@@ -55,7 +55,7 @@ mapPixelFunTrans :: Ord a => Map (Int, Int) a -> [(a, PixelRGB8)] -> PixelFun
 mapPixelFunTrans m l = mapPixelFun m (\x -> Map.findWithDefault green x cm)
   where cm = Map.fromList l
 
-listBounds :: Integral a => [(a,a)] -> ((Int,Int),(Int,Int))
+listBounds :: (Foldable t, Integral a) => t (a,a) -> ((Int,Int),(Int,Int))
 listBounds = coerce . foldMap f
   where
     f :: Integral a => (a,a) -> ((Min Int, Min Int), (Max Int, Max Int))
