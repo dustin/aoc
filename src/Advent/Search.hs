@@ -16,6 +16,7 @@ module Advent.Search (
   -- * Graph searching
   dijkstra', dijkstra, resolveAStar,
   bfs, bfsOn, bfsOnInt, astar, astar',
+  astarOn, astarOn',
   bfsM, bfsOnM,
   -- * Binary searching
   binSearch, autoBinSearch, binSearchM,
@@ -177,20 +178,30 @@ astar' :: Ord v
   -> v -- ^ The starting point.
   -> (v -> Bool) -- ^ Predicate allowing early termination of search (if True).
   -> Maybe (v, Map v Int, Map v v) -- ^ (cost from origin to v, links from points to points)
-astar' nf hf start done = go (Q.singleton (0,0,start)) (Map.singleton start 0) mempty mempty
+astar' nf hf start = astarOn' id nf hf start
+
+-- | A* search.
+astarOn' :: (Ord r, Ord v)
+  => (v -> r) -- ^ Representation function
+  -> (v -> [(Int,v)]) -- ^ Provide a list of all neighbors of v with their associated costs.
+  -> (v -> Int) -- ^ Heuristic
+  -> v -- ^ The starting point.
+  -> (v -> Bool) -- ^ Predicate allowing early termination of search (if True).
+  -> Maybe (v, Map v Int, Map v v) -- ^ (cost from origin to v, links from points to points)
+astarOn' rf nf hf start done = go (Q.singleton (0,0,start)) (Map.singleton start 0) mempty mempty
   where
     go q m l seen
       | Q.null q = Nothing
       | done pt = Just (pt, m',l)
-      | Set.member pt seen = go odo m l seen
-      | otherwise = go (odo <> psd) m' l' (Set.insert pt seen)
+      | Set.member (rf pt) seen = go odo m l seen
+      | otherwise = go (odo <> psd) m' l' (Set.insert (rf pt) seen)
 
       where
-        ([(_,d,pt)], odo) = Q.splitAt 1 q
+        ([(d,_,pt)], odo) = Q.splitAt 1 q
         moves = filter (\(c,p') -> c+d < Map.findWithDefault (c+d+1) p' m) (nf pt) `using` parList rseq
         m' = Map.union (Map.fromList [(p',c+d) | (c,p') <- moves]) m
         l' = Map.union (Map.fromList [(p',pt) | (_,p') <- moves]) l
-        psd = Q.fromList [(hf x, d+c,x) | (c,x) <- moves]
+        psd = Q.fromList [(d+c, hf x,x) | (c,x) <- moves]
 
 -- | A* search.
 astar :: Ord v
@@ -199,7 +210,17 @@ astar :: Ord v
       -> v -- ^ The starting point.
       -> (v -> Bool) -- ^ Goal function
       -> Maybe (Int,[v])  -- ^ The cost to the destination, and the path to get there.
-astar neighbrf hf start goal = resolve =<< astar' neighbrf hf start goal
+astar nf hf start = astarOn id nf hf start
+
+-- | A* search.
+astarOn :: (Ord v, Ord r)
+        => (v -> r) -- ^ Representation function.
+        -> (v -> [(Int,v)]) -- ^ Provide a list of all neighbors of v with their associated costs.
+        -> (v -> Int) -- ^ Heuristic
+        -> v -- ^ The starting point.
+        -> (v -> Bool) -- ^ Goal function
+        -> Maybe (Int,[v])  -- ^ The cost to the destination, and the path to get there.
+astarOn rf neighbrf hf start goal = resolve =<< astarOn' rf neighbrf hf start goal
   where resolve (e, m, l) = resolveAStar m l start e
 
 
