@@ -151,7 +151,7 @@ dijkstra' nf start done = astar' nf (const 0) start done
 
 -- | Using maps computed by 'dijkstra'', find the cost and path from the
 -- start to a destination.
-resolveAStar :: Ord v => Map v Int -> Map v v -> v -> v -> Maybe (Int,[v])
+resolveAStar :: Ord r => Map r Int -> Map r r -> r -> r -> Maybe (Int,[r])
 resolveAStar m l start end = case Map.lookup end m of
                                Nothing   -> Nothing
                                Just cost -> Just (cost, reverse $ end : go end)
@@ -180,15 +180,21 @@ astar' :: Ord v
   -> Maybe (v, Map v Int, Map v v) -- ^ (cost from origin to v, links from points to points)
 astar' nf hf start = astarOn' id nf hf start
 
+newtype Unordered a = Unordered a
+
+instance Eq (Unordered a) where a == b = False
+
+instance Ord (Unordered a) where compare a b = LT
+
 -- | A* search.
-astarOn' :: (Ord r, Ord v)
+astarOn' :: Ord r
   => (v -> r) -- ^ Representation function
   -> (v -> [(Int,v)]) -- ^ Provide a list of all neighbors of v with their associated costs.
   -> (v -> Int) -- ^ Heuristic
   -> v -- ^ The starting point.
   -> (v -> Bool) -- ^ Predicate allowing early termination of search (if True).
-  -> Maybe (v, Map v Int, Map v v) -- ^ (cost from origin to v, links from points to points)
-astarOn' rf nf hf start done = go (Q.singleton (0,0,start)) (Map.singleton start 0) mempty mempty
+  -> Maybe (v, Map r Int, Map r r) -- ^ (cost from origin to v, links from points to points)
+astarOn' rf nf hf start done = go (Q.singleton (0,0, Unordered start)) (Map.singleton (rf start) 0) mempty mempty
   where
     go q m l seen
       | Q.null q = Nothing
@@ -197,11 +203,11 @@ astarOn' rf nf hf start done = go (Q.singleton (0,0,start)) (Map.singleton start
       | otherwise = go (odo <> psd) m' l' (Set.insert (rf pt) seen)
 
       where
-        ([(d,_,pt)], odo) = Q.splitAt 1 q
-        moves = filter (\(c,p') -> c+d < Map.findWithDefault (c+d+1) p' m) (nf pt) `using` parList rseq
-        m' = Map.union (Map.fromList [(p',c+d) | (c,p') <- moves]) m
-        l' = Map.union (Map.fromList [(p',pt) | (_,p') <- moves]) l
-        psd = Q.fromList [(d+c, hf x,x) | (c,x) <- moves]
+        ([(d,_, Unordered pt)], odo) = Q.splitAt 1 q
+        moves = filter (\(c,p') -> c+d < Map.findWithDefault (c+d+1) (rf p') m) (nf pt) `using` parList rseq
+        m' = Map.union (Map.fromList [(rf p', c+d) | (c,p') <- moves]) m
+        l' = Map.union (Map.fromList [(rf p', rf pt) | (_,p') <- moves]) l
+        psd = Q.fromList [(d+c, hf x, Unordered x) | (c,x) <- moves]
 
 -- | A* search.
 astar :: Ord v
@@ -213,15 +219,15 @@ astar :: Ord v
 astar nf hf start = astarOn id nf hf start
 
 -- | A* search.
-astarOn :: (Ord v, Ord r)
+astarOn :: Ord r
         => (v -> r) -- ^ Representation function.
         -> (v -> [(Int,v)]) -- ^ Provide a list of all neighbors of v with their associated costs.
         -> (v -> Int) -- ^ Heuristic
         -> v -- ^ The starting point.
         -> (v -> Bool) -- ^ Goal function
-        -> Maybe (Int,[v])  -- ^ The cost to the destination, and the path to get there.
-astarOn rf neighbrf hf start goal = resolve =<< astarOn' rf neighbrf hf start goal
-  where resolve (e, m, l) = resolveAStar m l start e
+        -> Maybe (Int,[r])  -- ^ The cost to the destination, and the path to get there.
+astarOn rf nf hf start goal = resolve =<< astarOn' rf nf hf start goal
+  where resolve (e, m, l) = resolveAStar m l (rf start) (rf e)
 
 
 -- | 'binSearch' performs a binary search to find the boundary
