@@ -5,7 +5,7 @@
 -- | Please see the README on GitHub at
 --   <a>https://github.com/dustin/aoc#readme</a>
 @package aoc
-@version 0.3.2.0
+@version 0.3.3.0
 
 
 -- | Common stuff across AoC solutions.
@@ -154,7 +154,7 @@ module Advent.Search
 --   
 --   See <a>resolveAStar</a> for a means of determining a path from the
 --   resulting values.
-dijkstra' :: Ord v => (v -> [(Int, v)]) -> v -> (v -> Bool) -> Maybe (v, Map v Int, Map v v)
+dijkstra' :: Ord v => (v -> [(Int, v)]) -> v -> (v -> Bool) -> Maybe (v, Map v (Int, v))
 
 -- | <a>dijkstra</a> uses <a>Dijkstra's Algorithm</a> to find the lowest
 --   cost path to a given destination.
@@ -162,7 +162,7 @@ dijkstra :: Ord v => (v -> [(Int, v)]) -> v -> (v -> Bool) -> Maybe (Int, [v])
 
 -- | Using maps computed by <a>dijkstra'</a>, find the cost and path from
 --   the start to a destination.
-resolveAStar :: Ord v => Map v Int -> Map v v -> v -> v -> Maybe (Int, [v])
+resolveAStar :: Ord r => Map r (Int, r) -> r -> r -> Maybe (Int, [r])
 
 -- | bfs finds all reachable states from a given value and a function to
 --   find its neighbors.
@@ -186,13 +186,13 @@ bfsOnInt :: (a -> Int) -> (a -> [a]) -> a -> [a]
 astar :: Ord v => (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (Int, [v])
 
 -- | A* search.
-astar' :: Ord v => (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (v, Map v Int, Map v v)
+astar' :: Ord v => (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (v, Map v (Int, v))
 
 -- | A* search.
-astarOn :: (Ord v, Ord r) => (v -> r) -> (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (Int, [v])
+astarOn :: Ord r => (v -> r) -> (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (Int, [r])
 
 -- | A* search.
-astarOn' :: (Ord r, Ord v) => (v -> r) -> (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (v, Map v Int, Map v v)
+astarOn' :: Ord r => (v -> r) -> (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (v, Map r (Int, r))
 
 -- | bfsM finds all reachable states from a given value and a function to
 --   find its neighbors.
@@ -250,6 +250,8 @@ arranger :: (a -> b -> Bool) -> [a] -> [b] -> Maybe [a]
 
 -- | Make variations of a list by changing an element.
 perturb :: (a -> [a]) -> [a] -> [[a]]
+instance GHC.Classes.Eq (Advent.Search.Unordered a)
+instance GHC.Classes.Ord (Advent.Search.Unordered a)
 
 
 -- | Functions for working in 2D space.
