@@ -107,3 +107,7 @@ alterF f k s = fmap alter (f (member k s))
   where
     alter True = insert k s
     alter False = delete k s
+
+-- | Perform arbitrary bit operations on the underlying store.
+bitMap :: (Bits w, Ix i) => (w -> w') -> BitSet i w -> BitSet i w'
+bitMap f (BitSet i a) = BitSet i (f a)
