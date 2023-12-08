@@ -130,6 +130,18 @@ instance Control.DeepSeq.NFData (Advent.BitSet.BitSet i w)
 instance GHC.Bits.Bits w => GHC.Base.Semigroup (Advent.BitSet.BitSet i w)
 instance (GHC.Bits.Bits w, GHC.Show.Show i, GHC.Ix.Ix i) => GHC.Show.Show (Advent.BitSet.BitSet i w)
 
+module Advent.LCM
+
+-- | LCM Integral monoid.
+newtype LCM a
+LCM :: a -> LCM a
+[getLCM] :: LCM a -> a
+instance GHC.Num.Num a => GHC.Num.Num (Advent.LCM.LCM a)
+instance GHC.Classes.Eq a => GHC.Classes.Eq (Advent.LCM.LCM a)
+instance GHC.Show.Show a => GHC.Show.Show (Advent.LCM.LCM a)
+instance GHC.Real.Integral a => GHC.Base.Semigroup (Advent.LCM.LCM a)
+instance GHC.Real.Integral a => GHC.Base.Monoid (Advent.LCM.LCM a)
+
 
 -- | A simple queue.
 module Advent.Queue
