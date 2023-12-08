@@ -139,7 +139,6 @@ module Advent.LCM
 newtype LCM a
 LCM :: a -> LCM a
 [getLCM] :: LCM a -> a
-(#.) :: Coercible b c => (b -> c) -> (a -> b) -> a -> c
 instance GHC.Num.Num a => GHC.Num.Num (Advent.LCM.LCM a)
 instance GHC.Generics.Generic (Advent.LCM.LCM a)
 instance Data.Data.Data a => Data.Data.Data (Advent.LCM.LCM a)
