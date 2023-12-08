@@ -130,6 +130,9 @@ instance Control.DeepSeq.NFData (Advent.BitSet.BitSet i w)
 instance GHC.Bits.Bits w => GHC.Base.Semigroup (Advent.BitSet.BitSet i w)
 instance (GHC.Bits.Bits w, GHC.Show.Show i, GHC.Ix.Ix i) => GHC.Show.Show (Advent.BitSet.BitSet i w)
 
+
+-- | Rather than doing some kind of fold1 or foldr 1 or whatever, just have
+--   an LCM monoid and do a regular fold.
 module Advent.LCM
 
 -- | LCM Integral monoid.
