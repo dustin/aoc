@@ -15,10 +15,10 @@ Portability : POSIX
 Rather than doing some kind of fold1 or foldr 1 or whatever, just have an LCM monoid and do a regular fold.
 -}
 
-module Advent.LCM where
+module Advent.LCM (LCM(..)) where
 
 import           Data.Coerce
-import Data.Data ( Data, Typeable )
+import           Data.Data     (Data, Typeable)
 import           Data.Foldable (Foldable (foldl', foldr', toList))
 import           GHC.Generics
 
