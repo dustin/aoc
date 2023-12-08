@@ -139,11 +139,22 @@ module Advent.LCM
 newtype LCM a
 LCM :: a -> LCM a
 [getLCM] :: LCM a -> a
+(#.) :: Coercible b c => (b -> c) -> (a -> b) -> a -> c
 instance GHC.Num.Num a => GHC.Num.Num (Advent.LCM.LCM a)
+instance GHC.Generics.Generic (Advent.LCM.LCM a)
+instance Data.Data.Data a => Data.Data.Data (Advent.LCM.LCM a)
+instance GHC.Enum.Bounded a => GHC.Enum.Bounded (Advent.LCM.LCM a)
+instance GHC.Read.Read a => GHC.Read.Read (Advent.LCM.LCM a)
+instance GHC.Classes.Ord a => GHC.Classes.Ord (Advent.LCM.LCM a)
 instance GHC.Classes.Eq a => GHC.Classes.Eq (Advent.LCM.LCM a)
 instance GHC.Show.Show a => GHC.Show.Show (Advent.LCM.LCM a)
 instance GHC.Real.Integral a => GHC.Base.Semigroup (Advent.LCM.LCM a)
 instance GHC.Real.Integral a => GHC.Base.Monoid (Advent.LCM.LCM a)
+instance GHC.Base.Functor Advent.LCM.LCM
+instance GHC.Base.Applicative Advent.LCM.LCM
+instance GHC.Base.Monad Advent.LCM.LCM
+instance Data.Foldable.Foldable Advent.LCM.LCM
+instance Data.Traversable.Traversable Advent.LCM.LCM
 
 
 -- | A simple queue.
