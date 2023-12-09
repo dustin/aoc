@@ -25,6 +25,7 @@ module Advent.AoC (
   succ', pred',
   ntimes, final,
   zipWithTail, foldZipWith, foldZipWithTail,
+  nonNull,
   -- * Selection
   select, combinations,
   -- * Strange Loops
@@ -175,3 +176,9 @@ foldZipWith f a = fold . zipWith f a
 -- | zip elements of a list against the next element of a list into a monoid
 foldZipWithTail :: Monoid m => (a -> a -> m) -> [a] -> m
 foldZipWithTail f = fold . zipWithTail f
+
+-- | Apply a function to a non-empty foldable.
+nonNull :: Foldable t => (t a -> b) -> t a -> Maybe b
+nonNull f t
+  | null t = Nothing
+  | otherwise = Just (f t)
