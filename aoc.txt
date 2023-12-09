@@ -5,7 +5,7 @@
 -- | Please see the README on GitHub at
 --   <a>https://github.com/dustin/aoc#readme</a>
 @package aoc
-@version 0.3.3.0
+@version 0.3.4.0
 
 
 -- | Common stuff across AoC solutions.
@@ -77,6 +77,9 @@ foldZipWith :: Monoid m => (a -> b -> m) -> [a] -> [b] -> m
 -- | zip elements of a list against the next element of a list into a
 --   monoid
 foldZipWithTail :: Monoid m => (a -> a -> m) -> [a] -> m
+
+-- | Apply a function to a non-empty foldable.
+nonNull :: Foldable t => (t a -> b) -> t a -> Maybe b
 
 -- | expand a list to all of the variants of the list with an element
 --   removed.
