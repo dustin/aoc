@@ -408,6 +408,7 @@ assocsMap :: (Word8 -> a) -> Grid -> [(Point, a)]
 -- | Convert a <a>Word8</a> to a <a>Char</a> in a fairly unsafe but quick
 --   way.
 b2c :: Word8 -> Char
+c2b :: Char -> Word8
 
 -- | Map all the values in the grid.
 map :: (Word8 -> Word8) -> Grid -> Grid
@@ -421,5 +422,7 @@ showGrid :: Grid -> String
 -- | Show grid with the given byte -&gt; char mapping.
 showGridWith :: (Word8 -> Char) -> Grid -> String
 instance GHC.Generics.Generic Advent.Grid.Grid
+instance GHC.Classes.Eq Advent.Grid.Grid
+instance GHC.Classes.Ord Advent.Grid.Grid
 instance Control.DeepSeq.NFData Advent.Grid.Grid
 instance Advent.Vis.Bounded2D Advent.Grid.Grid
