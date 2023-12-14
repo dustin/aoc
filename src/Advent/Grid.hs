@@ -36,6 +36,7 @@ import           Data.Word              (Word8)
 import           GHC.Base               (unsafeChr)
 import           GHC.Generics           (Generic)
 import           Prelude                hiding (readFile, lookup, map)
+import Data.Function (on)
 
 -- | Grid represents byte data from a file with equal length lines of
 -- newline separated data.
@@ -43,7 +44,14 @@ data Grid = Grid {
   _bounds  :: !(Point, Point),
   _vBounds :: !(Point, Point),
   _bytes   :: !BS.ByteString
-  } deriving Generic
+  }
+  deriving Generic
+
+instance Eq Grid where
+  (==) = (==) `on` _bytes
+
+instance Ord Grid where
+  compare = compare `on` _bytes
 
 instance NFData Grid
 
