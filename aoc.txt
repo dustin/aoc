@@ -313,11 +313,20 @@ fwd :: Dir -> Point -> Point
 -- | Move a point some amount in a particular direction.
 fwdBy :: Int -> Dir -> Point -> Point
 
+-- | Move a point one position in a particular direction. This is fwd with
+--   North and South reversed.
+fwd' :: Dir -> Point -> Point
+
+-- | Move a point some amount in a particular direction. This is fwdBy with
+--   North and South reversed.
+fwdBy' :: Int -> Dir -> Point -> Point
+
 -- | Add some to points.
 addPoint :: (Int, Int) -> Point -> Point
 
 -- | Multiply x and y values in a point by the given amounts.
 mulPoint :: (Int, Int) -> Point -> Point
+instance GHC.Classes.Ord Advent.TwoD.Dir
 instance GHC.Classes.Eq Advent.TwoD.Dir
 instance GHC.Enum.Enum Advent.TwoD.Dir
 instance GHC.Enum.Bounded Advent.TwoD.Dir
