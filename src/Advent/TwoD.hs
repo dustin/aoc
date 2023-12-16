@@ -27,7 +27,7 @@ aroundD :: Point -> [Point]
 aroundD (x,y) = [(x+xo, y+yo) | xo <- [-1..1], yo <- [-1..1], xo /= 0 || yo /= 0]
 
 -- | Directions.
-data Dir = N | E | S | W deriving (Show, Bounded, Enum, Eq)
+data Dir = N | E | S | W deriving (Show, Bounded, Enum, Eq, Ord)
 
 -- | Move a point one position in a particular direction.
 fwd :: Dir -> Point -> Point
@@ -39,6 +39,17 @@ fwdBy n N = addPoint (0, n)
 fwdBy n S = addPoint (0, -n)
 fwdBy n W = addPoint (-n, 0)
 fwdBy n E = addPoint (n, 0)
+
+-- | Move a point one position in a particular direction.  This is fwd with North and South reversed.
+fwd' :: Dir -> Point -> Point
+fwd' = fwdBy' 1
+
+-- | Move a point some amount in a particular direction.  This is fwdBy with North and South reversed.
+fwdBy' :: Int -> Dir -> Point -> Point
+fwdBy' n N = addPoint (0, -n)
+fwdBy' n S = addPoint (0, n)
+fwdBy' n W = addPoint (-n, 0)
+fwdBy' n E = addPoint (n, 0)
 
 -- | Add some to points.
 addPoint :: (Int,Int) -> Point -> Point
