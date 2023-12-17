@@ -17,6 +17,7 @@ module Advent.Search (
   dijkstra', dijkstra, resolveAStar,
   bfs, bfsOn, bfsOnInt, astar, astar',
   astarOn, astarOn',
+  multiAstarOn, multiAstarOn',
   bfsM, bfsOnM,
   -- * Binary searching
   binSearch, autoBinSearch, binSearchM,
@@ -147,9 +148,9 @@ dijkstra' :: Ord v => (v -> [(Int,v)]) -- ^ Provide a list of all neighbors of v
   -> v -- ^ The starting point.
   -> (v -> Bool) -- ^ Predicate allowing early termination of search (if True).
   -> Maybe (v, Map v (Int, v)) -- ^ (cost from origin to v, links from points to points)
-dijkstra' nf start done = astar' nf (const 0) start done
+dijkstra' nf = astar' nf (const 0)
 
--- | Using maps computed by 'dijkstra'', find the cost and path from the
+-- | Using maps computed by 'astar'', find the cost and path from the
 -- start to a destination.
 resolveAStar :: Ord r => Map r (Int, r) -> r -> r -> Maybe (Int,[r])
 resolveAStar m start end = case Map.lookup end m of
@@ -178,7 +179,7 @@ astar' :: Ord v
   -> v -- ^ The starting point.
   -> (v -> Bool) -- ^ Predicate allowing early termination of search (if True).
   -> Maybe (v, Map v (Int, v)) -- ^ (cost from origin to v, links from points to points)
-astar' nf hf start = astarOn' id nf hf start
+astar' = astarOn' id
 
 newtype Unordered a = Unordered a
 
@@ -194,19 +195,7 @@ astarOn' :: Ord r
   -> v -- ^ The starting point.
   -> (v -> Bool) -- ^ Predicate allowing early termination of search (if True).
   -> Maybe (v, Map r (Int, r)) -- ^ (cost from origin to v, links from points to points)
-astarOn' rf nf hf start done = go (Q.singleton (0,0, Unordered start)) (Map.singleton (rf start) (0, rf start)) mempty
-  where
-    go q m seen
-      | Q.null q = Nothing
-      | done pt = Just (pt, m')
-      | Set.member (rf pt) seen = go odo m seen
-      | otherwise = go (odo <> psd) m' (Set.insert (rf pt) seen)
-
-      where
-        ([(d,_, Unordered pt)], odo) = Q.splitAt 1 q
-        moves = filter (\(c,p') -> c+d < maybe (c+d+1) fst (Map.lookup (rf p') m)) (nf pt) `using` parList rseq
-        m' = Map.union (Map.fromList [(rf p', (c+d, rf pt)) | (c,p') <- moves]) m
-        psd = Q.fromList [(d+c, hf x, Unordered x) | (c,x) <- moves]
+astarOn' rf nf hf start = multiAstarOn' rf nf hf [start]
 
 -- | A* search.
 astar :: Ord v
@@ -215,7 +204,7 @@ astar :: Ord v
       -> v -- ^ The starting point.
       -> (v -> Bool) -- ^ Goal function
       -> Maybe (Int,[v])  -- ^ The cost to the destination, and the path to get there.
-astar nf hf start = astarOn id nf hf start
+astar = astarOn id
 
 -- | A* search.
 astarOn :: Ord r
@@ -227,6 +216,50 @@ astarOn :: Ord r
         -> Maybe (Int,[r])  -- ^ The cost to the destination, and the path to get there.
 astarOn rf nf hf start goal = resolve =<< astarOn' rf nf hf start goal
   where resolve (e, m) = resolveAStar m (rf start) (rf e)
+
+-- | A* search with multiple starting points.
+multiAstarOn :: Ord r
+              => (v -> r)
+              -> (v -> [(Int,v)])
+              -> (v -> Int)
+              -> [v]
+              -> (v -> Bool)
+              -> Maybe (Int,[r])
+multiAstarOn rf nf hf starts goal = resolve =<< multiAstarOn' rf nf hf starts goal
+  where
+    resolve (e, m) = res' m (rf <$> starts) (rf e)
+    res' m startsr end = case Map.lookup end m of
+                             Nothing       -> Nothing
+                             Just (cost,_) -> Just (cost, reverse $ end : go end)
+      where
+        go pt
+          | pt `elem` startsr = []
+          | otherwise = next : go next
+          where next = snd (m Map.! pt)
+
+-- | A* search with multiple starting points.
+multiAstarOn' :: Ord r
+              => (v -> r)
+              -> (v -> [(Int,v)])
+              -> (v -> Int)
+              -> [v]
+              -> (v -> Bool)
+              -> Maybe (v, Map r (Int, r))
+multiAstarOn' rf nf hf starts done = go setup initmap mempty
+  where
+    setup = Q.fromList [(0, hf x, Unordered x) | x <- starts]
+    initmap = Map.fromList [(rf x, (0, rf x)) | x <- starts]
+    go q m seen
+      | Q.null q = Nothing
+      | done pt = Just (pt, m')
+      | Set.member (rf pt) seen = go odo m seen
+      | otherwise = go (odo <> psd) m' (Set.insert (rf pt) seen)
+
+      where
+        ([(d,_, Unordered pt)], odo) = Q.splitAt 1 q
+        moves = filter (\(c,p') -> c+d < maybe (c+d+1) fst (Map.lookup (rf p') m)) (nf pt) `using` parList rseq
+        m' = Map.union (Map.fromList [(rf p', (c+d, rf pt)) | (c,p') <- moves]) m
+        psd = Q.fromList [(d+c, hf x, Unordered x) | (c,x) <- moves]
 
 
 -- | 'binSearch' performs a binary search to find the boundary
