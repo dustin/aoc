@@ -191,8 +191,8 @@ dijkstra' :: Ord v => (v -> [(Int, v)]) -> v -> (v -> Bool) -> Maybe (v, Map v (
 --   cost path to a given destination.
 dijkstra :: Ord v => (v -> [(Int, v)]) -> v -> (v -> Bool) -> Maybe (Int, [v])
 
--- | Using maps computed by <a>dijkstra'</a>, find the cost and path from
---   the start to a destination.
+-- | Using maps computed by <a>astar'</a>, find the cost and path from the
+--   start to a destination.
 resolveAStar :: Ord r => Map r (Int, r) -> r -> r -> Maybe (Int, [r])
 
 -- | bfs finds all reachable states from a given value and a function to
@@ -224,6 +224,12 @@ astarOn :: Ord r => (v -> r) -> (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bo
 
 -- | A* search.
 astarOn' :: Ord r => (v -> r) -> (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (v, Map r (Int, r))
+
+-- | A* search with multiple starting points.
+multiAstarOn :: Ord r => (v -> r) -> (v -> [(Int, v)]) -> (v -> Int) -> [v] -> (v -> Bool) -> Maybe (Int, [r])
+
+-- | A* search with multiple starting points.
+multiAstarOn' :: Ord r => (v -> r) -> (v -> [(Int, v)]) -> (v -> Int) -> [v] -> (v -> Bool) -> Maybe (v, Map r (Int, r))
 
 -- | bfsM finds all reachable states from a given value and a function to
 --   find its neighbors.
