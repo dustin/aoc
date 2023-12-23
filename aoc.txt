@@ -219,6 +219,16 @@ astar :: Ord v => (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (
 -- | A* search.
 astar' :: Ord v => (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (v, Map v (Int, v))
 
+-- | DFS.
+dfs :: Ord a => (a -> [a]) -> a -> [a]
+
+-- | A DFS variant of <a>bfsOn</a>.
+dfsOn :: Ord r => (a -> r) -> (a -> [a]) -> a -> [a]
+
+-- | BFS with custom functions for remembering and recalling whether a
+--   state has been visited.
+dfsWith :: Monoid s => (a -> s -> s) -> (a -> s -> Bool) -> (a -> [a]) -> a -> [a]
+
 -- | A* search.
 astarOn :: Ord r => (v -> r) -> (v -> [(Int, v)]) -> (v -> Int) -> v -> (v -> Bool) -> Maybe (Int, [r])
 
@@ -242,6 +252,9 @@ bfsM :: (Monad m, Ord a) => (a -> m [a]) -> a -> m [a]
 --   of a state and how it's represented, removing the Ord requirement for
 --   the state.
 bfsOnM :: (Monad m, Ord r) => (a -> r) -> (a -> m [a]) -> a -> m [a]
+
+-- | Flood fill a graph and return the set of all reachable nodes.
+flood :: Ord a => (a -> Set a) -> a -> Set a
 
 -- | <a>binSearch</a> performs a binary search to find the boundary
 --   function where a function returns its highest <a>LT</a> value.
