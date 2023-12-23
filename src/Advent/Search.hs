@@ -11,14 +11,17 @@ Things I use for searching space in AoC.
 -}
 
 {-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE ViewPatterns #-}
 
 module Advent.Search (
   -- * Graph searching
   dijkstra', dijkstra, resolveAStar,
   bfs, bfsOn, bfsOnInt, astar, astar',
+  dfs, dfsOn, dfsWith,
   astarOn, astarOn',
   multiAstarOn, multiAstarOn',
   bfsM, bfsOnM,
+  flood,
   -- * Binary searching
   binSearch, autoBinSearch, binSearchM,
   -- * List cycle/repeat detection
@@ -39,6 +42,7 @@ import qualified Data.Map.Strict             as Map
 import           Data.Maybe                  (listToMaybe)
 import qualified Data.PQueue.Min             as Q
 import qualified Data.Set                    as Set
+import Data.Set (Set)
 
 -- | Get the first repeated element.
 findRepeated :: Eq a => [a] -> Maybe a
@@ -134,6 +138,23 @@ bfsOnM rep next start = loop Set.empty (Queue.singleton start)
         | otherwise         -> next x >>= \n -> (x:) <$> loop (Set.insert r seen) (Queue.appendList xs n)
         where
           r = rep x
+
+-- | DFS.
+dfs :: Ord a => (a -> [a]) -> a -> [a]
+dfs = dfsOn id
+
+-- | A DFS variant of 'bfsOn'.
+dfsOn :: Ord r => (a -> r) -> (a -> [a]) -> a -> [a]
+dfsOn rep = dfsWith (Set.insert . rep) (Set.member . rep)
+
+-- | BFS with custom functions for remembering and recalling whether a state has been visited.
+dfsWith :: Monoid s => (a -> s -> s) -> (a -> s -> Bool) -> (a -> [a]) -> a -> [a]
+dfsWith remember seenf next start = go mempty [start]
+  where
+    go _ [] = []
+    go seen (x:xs)
+        | seenf x seen = go seen xs
+        | otherwise    = x : go (remember x seen) (next x <> xs)
 
 -- Tests for this are in 2018 Day 22.
 
@@ -261,6 +282,13 @@ multiAstarOn' rf nf hf starts done = go setup initmap mempty
         m' = Map.union (Map.fromList [(rf p', (c+d, rf pt)) | (c,p') <- moves]) m
         psd = Q.fromList [(d+c, hf x, Unordered x) | (c,x) <- moves]
 
+-- | Flood fill a graph and return the set of all reachable nodes.
+flood :: Ord a => (a -> Set a) -> a -> Set a
+flood nf = go mempty . Set.singleton
+    where
+        go s (flip Set.difference s -> todo)
+            | Set.null todo = s
+            | otherwise = go (s <> todo) (Set.unions $ Set.map nf todo)
 
 -- | 'binSearch' performs a binary search to find the boundary
 -- function where a function returns its highest 'LT' value.
