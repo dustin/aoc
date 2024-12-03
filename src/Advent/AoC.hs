@@ -29,10 +29,12 @@ module Advent.AoC (
   -- * Selection
   select, combinations,
   -- * Strange Loops
-  möb, löb
+  möb, löb,
+  foldMapA
   ) where
 
 import           Data.Foldable         (fold)
+import           Data.Monoid           (Ap (..))
 import           Data.Text             (Text)
 import qualified Data.Text.IO          as TIO
 import           Data.Void             (Void)
@@ -182,3 +184,8 @@ nonNull :: Foldable t => (t a -> b) -> t a -> Maybe b
 nonNull f t
   | null t = Nothing
   | otherwise = Just (f t)
+
+-- | Monoidal folding with an applicative.
+-- Not sure why this isn't in Foldable or Applicative already.
+foldMapA :: (Applicative f, Foldable t, Monoid m) => (a -> f m) -> t a -> f m
+foldMapA f = getAp . foldMap (Ap . f)
