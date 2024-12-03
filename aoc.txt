@@ -102,6 +102,10 @@ möb :: (((a -> b) -> b) -> c -> a) -> c -> a
 --   <a>https://github.com/quchen/articles/blob/master/loeb-moeb.md</a>
 löb :: Functor f => f (f a -> a) -> f a
 
+-- | Monoidal folding with an applicative. Not sure why this isn't in
+--   Foldable or Applicative already.
+foldMapA :: (Applicative f, Foldable t, Monoid m) => (a -> f m) -> t a -> f m
+
 
 -- | A Set-type structure that stores values as bits in a bitmap.
 module Advent.BitSet
