@@ -277,10 +277,10 @@ multiAstarOn' rf nf hf starts done = go setup initmap mempty
       | otherwise = go (odo <> psd) m' (Set.insert (rf pt) seen)
 
       where
-        ([(d,_, Unordered pt)], odo) = Q.splitAt 1 q
+        ([(_, d, Unordered pt)], odo) = Q.splitAt 1 q
         moves = filter (\(c,p') -> c+d < maybe (c+d+1) fst (Map.lookup (rf p') m)) (nf pt) `using` parList rseq
         m' = Map.union (Map.fromList [(rf p', (c+d, rf pt)) | (c,p') <- moves]) m
-        psd = Q.fromList [(d+c, hf x, Unordered x) | (c,x) <- moves]
+        psd = Q.fromList [(hf x + d + c, d+c, Unordered x) | (c,x) <- moves]
 
 -- | Flood fill a graph and return the set of all reachable nodes.
 flood :: Ord a => (a -> Set a) -> a -> Set a
