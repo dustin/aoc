@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span id="local-6989586621679077981"><span id="local-6989586621679077982"></span></span><span class="hs-pragma">{-# LANGUAGE DeriveDataTypeable         #-}</span><span>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span id="local-6989586621679077985"><span id="local-6989586621679077986"></span></span><span class="hs-pragma">{-# LANGUAGE DeriveDataTypeable         #-}</span><span>
 </span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DeriveGeneric              #-}</span><span>
 </span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies         #-}</span><span>
 </span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
@@ -23,9 +23,9 @@ Rather than doing some kind of fold1 or foldr 1 or whatever, just have an LCM mo
 </span><span id="line-23"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">GHC.Generics</span></span><span>
 </span><span id="line-24"></span><span>
 </span><span id="line-25"></span><span class="annot"><span class="hs-comment">-- | LCM Integral monoid.</span></span><span>
-</span><span id="line-26"></span><span class="hs-keyword">newtype</span><span> </span><span class="hs-special">(</span><span id="LCM"><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-var">LCM</span></a></span></span><span> </span><span id="local-6989586621679077784"><span class="annot"><a href="#local-6989586621679077784"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LCM"><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-var">LCM</span></a></span></span><span> </span><span class="hs-special">{</span><span> </span><span id="getLCM"><span class="annot"><span class="annottext">forall a. LCM a -&gt; a
-</span><a href="Advent.LCM.html#getLCM"><span class="hs-identifier hs-var hs-var">getLCM</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679077784"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-special">}</span><span>
-</span><span id="line-27"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679077990"><span id="local-6989586621679077995"><span id="local-6989586621679077999"><span class="annot"><span class="annottext">Int -&gt; LCM a -&gt; ShowS
+</span><span id="line-26"></span><span class="hs-keyword">newtype</span><span> </span><span class="hs-special">(</span><span id="LCM"><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-var">LCM</span></a></span></span><span> </span><span id="local-6989586621679077788"><span class="annot"><a href="#local-6989586621679077788"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LCM"><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-var">LCM</span></a></span></span><span> </span><span class="hs-special">{</span><span> </span><span id="getLCM"><span class="annot"><span class="annottext">forall a. LCM a -&gt; a
+</span><a href="Advent.LCM.html#getLCM"><span class="hs-identifier hs-var hs-var">getLCM</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679077788"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-special">}</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679077994"><span id="local-6989586621679077999"><span id="local-6989586621679078003"><span class="annot"><span class="annottext">Int -&gt; LCM a -&gt; ShowS
 [LCM a] -&gt; ShowS
 LCM a -&gt; String
 (Int -&gt; LCM a -&gt; ShowS)
@@ -41,7 +41,7 @@ $cshow :: forall a. Show a =&gt; LCM a -&gt; String
 show :: LCM a -&gt; String
 $cshowList :: forall a. Show a =&gt; [LCM a] -&gt; ShowS
 showList :: [LCM a] -&gt; ShowS
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679078004"><span id="local-6989586621679078007"><span class="annot"><span class="annottext">LCM a -&gt; LCM a -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679078008"><span id="local-6989586621679078011"><span class="annot"><span class="annottext">LCM a -&gt; LCM a -&gt; Bool
 (LCM a -&gt; LCM a -&gt; Bool) -&gt; (LCM a -&gt; LCM a -&gt; Bool) -&gt; Eq (LCM a)
 forall a. Eq a =&gt; LCM a -&gt; LCM a -&gt; Bool
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ $c== :: forall a. Eq a =&gt; LCM a -&gt; LCM a -&gt; Bool
 == :: LCM a -&gt; LCM a -&gt; Bool
 $c/= :: forall a. Eq a =&gt; LCM a -&gt; LCM a -&gt; Bool
 /= :: LCM a -&gt; LCM a -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679078016"><span id="local-6989586621679078019"><span id="local-6989586621679078022"><span id="local-6989586621679078026"><span id="local-6989586621679078029"><span id="local-6989586621679078032"><span id="local-6989586621679078035"><span class="annot"><span class="annottext">Eq (LCM a)
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679078020"><span id="local-6989586621679078023"><span id="local-6989586621679078026"><span id="local-6989586621679078030"><span id="local-6989586621679078033"><span id="local-6989586621679078036"><span id="local-6989586621679078039"><span class="annot"><span class="annottext">Eq (LCM a)
 Eq (LCM a)
 -&gt; (LCM a -&gt; LCM a -&gt; Ordering)
 -&gt; (LCM a -&gt; LCM a -&gt; Bool)
@@ -90,7 +90,7 @@ $cmax :: forall a. Ord a =&gt; LCM a -&gt; LCM a -&gt; LCM a
 max :: LCM a -&gt; LCM a -&gt; LCM a
 $cmin :: forall a. Ord a =&gt; LCM a -&gt; LCM a -&gt; LCM a
 min :: LCM a -&gt; LCM a -&gt; LCM a
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679078041"><span id="local-6989586621679078045"><span id="local-6989586621679078048"><span id="local-6989586621679078057"><span class="annot"><span class="annottext">ReadPrec [LCM a]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679078045"><span id="local-6989586621679078049"><span id="local-6989586621679078052"><span id="local-6989586621679078061"><span class="annot"><span class="annottext">ReadPrec [LCM a]
 ReadPrec (LCM a)
 Int -&gt; ReadS (LCM a)
 ReadS [LCM a]
@@ -114,7 +114,7 @@ $creadPrec :: forall a. Read a =&gt; ReadPrec (LCM a)
 readPrec :: ReadPrec (LCM a)
 $creadListPrec :: forall a. Read a =&gt; ReadPrec [LCM a]
 readListPrec :: ReadPrec [LCM a]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679078062"><span id="local-6989586621679078065"><span class="annot"><span class="annottext">LCM a
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679078066"><span id="local-6989586621679078069"><span class="annot"><span class="annottext">LCM a
 LCM a -&gt; LCM a -&gt; Bounded (LCM a)
 forall a. a -&gt; a -&gt; Bounded a
 forall a. Bounded a =&gt; LCM a
@@ -122,7 +122,7 @@ $cminBound :: forall a. Bounded a =&gt; LCM a
 minBound :: LCM a
 $cmaxBound :: forall a. Bounded a =&gt; LCM a
 maxBound :: LCM a
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Bounded</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679078075"><span id="local-6989586621679078078"><span id="local-6989586621679078081"><span id="local-6989586621679078083"><span id="local-6989586621679078085"><span id="local-6989586621679078091"><span id="local-6989586621679078097"><span id="local-6989586621679078100"><span id="local-6989586621679078103"><span id="local-6989586621679078106"><span id="local-6989586621679078109"><span id="local-6989586621679078112"><span id="local-6989586621679078117"><span id="local-6989586621679078122"><span class="annot"><span class="annottext">Typeable (LCM a)
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Bounded</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679078079"><span id="local-6989586621679078082"><span id="local-6989586621679078085"><span id="local-6989586621679078087"><span id="local-6989586621679078089"><span id="local-6989586621679078095"><span id="local-6989586621679078101"><span id="local-6989586621679078104"><span id="local-6989586621679078107"><span id="local-6989586621679078110"><span id="local-6989586621679078113"><span id="local-6989586621679078116"><span id="local-6989586621679078121"><span id="local-6989586621679078126"><span class="annot"><span class="annottext">Typeable (LCM a)
 Typeable (LCM a)
 -&gt; (forall (c :: * -&gt; *).
     (forall d b. Data d =&gt; c (d -&gt; b) -&gt; d -&gt; c b)
@@ -315,7 +315,7 @@ $cgmapMo :: forall a (m :: * -&gt; *).
 gmapMo :: forall (m :: * -&gt; *).
 MonadPlus m =&gt;
 (forall d. Data d =&gt; d -&gt; m d) -&gt; LCM a -&gt; m (LCM a)
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Data</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Typeable</span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679078129"><span id="local-6989586621679078131"><span class="annot"><span class="annottext">(forall x. LCM a -&gt; Rep (LCM a) x)
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Data</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Typeable</span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679078133"><span id="local-6989586621679078135"><span class="annot"><span class="annottext">(forall x. LCM a -&gt; Rep (LCM a) x)
 -&gt; (forall x. Rep (LCM a) x -&gt; LCM a) -&gt; Generic (LCM a)
 forall x. Rep (LCM a) x -&gt; LCM a
 forall x. LCM a -&gt; Rep (LCM a) x
@@ -328,7 +328,7 @@ from :: forall x. LCM a -&gt; Rep (LCM a) x
 $cto :: forall a x. Rep (LCM a) x -&gt; LCM a
 to :: forall x. Rep (LCM a) x -&gt; LCM a
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Generic</span></span></span></span><span class="hs-special">)</span><span>
-</span><span id="line-28"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679078136"><span id="local-6989586621679078140"><span id="local-6989586621679078144"><span id="local-6989586621679078148"><span id="local-6989586621679078152"><span id="local-6989586621679078156"><span id="local-6989586621679078160"><span class="annot"><span class="annottext">Integer -&gt; LCM a
+</span><span id="line-28"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679078140"><span id="local-6989586621679078144"><span id="local-6989586621679078148"><span id="local-6989586621679078152"><span id="local-6989586621679078156"><span id="local-6989586621679078160"><span id="local-6989586621679078164"><span class="annot"><span class="annottext">Integer -&gt; LCM a
 LCM a -&gt; LCM a
 LCM a -&gt; LCM a -&gt; LCM a
 (LCM a -&gt; LCM a -&gt; LCM a)
@@ -367,68 +367,68 @@ $cfromInteger :: forall a. Num a =&gt; Integer -&gt; LCM a
 fromInteger :: Integer -&gt; LCM a
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Num</span></span></span></span></span></span></span></span></span><span class="hs-special">)</span><span>
 </span><span id="line-29"></span><span>
-</span><span id="line-30"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679077856"><span id="local-6989586621679078168"><span id="local-6989586621679078172"><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Integral</span></span><span> </span><span class="annot"><a href="#local-6989586621679077856"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Semigroup</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679077856"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-31"></span><span>  </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span> </span><span id="local-6989586621679078178"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679078178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679078179"><span class="annot"><span class="annottext">&lt;&gt; :: LCM a -&gt; LCM a -&gt; LCM a
-</span><span class="hs-operator hs-var hs-var hs-var hs-var">&lt;&gt;</span></span></span><span> </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span> </span><span id="local-6989586621679078180"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679078180"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; LCM a
+</span><span id="line-30"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679077860"><span id="local-6989586621679078172"><span id="local-6989586621679078176"><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Integral</span></span><span> </span><span class="annot"><a href="#local-6989586621679077860"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Semigroup</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679077860"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>  </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span> </span><span id="local-6989586621679078182"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679078182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679078183"><span class="annot"><span class="annottext">&lt;&gt; :: LCM a -&gt; LCM a -&gt; LCM a
+</span><span class="hs-operator hs-var hs-var hs-var hs-var">&lt;&gt;</span></span></span><span> </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span> </span><span id="local-6989586621679078184"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679078184"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; LCM a
 forall a. a -&gt; LCM a
 </span><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-var">LCM</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Integral a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-identifier hs-var">lcm</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679078178"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679078180"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679078182"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679078184"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679077862"><span id="local-6989586621679078187"><span id="local-6989586621679078191"><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Integral</span></span><span> </span><span class="annot"><a href="#local-6989586621679077862"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monoid</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679077862"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-34"></span><span>  </span><span id="local-6989586621679078199"><span class="annot"><span class="annottext">mempty :: LCM a
+</span><span id="line-33"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679077866"><span id="local-6989586621679078191"><span id="local-6989586621679078195"><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Integral</span></span><span> </span><span class="annot"><a href="#local-6989586621679077866"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monoid</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679077866"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>  </span><span id="local-6989586621679078203"><span class="annot"><span class="annottext">mempty :: LCM a
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">mempty</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; LCM a
 forall a. a -&gt; LCM a
 </span><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-var">LCM</span></a></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-number">1</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679078202"><span class="annot"><span class="hs-identifier hs-type">Functor</span></span><span> </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-37"></span><span>    </span><span id="local-6989586621679078207"><span class="annot"><span class="annottext">fmap :: forall a b. (a -&gt; b) -&gt; LCM a -&gt; LCM b
+</span><span id="line-36"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679078206"><span class="annot"><span class="hs-identifier hs-type">Functor</span></span><span> </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>    </span><span id="local-6989586621679078211"><span class="annot"><span class="annottext">fmap :: forall a b. (a -&gt; b) -&gt; LCM a -&gt; LCM b
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">fmap</span></span></span><span>     </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(a -&gt; b) -&gt; LCM a -&gt; LCM b
 forall a b. Coercible a b =&gt; a -&gt; b
 </span><span class="hs-identifier hs-var">coerce</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679078213"><span id="local-6989586621679078217"><span id="local-6989586621679078220"><span class="annot"><span class="hs-identifier hs-type">Applicative</span></span><span> </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-40"></span><span>    </span><span id="local-6989586621679078223"><span class="annot"><span class="annottext">pure :: forall a. a -&gt; LCM a
+</span><span id="line-39"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679078217"><span id="local-6989586621679078221"><span id="local-6989586621679078224"><span class="annot"><span class="hs-identifier hs-type">Applicative</span></span><span> </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>    </span><span id="local-6989586621679078227"><span class="annot"><span class="annottext">pure :: forall a. a -&gt; LCM a
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">pure</span></span></span><span>     </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; LCM a
 forall a. a -&gt; LCM a
 </span><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-var">LCM</span></a></span><span>
-</span><span id="line-41"></span><span>    </span><span id="local-6989586621679078225"><span class="annot"><span class="annottext">&lt;*&gt; :: forall a b. LCM (a -&gt; b) -&gt; LCM a -&gt; LCM b
+</span><span id="line-41"></span><span>    </span><span id="local-6989586621679078229"><span class="annot"><span class="annottext">&lt;*&gt; :: forall a b. LCM (a -&gt; b) -&gt; LCM a -&gt; LCM b
 </span><span class="hs-operator hs-var hs-var hs-var hs-var">(&lt;*&gt;)</span></span></span><span>    </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LCM (a -&gt; b) -&gt; LCM a -&gt; LCM b
 forall a b. Coercible a b =&gt; a -&gt; b
 </span><span class="hs-identifier hs-var">coerce</span></span><span>
 </span><span id="line-42"></span><span>
-</span><span id="line-43"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679078230"><span id="local-6989586621679078234"><span class="annot"><span class="hs-identifier hs-type">Monad</span></span><span> </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-44"></span><span>    </span><span id="local-6989586621679078237"><span class="annot"><span class="annottext">LCM a
-</span><a href="#local-6989586621679078237"><span class="hs-identifier hs-var">m</span></a></span></span><span> </span><span id="local-6989586621679078238"><span class="annot"><span class="annottext">&gt;&gt;= :: forall a b. LCM a -&gt; (a -&gt; LCM b) -&gt; LCM b
-</span><span class="hs-operator hs-var hs-var hs-var hs-var">&gt;&gt;=</span></span></span><span> </span><span id="local-6989586621679078239"><span class="annot"><span class="annottext">a -&gt; LCM b
-</span><a href="#local-6989586621679078239"><span class="hs-identifier hs-var">k</span></a></span></span><span>  </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; LCM b
-</span><a href="#local-6989586621679078239"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">LCM a -&gt; a
+</span><span id="line-43"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679078234"><span id="local-6989586621679078238"><span class="annot"><span class="hs-identifier hs-type">Monad</span></span><span> </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>    </span><span id="local-6989586621679078241"><span class="annot"><span class="annottext">LCM a
+</span><a href="#local-6989586621679078241"><span class="hs-identifier hs-var">m</span></a></span></span><span> </span><span id="local-6989586621679078242"><span class="annot"><span class="annottext">&gt;&gt;= :: forall a b. LCM a -&gt; (a -&gt; LCM b) -&gt; LCM b
+</span><span class="hs-operator hs-var hs-var hs-var hs-var">&gt;&gt;=</span></span></span><span> </span><span id="local-6989586621679078243"><span class="annot"><span class="annottext">a -&gt; LCM b
+</span><a href="#local-6989586621679078243"><span class="hs-identifier hs-var">k</span></a></span></span><span>  </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; LCM b
+</span><a href="#local-6989586621679078243"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">LCM a -&gt; a
 forall a. LCM a -&gt; a
 </span><a href="Advent.LCM.html#getLCM"><span class="hs-identifier hs-var">getLCM</span></a></span><span> </span><span class="annot"><span class="annottext">LCM a
-</span><a href="#local-6989586621679078237"><span class="hs-identifier hs-var">m</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679078241"><span class="hs-identifier hs-var">m</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- Stolen from Data.Functor.Utils</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679077895"><span id="local-6989586621679077896"><span id="local-6989586621679077897"><span class="annot"><a href="Advent.LCM.html#%23."><span class="hs-operator hs-type">(#.)</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Coercible</span></span><span> </span><span class="annot"><a href="#local-6989586621679077895"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679077896"><span class="hs-identifier hs-type">c</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="#local-6989586621679077895"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679077896"><span class="hs-identifier hs-type">c</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="#local-6989586621679077897"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679077895"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="#local-6989586621679077897"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679077896"><span class="hs-identifier hs-type">c</span></a></span><span class="hs-special">)</span></span></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679077899"><span id="local-6989586621679077900"><span id="local-6989586621679077901"><span class="annot"><a href="Advent.LCM.html#%23."><span class="hs-operator hs-type">(#.)</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Coercible</span></span><span> </span><span class="annot"><a href="#local-6989586621679077899"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679077900"><span class="hs-identifier hs-type">c</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="#local-6989586621679077899"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679077900"><span class="hs-identifier hs-type">c</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="#local-6989586621679077901"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679077899"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="#local-6989586621679077901"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679077900"><span class="hs-identifier hs-type">c</span></a></span><span class="hs-special">)</span></span></span></span><span>
 </span><span id="line-48"></span><span id="%23."><span class="annot"><span class="annottext">#. :: forall b c a. Coercible b c =&gt; (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><a href="Advent.LCM.html#%23."><span class="hs-operator hs-var hs-var">(#.)</span></a></span></span><span> </span><span id="local-6989586621679078244"><span class="annot"><span class="annottext">b -&gt; c
-</span><a href="#local-6989586621679078244"><span class="hs-identifier hs-var">_f</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(a -&gt; b) -&gt; a -&gt; c
+</span><a href="Advent.LCM.html#%23."><span class="hs-operator hs-var hs-var">(#.)</span></a></span></span><span> </span><span id="local-6989586621679078248"><span class="annot"><span class="annottext">b -&gt; c
+</span><a href="#local-6989586621679078248"><span class="hs-identifier hs-var">_f</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(a -&gt; b) -&gt; a -&gt; c
 forall a b. Coercible a b =&gt; a -&gt; b
 </span><span class="hs-identifier hs-var">coerce</span></span><span>
 </span><span id="line-49"></span><span class="hs-pragma">{-# INLINE</span><span> </span><span class="hs-pragma">(</span><span class="hs-pragma">#.</span><span class="hs-pragma">)</span><span> </span><span class="hs-pragma">#-}</span><span>
 </span><span id="line-50"></span><span>
-</span><span id="line-51"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679078246"><span id="local-6989586621679078253"><span class="annot"><span class="hs-identifier hs-type">Foldable</span></span><span> </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-52"></span><span>    </span><span id="local-6989586621679078274"><span class="annot"><span class="annottext">foldMap :: forall m a. Monoid m =&gt; (a -&gt; m) -&gt; LCM a -&gt; m
-</span><a href="#local-6989586621679078274"><span class="hs-identifier hs-var hs-var hs-var hs-var">foldMap</span></a></span></span><span>            </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(a -&gt; m) -&gt; LCM a -&gt; m
+</span><span id="line-51"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679078250"><span id="local-6989586621679078257"><span class="annot"><span class="hs-identifier hs-type">Foldable</span></span><span> </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>    </span><span id="local-6989586621679078278"><span class="annot"><span class="annottext">foldMap :: forall m a. Monoid m =&gt; (a -&gt; m) -&gt; LCM a -&gt; m
+</span><a href="#local-6989586621679078278"><span class="hs-identifier hs-var hs-var hs-var hs-var">foldMap</span></a></span></span><span>            </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(a -&gt; m) -&gt; LCM a -&gt; m
 forall a b. Coercible a b =&gt; a -&gt; b
 </span><span class="hs-identifier hs-var">coerce</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span>    </span><span id="local-6989586621679078279"><span class="annot"><span class="annottext">elem :: forall a. Eq a =&gt; a -&gt; LCM a -&gt; Bool
-</span><a href="#local-6989586621679078279"><span class="hs-identifier hs-var hs-var hs-var hs-var">elem</span></a></span></span><span>               </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; (LCM a -&gt; a) -&gt; LCM a -&gt; Bool
+</span><span id="line-54"></span><span>    </span><span id="local-6989586621679078283"><span class="annot"><span class="annottext">elem :: forall a. Eq a =&gt; a -&gt; LCM a -&gt; Bool
+</span><a href="#local-6989586621679078283"><span class="hs-identifier hs-var hs-var hs-var hs-var">elem</span></a></span></span><span>               </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; (LCM a -&gt; a) -&gt; LCM a -&gt; Bool
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">LCM a -&gt; a
 forall a. LCM a -&gt; a
@@ -438,80 +438,80 @@ forall b c a. Coercible b c =&gt; (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><a href="Advent.LCM.html#%23."><span class="hs-operator hs-var">#.</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">(==)</span></span><span>
-</span><span id="line-55"></span><span>    </span><span id="local-6989586621679078283"><span class="annot"><span class="annottext">foldl :: forall b a. (b -&gt; a -&gt; b) -&gt; b -&gt; LCM a -&gt; b
-</span><a href="#local-6989586621679078283"><span class="hs-identifier hs-var hs-var hs-var hs-var">foldl</span></a></span></span><span>              </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(b -&gt; a -&gt; b) -&gt; b -&gt; LCM a -&gt; b
+</span><span id="line-55"></span><span>    </span><span id="local-6989586621679078287"><span class="annot"><span class="annottext">foldl :: forall b a. (b -&gt; a -&gt; b) -&gt; b -&gt; LCM a -&gt; b
+</span><a href="#local-6989586621679078287"><span class="hs-identifier hs-var hs-var hs-var hs-var">foldl</span></a></span></span><span>              </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(b -&gt; a -&gt; b) -&gt; b -&gt; LCM a -&gt; b
 forall a b. Coercible a b =&gt; a -&gt; b
 </span><span class="hs-identifier hs-var">coerce</span></span><span>
-</span><span id="line-56"></span><span>    </span><span id="local-6989586621679078286"><span class="annot"><span class="annottext">foldl' :: forall b a. (b -&gt; a -&gt; b) -&gt; b -&gt; LCM a -&gt; b
+</span><span id="line-56"></span><span>    </span><span id="local-6989586621679078290"><span class="annot"><span class="annottext">foldl' :: forall b a. (b -&gt; a -&gt; b) -&gt; b -&gt; LCM a -&gt; b
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">foldl'</span></span></span><span>             </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(b -&gt; a -&gt; b) -&gt; b -&gt; LCM a -&gt; b
 forall a b. Coercible a b =&gt; a -&gt; b
 </span><span class="hs-identifier hs-var">coerce</span></span><span>
-</span><span id="line-57"></span><span>    </span><span id="local-6989586621679078287"><span class="annot"><span class="annottext">foldl1 :: forall a. (a -&gt; a -&gt; a) -&gt; LCM a -&gt; a
-</span><a href="#local-6989586621679078287"><span class="hs-identifier hs-var hs-var hs-var hs-var">foldl1</span></a></span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><span id="line-57"></span><span>    </span><span id="local-6989586621679078291"><span class="annot"><span class="annottext">foldl1 :: forall a. (a -&gt; a -&gt; a) -&gt; LCM a -&gt; a
+</span><a href="#local-6989586621679078291"><span class="hs-identifier hs-var hs-var hs-var hs-var">foldl1</span></a></span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 </span><span class="hs-identifier">_</span></span><span>           </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LCM a -&gt; a
 forall a. LCM a -&gt; a
 </span><a href="Advent.LCM.html#getLCM"><span class="hs-identifier hs-var">getLCM</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span id="local-6989586621679078289"><span class="annot"><span class="annottext">foldr :: forall a b. (a -&gt; b -&gt; b) -&gt; b -&gt; LCM a -&gt; b
-</span><a href="#local-6989586621679078289"><span class="hs-identifier hs-var hs-var hs-var hs-var">foldr</span></a></span></span><span> </span><span id="local-6989586621679078291"><span class="annot"><span class="annottext">a -&gt; b -&gt; b
-</span><a href="#local-6989586621679078291"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679078292"><span class="annot"><span class="annottext">b
-</span><a href="#local-6989586621679078292"><span class="hs-identifier hs-var">z</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span> </span><span id="local-6989586621679078293"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679078293"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span>  </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; b -&gt; b
-</span><a href="#local-6989586621679078291"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679078293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">b
-</span><a href="#local-6989586621679078292"><span class="hs-identifier hs-var">z</span></a></span><span>
-</span><span id="line-59"></span><span>    </span><span id="local-6989586621679078295"><span class="annot"><span class="annottext">foldr' :: forall a b. (a -&gt; b -&gt; b) -&gt; b -&gt; LCM a -&gt; b
+</span><span id="line-58"></span><span>    </span><span id="local-6989586621679078293"><span class="annot"><span class="annottext">foldr :: forall a b. (a -&gt; b -&gt; b) -&gt; b -&gt; LCM a -&gt; b
+</span><a href="#local-6989586621679078293"><span class="hs-identifier hs-var hs-var hs-var hs-var">foldr</span></a></span></span><span> </span><span id="local-6989586621679078295"><span class="annot"><span class="annottext">a -&gt; b -&gt; b
+</span><a href="#local-6989586621679078295"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679078296"><span class="annot"><span class="annottext">b
+</span><a href="#local-6989586621679078296"><span class="hs-identifier hs-var">z</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span> </span><span id="local-6989586621679078297"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679078297"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span>  </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; b -&gt; b
+</span><a href="#local-6989586621679078295"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679078297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">b
+</span><a href="#local-6989586621679078296"><span class="hs-identifier hs-var">z</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span id="local-6989586621679078299"><span class="annot"><span class="annottext">foldr' :: forall a b. (a -&gt; b -&gt; b) -&gt; b -&gt; LCM a -&gt; b
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">foldr'</span></span></span><span>             </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(a -&gt; b -&gt; b) -&gt; b -&gt; LCM a -&gt; b
 forall a b. (a -&gt; b -&gt; b) -&gt; b -&gt; LCM a -&gt; b
 forall (t :: * -&gt; *) a b.
 Foldable t =&gt;
 (a -&gt; b -&gt; b) -&gt; b -&gt; t a -&gt; b
 </span><span class="hs-identifier hs-var">foldr</span></span><span>
-</span><span id="line-60"></span><span>    </span><span id="local-6989586621679078296"><span class="annot"><span class="annottext">foldr1 :: forall a. (a -&gt; a -&gt; a) -&gt; LCM a -&gt; a
-</span><a href="#local-6989586621679078296"><span class="hs-identifier hs-var hs-var hs-var hs-var">foldr1</span></a></span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><span id="line-60"></span><span>    </span><span id="local-6989586621679078300"><span class="annot"><span class="annottext">foldr1 :: forall a. (a -&gt; a -&gt; a) -&gt; LCM a -&gt; a
+</span><a href="#local-6989586621679078300"><span class="hs-identifier hs-var hs-var hs-var hs-var">foldr1</span></a></span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 </span><span class="hs-identifier">_</span></span><span>           </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LCM a -&gt; a
 forall a. LCM a -&gt; a
 </span><a href="Advent.LCM.html#getLCM"><span class="hs-identifier hs-var">getLCM</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span id="local-6989586621679078298"><span class="annot"><span class="annottext">length :: forall a. LCM a -&gt; Int
-</span><a href="#local-6989586621679078298"><span class="hs-identifier hs-var hs-var hs-var hs-var">length</span></a></span></span><span> </span><span class="annot"><span class="annottext">LCM a
+</span><span id="line-61"></span><span>    </span><span id="local-6989586621679078302"><span class="annot"><span class="annottext">length :: forall a. LCM a -&gt; Int
+</span><a href="#local-6989586621679078302"><span class="hs-identifier hs-var hs-var hs-var hs-var">length</span></a></span></span><span> </span><span class="annot"><span class="annottext">LCM a
 </span><span class="hs-identifier">_</span></span><span>           </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span>
-</span><span id="line-62"></span><span>    </span><span id="local-6989586621679078301"><span class="annot"><span class="annottext">maximum :: forall a. Ord a =&gt; LCM a -&gt; a
-</span><a href="#local-6989586621679078301"><span class="hs-identifier hs-var hs-var hs-var hs-var">maximum</span></a></span></span><span>            </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LCM a -&gt; a
+</span><span id="line-62"></span><span>    </span><span id="local-6989586621679078305"><span class="annot"><span class="annottext">maximum :: forall a. Ord a =&gt; LCM a -&gt; a
+</span><a href="#local-6989586621679078305"><span class="hs-identifier hs-var hs-var hs-var hs-var">maximum</span></a></span></span><span>            </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LCM a -&gt; a
 forall a. LCM a -&gt; a
 </span><a href="Advent.LCM.html#getLCM"><span class="hs-identifier hs-var">getLCM</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span id="local-6989586621679078304"><span class="annot"><span class="annottext">minimum :: forall a. Ord a =&gt; LCM a -&gt; a
-</span><a href="#local-6989586621679078304"><span class="hs-identifier hs-var hs-var hs-var hs-var">minimum</span></a></span></span><span>            </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LCM a -&gt; a
+</span><span id="line-63"></span><span>    </span><span id="local-6989586621679078308"><span class="annot"><span class="annottext">minimum :: forall a. Ord a =&gt; LCM a -&gt; a
+</span><a href="#local-6989586621679078308"><span class="hs-identifier hs-var hs-var hs-var hs-var">minimum</span></a></span></span><span>            </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LCM a -&gt; a
 forall a. LCM a -&gt; a
 </span><a href="Advent.LCM.html#getLCM"><span class="hs-identifier hs-var">getLCM</span></a></span><span>
-</span><span id="line-64"></span><span>    </span><span id="local-6989586621679078306"><span class="annot"><span class="annottext">null :: forall a. LCM a -&gt; Bool
-</span><a href="#local-6989586621679078306"><span class="hs-identifier hs-var hs-var hs-var hs-var">null</span></a></span></span><span> </span><span class="annot"><span class="annottext">LCM a
+</span><span id="line-64"></span><span>    </span><span id="local-6989586621679078310"><span class="annot"><span class="annottext">null :: forall a. LCM a -&gt; Bool
+</span><a href="#local-6989586621679078310"><span class="hs-identifier hs-var hs-var hs-var hs-var">null</span></a></span></span><span> </span><span class="annot"><span class="annottext">LCM a
 </span><span class="hs-identifier">_</span></span><span>             </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">False</span></span><span>
-</span><span id="line-65"></span><span>    </span><span id="local-6989586621679078309"><span class="annot"><span class="annottext">product :: forall a. Num a =&gt; LCM a -&gt; a
-</span><a href="#local-6989586621679078309"><span class="hs-identifier hs-var hs-var hs-var hs-var">product</span></a></span></span><span>            </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LCM a -&gt; a
+</span><span id="line-65"></span><span>    </span><span id="local-6989586621679078313"><span class="annot"><span class="annottext">product :: forall a. Num a =&gt; LCM a -&gt; a
+</span><a href="#local-6989586621679078313"><span class="hs-identifier hs-var hs-var hs-var hs-var">product</span></a></span></span><span>            </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LCM a -&gt; a
 forall a. LCM a -&gt; a
 </span><a href="Advent.LCM.html#getLCM"><span class="hs-identifier hs-var">getLCM</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span id="local-6989586621679078312"><span class="annot"><span class="annottext">sum :: forall a. Num a =&gt; LCM a -&gt; a
-</span><a href="#local-6989586621679078312"><span class="hs-identifier hs-var hs-var hs-var hs-var">sum</span></a></span></span><span>                </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LCM a -&gt; a
+</span><span id="line-66"></span><span>    </span><span id="local-6989586621679078316"><span class="annot"><span class="annottext">sum :: forall a. Num a =&gt; LCM a -&gt; a
+</span><a href="#local-6989586621679078316"><span class="hs-identifier hs-var hs-var hs-var hs-var">sum</span></a></span></span><span>                </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LCM a -&gt; a
 forall a. LCM a -&gt; a
 </span><a href="Advent.LCM.html#getLCM"><span class="hs-identifier hs-var">getLCM</span></a></span><span>
-</span><span id="line-67"></span><span>    </span><span id="local-6989586621679078314"><span class="annot"><span class="annottext">toList :: forall a. LCM a -&gt; [a]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toList</span></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span>  </span><span id="local-6989586621679078315"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679078315"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span>     </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679078315"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-67"></span><span>    </span><span id="local-6989586621679078318"><span class="annot"><span class="annottext">toList :: forall a. LCM a -&gt; [a]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toList</span></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span>  </span><span id="local-6989586621679078319"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679078319"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span>     </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679078319"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679078322"><span id="local-6989586621679078328"><span id="local-6989586621679078333"><span class="annot"><span class="hs-identifier hs-type">Traversable</span></span><span> </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>    </span><span id="local-6989586621679078342"><span class="annot"><span class="annottext">traverse :: forall (f :: * -&gt; *) a b.
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679078326"><span id="local-6989586621679078332"><span id="local-6989586621679078337"><span class="annot"><span class="hs-identifier hs-type">Traversable</span></span><span> </span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>    </span><span id="local-6989586621679078346"><span class="annot"><span class="annottext">traverse :: forall (f :: * -&gt; *) a b.
 Applicative f =&gt;
 (a -&gt; f b) -&gt; LCM a -&gt; f (LCM b)
-</span><a href="#local-6989586621679078342"><span class="hs-identifier hs-var hs-var hs-var hs-var">traverse</span></a></span></span><span> </span><span id="local-6989586621679078344"><span class="annot"><span class="annottext">a -&gt; f b
-</span><a href="#local-6989586621679078344"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span> </span><span id="local-6989586621679078345"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679078345"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">b -&gt; LCM b
+</span><a href="#local-6989586621679078346"><span class="hs-identifier hs-var hs-var hs-var hs-var">traverse</span></a></span></span><span> </span><span id="local-6989586621679078348"><span class="annot"><span class="annottext">a -&gt; f b
+</span><a href="#local-6989586621679078348"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-type">LCM</span></a></span><span> </span><span id="local-6989586621679078349"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679078349"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">b -&gt; LCM b
 forall a. a -&gt; LCM a
 </span><a href="Advent.LCM.html#LCM"><span class="hs-identifier hs-var">LCM</span></a></span><span> </span><span class="annot"><span class="annottext">(b -&gt; LCM b) -&gt; f b -&gt; f (LCM b)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; f b
-</span><a href="#local-6989586621679078344"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679078345"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621679078348"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679078349"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-72"></span></pre></body></html>
