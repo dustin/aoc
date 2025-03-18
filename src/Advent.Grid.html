@@ -49,7 +49,7 @@ bytes of the input, etc...
 </span><span id="line-47"></span><span>  </span><span id="_bytes"><span class="annot"><span class="annottext">Grid -&gt; ByteString
 </span><a href="Advent.Grid.html#_bytes"><span class="hs-identifier hs-var hs-var">_bytes</span></a></span></span><span>   </span><span class="hs-glyph">::</span><span> </span><span class="hs-glyph">!</span><span class="annot"><span class="hs-identifier hs-type">BS.ByteString</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span id="local-6989586621679079989"><span id="local-6989586621679079991"><span class="annot"><span class="annottext">(forall x. Grid -&gt; Rep Grid x)
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span id="local-6989586621679085042"><span id="local-6989586621679085044"><span class="annot"><span class="annottext">(forall x. Grid -&gt; Rep Grid x)
 -&gt; (forall x. Rep Grid x -&gt; Grid) -&gt; Generic Grid
 forall x. Rep Grid x -&gt; Grid
 forall x. Grid -&gt; Rep Grid x
@@ -61,8 +61,8 @@ $cto :: forall x. Rep Grid x -&gt; Grid
 to :: forall x. Rep Grid x -&gt; Grid
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Generic</span></span></span></span><span>
 </span><span id="line-50"></span><span>
-</span><span id="line-51"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679079996"><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-52"></span><span>  </span><span id="local-6989586621679080002"><span class="annot"><span class="annottext">== :: Grid -&gt; Grid -&gt; Bool
+</span><span id="line-51"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679085049"><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>  </span><span id="local-6989586621679085055"><span class="annot"><span class="annottext">== :: Grid -&gt; Grid -&gt; Bool
 </span><span class="hs-operator hs-var hs-var hs-var hs-var">(==)</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">(==)</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteString -&gt; Bool)
@@ -71,9 +71,9 @@ forall b c a. (b -&gt; b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">`on`</span></span><span> </span><span class="annot"><span class="annottext">Grid -&gt; ByteString
 </span><a href="Advent.Grid.html#_bytes"><span class="hs-identifier hs-var">_bytes</span></a></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679080007"><span id="local-6989586621679080011"><span id="local-6989586621679080014"><span id="local-6989586621679080017"><span id="local-6989586621679080020"><span id="local-6989586621679080023"><span class="annot"><span class="hs-identifier hs-type">Ord</span></span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span></span></span></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679080028"><span class="annot"><span class="annottext">compare :: Grid -&gt; Grid -&gt; Ordering
-</span><a href="#local-6989586621679080028"><span class="hs-identifier hs-var hs-var hs-var hs-var">compare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; Ordering
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679085060"><span id="local-6989586621679085064"><span id="local-6989586621679085067"><span id="local-6989586621679085070"><span id="local-6989586621679085073"><span id="local-6989586621679085076"><span class="annot"><span class="hs-identifier hs-type">Ord</span></span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span></span></span></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679085081"><span class="annot"><span class="annottext">compare :: Grid -&gt; Grid -&gt; Ordering
+</span><a href="#local-6989586621679085081"><span class="hs-identifier hs-var hs-var hs-var hs-var">compare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; Ordering
 forall a. Ord a =&gt; a -&gt; a -&gt; Ordering
 </span><span class="hs-identifier hs-var">compare</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteString -&gt; Ordering)
 -&gt; (Grid -&gt; ByteString) -&gt; Grid -&gt; Grid -&gt; Ordering
@@ -81,11 +81,11 @@ forall b c a. (b -&gt; b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">`on`</span></span><span> </span><span class="annot"><span class="annottext">Grid -&gt; ByteString
 </span><a href="Advent.Grid.html#_bytes"><span class="hs-identifier hs-var">_bytes</span></a></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679080031"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679085084"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Advent.Vis.html#Bounded2D"><span class="hs-identifier hs-type">Bounded2D</span></a></span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679080060"><span class="annot"><span class="annottext">bounds2d :: Grid -&gt; ((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080060"><span class="hs-identifier hs-var hs-var hs-var hs-var">bounds2d</span></a></span></span><span>  </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Grid -&gt; ((Int, Int), (Int, Int))
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679085113"><span class="annot"><span class="annottext">bounds2d :: Grid -&gt; ((Int, Int), (Int, Int))
+</span><a href="#local-6989586621679085113"><span class="hs-identifier hs-var hs-var hs-var hs-var">bounds2d</span></a></span></span><span>  </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Grid -&gt; ((Int, Int), (Int, Int))
 </span><a href="Advent.Grid.html#bounds"><span class="hs-identifier hs-var">bounds</span></a></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="annot"><span class="hs-comment">-- | Return the bounds of this 'Grid'.</span></span><span>
@@ -110,13 +110,13 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span id="line-72"></span><span class="annot"><span class="hs-comment">-- | Return the numeric index of a point within this 'Grid'.</span></span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Advent.Grid.html#index"><span class="hs-identifier hs-type">index</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span>
 </span><span id="line-74"></span><span id="index"><span class="annot"><span class="annottext">index :: Grid -&gt; (Int, Int) -&gt; Int
-</span><a href="Advent.Grid.html#index"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span class="hs-special">{</span><span id="local-6989586621679080064"><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
+</span><a href="Advent.Grid.html#index"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span class="hs-special">{</span><span id="local-6989586621679085117"><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
 _bounds :: Grid -&gt; ((Int, Int), (Int, Int))
 _bounds :: ((Int, Int), (Int, Int))
 </span><a href="Advent.Grid.html#_bounds"><span class="hs-identifier hs-var hs-var">_bounds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int)) -&gt; (Int, Int) -&gt; Int
 forall a. Ix a =&gt; (a, a) -&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Ix.index</span></span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080064"><span class="hs-identifier hs-var">_bounds</span></a></span><span> </span><span class="annot"><span class="annottext">((Int, Int) -&gt; Int)
+</span><a href="#local-6989586621679085117"><span class="hs-identifier hs-var">_bounds</span></a></span><span> </span><span class="annot"><span class="annottext">((Int, Int) -&gt; Int)
 -&gt; ((Int, Int) -&gt; (Int, Int)) -&gt; (Int, Int) -&gt; Int
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Int, Int) -&gt; (Int, Int)
@@ -127,13 +127,13 @@ forall a b. (a, b) -&gt; (b, a)
 </span><span id="line-77"></span><span class="annot"><span class="hs-comment">-- | Return True if the given 'Point' is within this 'Grid'.</span></span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Advent.Grid.html#inRange"><span class="hs-identifier hs-type">inRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span>
 </span><span id="line-79"></span><span id="inRange"><span class="annot"><span class="annottext">inRange :: Grid -&gt; (Int, Int) -&gt; Bool
-</span><a href="Advent.Grid.html#inRange"><span class="hs-identifier hs-var hs-var">inRange</span></a></span></span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span class="hs-special">{</span><span id="local-6989586621679080066"><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
+</span><a href="Advent.Grid.html#inRange"><span class="hs-identifier hs-var hs-var">inRange</span></a></span></span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span class="hs-special">{</span><span id="local-6989586621679085119"><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
 _vBounds :: Grid -&gt; ((Int, Int), (Int, Int))
 _vBounds :: ((Int, Int), (Int, Int))
 </span><a href="Advent.Grid.html#_vBounds"><span class="hs-identifier hs-var hs-var">_vBounds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int)) -&gt; (Int, Int) -&gt; Bool
 forall a. Ix a =&gt; (a, a) -&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Ix.inRange</span></span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080066"><span class="hs-identifier hs-var">_vBounds</span></a></span><span> </span><span class="annot"><span class="annottext">((Int, Int) -&gt; Bool)
+</span><a href="#local-6989586621679085119"><span class="hs-identifier hs-var">_vBounds</span></a></span><span> </span><span class="annot"><span class="annottext">((Int, Int) -&gt; Bool)
 -&gt; ((Int, Int) -&gt; (Int, Int)) -&gt; (Int, Int) -&gt; Bool
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Int, Int) -&gt; (Int, Int)
@@ -161,13 +161,13 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span id="line-90"></span><span class="hs-comment">-- There's not a lot of checking here.  Use this on proper grid data.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Advent.Grid.html#parseInput"><span class="hs-identifier hs-type">parseInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">BS.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span>
 </span><span id="line-92"></span><span id="parseInput"><span class="annot"><span class="annottext">parseInput :: ByteString -&gt; Grid
-</span><a href="Advent.Grid.html#parseInput"><span class="hs-identifier hs-var hs-var">parseInput</span></a></span></span><span> </span><span id="local-6989586621679080069"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679080069"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">let</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679080071"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080071"><span class="hs-identifier hs-var">x</span></a></span></span><span class="annot"><span class="hs-glyph hs-type">:</span></span><span id="local-6989586621679080072"><span class="annot"><span class="annottext">[Int]
-</span><a href="#local-6989586621679080072"><span class="hs-identifier hs-var">xs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word8 -&gt; ByteString -&gt; [Int]
+</span><a href="Advent.Grid.html#parseInput"><span class="hs-identifier hs-var hs-var">parseInput</span></a></span></span><span> </span><span id="local-6989586621679085122"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679085122"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">let</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679085124"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679085124"><span class="hs-identifier hs-var">x</span></a></span></span><span class="annot"><span class="hs-glyph hs-type">:</span></span><span id="local-6989586621679085125"><span class="annot"><span class="annottext">[Int]
+</span><a href="#local-6989586621679085125"><span class="hs-identifier hs-var">xs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word8 -&gt; ByteString -&gt; [Int]
 </span><span class="hs-identifier hs-var">BS.elemIndices</span></span><span> </span><span class="annot"><span class="annottext">Word8
 </span><span class="hs-number">10</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679080069"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="hs-keyword">in</span><span>
+</span><a href="#local-6989586621679085122"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="hs-keyword">in</span><span>
 </span><span id="line-93"></span><span>                   </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
 -&gt; ((Int, Int), (Int, Int)) -&gt; ByteString -&gt; Grid
 </span><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-var">Grid</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
@@ -176,43 +176,43 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. [a] -&gt; Int
 forall (t :: * -&gt; *) a. Foldable t =&gt; t a -&gt; Int
 </span><span class="hs-identifier hs-var">length</span></span><span> </span><span class="annot"><span class="annottext">[Int]
-</span><a href="#local-6989586621679080072"><span class="hs-identifier hs-var">xs</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080071"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679085125"><span class="hs-identifier hs-var">xs</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679085124"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">0</span></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">0</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
+</span><a href="#local-6989586621679085124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-glyph hs-var">-</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">[Int] -&gt; Int
 forall a. [a] -&gt; Int
 forall (t :: * -&gt; *) a. Foldable t =&gt; t a -&gt; Int
 </span><span class="hs-identifier hs-var">length</span></span><span> </span><span class="annot"><span class="annottext">[Int]
-</span><a href="#local-6989586621679080072"><span class="hs-identifier hs-var">xs</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679080069"><span class="hs-identifier hs-var">b</span></a></span><span>
+</span><a href="#local-6989586621679085125"><span class="hs-identifier hs-var">xs</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679085122"><span class="hs-identifier hs-var">b</span></a></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="annot"><span class="hs-comment">-- | Get the value at the given 'Point' from this 'Grid' iff it's within range.</span></span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Advent.Grid.html#lookup"><span class="hs-identifier hs-type">lookup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Word8</span></span><span>
 </span><span id="line-97"></span><span id="lookup"><span class="annot"><span class="annottext">lookup :: Grid -&gt; (Int, Int) -&gt; Maybe Word8
-</span><a href="Advent.Grid.html#lookup"><span class="hs-identifier hs-var hs-var">lookup</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span id="local-6989586621679080075"><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080075"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679080076"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679080076"><span class="hs-identifier hs-var">bs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Int, Int) -&gt; (Int, Int)
+</span><a href="Advent.Grid.html#lookup"><span class="hs-identifier hs-var hs-var">lookup</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span id="local-6989586621679085128"><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
+</span><a href="#local-6989586621679085128"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
+</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679085129"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679085129"><span class="hs-identifier hs-var">bs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Int, Int) -&gt; (Int, Int)
 forall a b. (a, b) -&gt; (b, a)
-</span><span class="hs-identifier hs-var">swap</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679080077"><span class="annot"><span class="annottext">(Int, Int)
-</span><a href="#local-6989586621679080077"><span class="hs-identifier hs-var">p</span></a></span></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">swap</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679085130"><span class="annot"><span class="annottext">(Int, Int)
+</span><a href="#local-6989586621679085130"><span class="hs-identifier hs-var">p</span></a></span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int)) -&gt; (Int, Int) -&gt; Bool
 forall a. Ix a =&gt; (a, a) -&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Ix.inRange</span></span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080075"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">(Int, Int)
-</span><a href="#local-6989586621679080077"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word8 -&gt; Maybe Word8
+</span><a href="#local-6989586621679085128"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">(Int, Int)
+</span><a href="#local-6989586621679085130"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word8 -&gt; Maybe Word8
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; Word8
 </span><span class="hs-identifier hs-var">BS.unsafeIndex</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679080076"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">((Int, Int), (Int, Int)) -&gt; (Int, Int) -&gt; Int
+</span><a href="#local-6989586621679085129"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">((Int, Int), (Int, Int)) -&gt; (Int, Int) -&gt; Int
 forall a. Ix a =&gt; (a, a) -&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Ix.index</span></span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080075"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">(Int, Int)
-</span><a href="#local-6989586621679080077"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679085128"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">(Int, Int)
+</span><a href="#local-6989586621679085130"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Word8
 forall a. Maybe a
@@ -222,19 +222,19 @@ forall a. Maybe a
 </span><span id="line-102"></span><span class="annot"><span class="hs-comment">-- | Get the value at the given 'Point' from this 'Grid'.</span></span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Advent.Grid.html#unsafeLookup"><span class="hs-identifier hs-type">unsafeLookup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Word8</span></span><span>
 </span><span id="line-104"></span><span id="unsafeLookup"><span class="annot"><span class="annottext">unsafeLookup :: Grid -&gt; (Int, Int) -&gt; Word8
-</span><a href="Advent.Grid.html#unsafeLookup"><span class="hs-identifier hs-var hs-var">unsafeLookup</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span id="local-6989586621679080079"><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080079"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679080080"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679080080"><span class="hs-identifier hs-var">bs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Int, Int) -&gt; (Int, Int)
+</span><a href="Advent.Grid.html#unsafeLookup"><span class="hs-identifier hs-var hs-var">unsafeLookup</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span id="local-6989586621679085132"><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
+</span><a href="#local-6989586621679085132"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
+</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679085133"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679085133"><span class="hs-identifier hs-var">bs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Int, Int) -&gt; (Int, Int)
 forall a b. (a, b) -&gt; (b, a)
-</span><span class="hs-identifier hs-var">swap</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679080081"><span class="annot"><span class="annottext">(Int, Int)
-</span><a href="#local-6989586621679080081"><span class="hs-identifier hs-var">p</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; Word8
+</span><span class="hs-identifier hs-var">swap</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679085134"><span class="annot"><span class="annottext">(Int, Int)
+</span><a href="#local-6989586621679085134"><span class="hs-identifier hs-var">p</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; Word8
 </span><span class="hs-identifier hs-var">BS.unsafeIndex</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679080080"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">((Int, Int), (Int, Int)) -&gt; (Int, Int) -&gt; Int
+</span><a href="#local-6989586621679085133"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">((Int, Int), (Int, Int)) -&gt; (Int, Int) -&gt; Int
 forall a. Ix a =&gt; (a, a) -&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Ix.index</span></span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080079"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">(Int, Int)
-</span><a href="#local-6989586621679080081"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679085132"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">(Int, Int)
+</span><a href="#local-6989586621679085134"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span class="hs-pragma">{-# INLINE</span><span> </span><span class="annot"><a href="Advent.Grid.html#unsafeLookup"><span class="hs-pragma hs-type">unsafeLookup</span></a></span><span> </span><span class="hs-pragma">#-}</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="annot"><span class="hs-comment">-- | Return all of the 'Point's and values from this 'Grid'.</span></span><span>
@@ -247,46 +247,46 @@ forall a. a -&gt; a
 </span><span class="hs-identifier hs-var">id</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="annot"><span class="hs-comment">-- | Return all of the 'Point's and values mapped to a particular value. from this 'Grid'.</span></span><span>
-</span><span id="line-112"></span><span id="local-6989586621679079915"><span class="annot"><a href="Advent.Grid.html#assocsMap"><span class="hs-identifier hs-type">assocsMap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Word8</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679079915"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="#local-6989586621679079915"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679084968"><span class="annot"><a href="Advent.Grid.html#assocsMap"><span class="hs-identifier hs-type">assocsMap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Word8</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679084968"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="#local-6989586621679084968"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span></span><span>
 </span><span id="line-113"></span><span id="assocsMap"><span class="annot"><span class="annottext">assocsMap :: forall a. (Word8 -&gt; a) -&gt; Grid -&gt; [((Int, Int), a)]
-</span><a href="Advent.Grid.html#assocsMap"><span class="hs-identifier hs-var hs-var">assocsMap</span></a></span></span><span> </span><span id="local-6989586621679080087"><span class="annot"><span class="annottext">Word8 -&gt; a
-</span><a href="#local-6989586621679080087"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span id="local-6989586621679080088"><span class="annot"><span class="annottext">b :: ((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080088"><span class="hs-identifier hs-var">b</span></a></span></span><span class="hs-glyph">@</span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Int, Int)
+</span><a href="Advent.Grid.html#assocsMap"><span class="hs-identifier hs-var hs-var">assocsMap</span></a></span></span><span> </span><span id="local-6989586621679085140"><span class="annot"><span class="annottext">Word8 -&gt; a
+</span><a href="#local-6989586621679085140"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span id="local-6989586621679085141"><span class="annot"><span class="annottext">b :: ((Int, Int), (Int, Int))
+</span><a href="#local-6989586621679085141"><span class="hs-identifier hs-var">b</span></a></span></span><span class="hs-glyph">@</span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Int, Int)
 </span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
-</span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span id="local-6989586621679080089"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080089"><span class="hs-identifier hs-var">mx</span></a></span></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679080090"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679080090"><span class="hs-identifier hs-var">bs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679080091"><span class="annot"><span class="annottext">(Int, Int)
-</span><a href="#local-6989586621679080091"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Int, Int) -&gt; (Int, Int)
+</span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span id="local-6989586621679085142"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679085142"><span class="hs-identifier hs-var">mx</span></a></span></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
+</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679085143"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679085143"><span class="hs-identifier hs-var">bs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679085144"><span class="annot"><span class="annottext">(Int, Int)
+</span><a href="#local-6989586621679085144"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Int, Int) -&gt; (Int, Int)
 forall a b. (a, b) -&gt; (b, a)
 </span><span class="hs-identifier hs-var">swap</span></span><span> </span><span class="annot"><span class="annottext">(Int, Int)
-</span><a href="#local-6989586621679080091"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Word8 -&gt; a
-</span><a href="#local-6989586621679080087"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; Word8
+</span><a href="#local-6989586621679085144"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Word8 -&gt; a
+</span><a href="#local-6989586621679085140"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; Word8
 </span><span class="hs-identifier hs-var">BS.unsafeIndex</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679080090"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">((Int, Int), (Int, Int)) -&gt; (Int, Int) -&gt; Int
+</span><a href="#local-6989586621679085143"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">((Int, Int), (Int, Int)) -&gt; (Int, Int) -&gt; Int
 forall a. Ix a =&gt; (a, a) -&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Ix.index</span></span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080088"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">(Int, Int)
-</span><a href="#local-6989586621679080091"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Int, Int) -&gt; ((Int, Int), a))
+</span><a href="#local-6989586621679085141"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">(Int, Int)
+</span><a href="#local-6989586621679085144"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Int, Int) -&gt; ((Int, Int), a))
 -&gt; [(Int, Int)] -&gt; [((Int, Int), a)]
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">((Int, Int) -&gt; Bool) -&gt; [(Int, Int)] -&gt; [(Int, Int)]
 forall a. (a -&gt; Bool) -&gt; [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">filter</span></span><span> </span><span class="annot"><span class="annottext">(Int, Int) -&gt; Bool
 forall {a}. (a, Int) -&gt; Bool
-</span><a href="#local-6989586621679080093"><span class="hs-identifier hs-var">noNL</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">((Int, Int), (Int, Int)) -&gt; [(Int, Int)]
+</span><a href="#local-6989586621679085146"><span class="hs-identifier hs-var">noNL</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">((Int, Int), (Int, Int)) -&gt; [(Int, Int)]
 forall a. Ix a =&gt; (a, a) -&gt; [a]
 </span><span class="hs-identifier hs-var">Ix.range</span></span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080088"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679085141"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>    </span><span id="local-6989586621679080093"><span class="annot"><span class="annottext">noNL :: (a, Int) -&gt; Bool
-</span><a href="#local-6989586621679080093"><span class="hs-identifier hs-var hs-var">noNL</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span id="local-6989586621679080096"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080096"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><span id="line-115"></span><span>    </span><span id="local-6989586621679085146"><span class="annot"><span class="annottext">noNL :: (a, Int) -&gt; Bool
+</span><a href="#local-6989586621679085146"><span class="hs-identifier hs-var hs-var">noNL</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
+</span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span id="local-6989586621679085149"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679085149"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679085149"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080089"><span class="hs-identifier hs-var">mx</span></a></span><span>
+</span><a href="#local-6989586621679085142"><span class="hs-identifier hs-var">mx</span></a></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="annot"><span class="hs-comment">-- | Convert a 'Word8' to a 'Char' in a fairly unsafe but quick way.</span></span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Advent.Grid.html#b2c"><span class="hs-identifier hs-type">b2c</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Word8</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Char</span></span><span>
@@ -312,81 +312,63 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span id="line-126"></span><span class="annot"><span class="hs-comment">-- | Map all the values in the grid.</span></span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Advent.Grid.html#map"><span class="hs-identifier hs-type">map</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Word8</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Word8</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span>
 </span><span id="line-128"></span><span id="map"><span class="annot"><span class="annottext">map :: (Word8 -&gt; Word8) -&gt; Grid -&gt; Grid
-</span><a href="Advent.Grid.html#map"><span class="hs-identifier hs-var hs-var">map</span></a></span></span><span> </span><span id="local-6989586621679080098"><span class="annot"><span class="annottext">Word8 -&gt; Word8
-</span><a href="#local-6989586621679080098"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679080099"><span class="annot"><span class="annottext">Grid
-</span><a href="#local-6989586621679080099"><span class="hs-identifier hs-var">g</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Grid
-</span><a href="#local-6989586621679080099"><span class="hs-identifier hs-var">g</span></a></span><span class="hs-special">{</span><span class="annot"><span class="annottext">_bytes :: ByteString
-</span><a href="Advent.Grid.html#_bytes"><span class="hs-identifier hs-var">_bytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Word8 -&gt; Word8) -&gt; ByteString -&gt; ByteString
-</span><span class="hs-identifier hs-var">BS.map</span></span><span> </span><span class="annot"><span class="annottext">Word8 -&gt; Word8
-</span><a href="#local-6989586621679080098"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Grid -&gt; ByteString
-</span><a href="Advent.Grid.html#_bytes"><span class="hs-identifier hs-var">_bytes</span></a></span><span> </span><span class="annot"><span class="annottext">Grid
-</span><a href="#local-6989586621679080099"><span class="hs-identifier hs-var">g</span></a></span><span class="hs-special">)</span><span class="hs-special">}</span><span>
+</span><a href="Advent.Grid.html#map"><span class="hs-identifier hs-var hs-var">map</span></a></span></span><span> </span><span id="local-6989586621679085151"><span class="annot"><span class="annottext">Word8 -&gt; Word8
+</span><a href="#local-6989586621679085151"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679085152"><span class="annot"><span class="annottext">Grid
+</span><a href="#local-6989586621679085152"><span class="hs-identifier hs-var">g</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Grid
+</span><a href="#local-6989586621679085152"><span class="hs-identifier hs-var">g</span></a></span><span class="hs-special">{</span><span class="annot"><a href="Advent.Grid.html#_bytes"><span class="hs-identifier hs-var">_bytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="hs-identifier hs-type">BS.map</span></span><span> </span><span class="annot"><a href="#local-6989586621679085151"><span class="hs-identifier hs-type">f</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.Grid.html#_bytes"><span class="hs-identifier hs-var">_bytes</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679085152"><span class="hs-identifier hs-type">g</span></a></span><span class="hs-special">)</span><span class="hs-special">}</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="annot"><span class="hs-comment">-- | Map all of the values from the grid including the index.</span></span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Advent.Grid.html#ixmap"><span class="hs-identifier hs-type">ixmap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Advent.TwoD.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Word8</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Word8</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span>
 </span><span id="line-132"></span><span id="ixmap"><span class="annot"><span class="annottext">ixmap :: ((Int, Int) -&gt; Word8 -&gt; Word8) -&gt; Grid -&gt; Grid
-</span><a href="Advent.Grid.html#ixmap"><span class="hs-identifier hs-var hs-var">ixmap</span></a></span></span><span> </span><span id="local-6989586621679080101"><span class="annot"><span class="annottext">(Int, Int) -&gt; Word8 -&gt; Word8
-</span><a href="#local-6989586621679080101"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679080102"><span class="annot"><span class="annottext">grid :: Grid
-</span><a href="#local-6989586621679080102"><span class="hs-identifier hs-var">grid</span></a></span></span><span class="hs-glyph">@</span><span class="hs-special">(</span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span id="local-6989586621679080103"><span class="annot"><span class="annottext">b :: ((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080103"><span class="hs-identifier hs-var">b</span></a></span></span><span class="hs-glyph">@</span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Int, Int)
+</span><a href="Advent.Grid.html#ixmap"><span class="hs-identifier hs-var hs-var">ixmap</span></a></span></span><span> </span><span id="local-6989586621679085154"><span class="annot"><span class="annottext">(Int, Int) -&gt; Word8 -&gt; Word8
+</span><a href="#local-6989586621679085154"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679085155"><span class="annot"><span class="annottext">grid :: Grid
+</span><a href="#local-6989586621679085155"><span class="hs-identifier hs-var">grid</span></a></span></span><span class="hs-glyph">@</span><span class="hs-special">(</span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span id="local-6989586621679085156"><span class="annot"><span class="annottext">b :: ((Int, Int), (Int, Int))
+</span><a href="#local-6989586621679085156"><span class="hs-identifier hs-var">b</span></a></span></span><span class="hs-glyph">@</span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Int, Int)
 </span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
-</span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span id="local-6989586621679080104"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080104"><span class="hs-identifier hs-var">mx</span></a></span></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679080105"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679080105"><span class="hs-identifier hs-var">bs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Grid
-</span><a href="#local-6989586621679080102"><span class="hs-identifier hs-var">grid</span></a></span><span class="hs-special">{</span><span class="annot"><span class="annottext">_bytes :: ByteString
-</span><a href="Advent.Grid.html#_bytes"><span class="hs-identifier hs-var">_bytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">([(Int, Int)], ByteString) -&gt; ByteString
-forall a b. (a, b) -&gt; b
-</span><span class="hs-identifier hs-var">snd</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">([(Int, Int)] -&gt; Word8 -&gt; ([(Int, Int)], Word8))
--&gt; [(Int, Int)] -&gt; ByteString -&gt; ([(Int, Int)], ByteString)
-forall acc.
-(acc -&gt; Word8 -&gt; (acc, Word8))
--&gt; acc -&gt; ByteString -&gt; (acc, ByteString)
-</span><span class="hs-identifier hs-var">BS.mapAccumL</span></span><span> </span><span class="annot"><span class="annottext">[(Int, Int)] -&gt; Word8 -&gt; ([(Int, Int)], Word8)
-</span><a href="#local-6989586621679080108"><span class="hs-identifier hs-var">g</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">((Int, Int), (Int, Int)) -&gt; [(Int, Int)]
-forall a. Ix a =&gt; (a, a) -&gt; [a]
-</span><span class="hs-identifier hs-var">Ix.range</span></span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
-</span><a href="#local-6989586621679080103"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679080105"><span class="hs-identifier hs-var">bs</span></a></span><span class="hs-special">)</span><span class="hs-special">}</span><span>
+</span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span id="local-6989586621679085157"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679085157"><span class="hs-identifier hs-var">mx</span></a></span></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Int, Int), (Int, Int))
+</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679085158"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679085158"><span class="hs-identifier hs-var">bs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Grid
+</span><a href="#local-6989586621679085155"><span class="hs-identifier hs-var">grid</span></a></span><span class="hs-special">{</span><span class="annot"><a href="Advent.Grid.html#_bytes"><span class="hs-identifier hs-var">_bytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="hs-identifier hs-type">snd</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">BS.mapAccumL</span></span><span> </span><span class="annot"><a href="#local-6989586621679085161"><span class="hs-identifier hs-type">g</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Ix.range</span></span><span> </span><span class="annot"><a href="#local-6989586621679085156"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679085158"><span class="hs-identifier hs-type">bs</span></a></span><span class="hs-special">)</span><span class="hs-special">}</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>    </span><span id="local-6989586621679080108"><span class="annot"><span class="annottext">g :: [(Int, Int)] -&gt; Word8 -&gt; ([(Int, Int)], Word8)
-</span><a href="#local-6989586621679080108"><span class="hs-identifier hs-var hs-var">g</span></a></span></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span id="local-6989586621679080110"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080110"><span class="hs-identifier hs-var">y</span></a></span></span><span class="hs-special">,</span><span id="local-6989586621679080111"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080111"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span class="annot"><span class="hs-glyph hs-type">:</span></span><span id="local-6989586621679080112"><span class="annot"><span class="annottext">[(Int, Int)]
-</span><a href="#local-6989586621679080112"><span class="hs-identifier hs-var">ps</span></a></span></span><span class="hs-special">)</span><span> </span><span id="local-6989586621679080113"><span class="annot"><span class="annottext">Word8
-</span><a href="#local-6989586621679080113"><span class="hs-identifier hs-var">w</span></a></span></span><span>
+</span><span id="line-134"></span><span>    </span><span id="local-6989586621679085161"><span class="annot"><span class="annottext">g :: [(Int, Int)] -&gt; Word8 -&gt; ([(Int, Int)], Word8)
+</span><a href="#local-6989586621679085161"><span class="hs-identifier hs-var hs-var">g</span></a></span></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span id="local-6989586621679085163"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679085163"><span class="hs-identifier hs-var">y</span></a></span></span><span class="hs-special">,</span><span id="local-6989586621679085164"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679085164"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span class="annot"><span class="hs-glyph hs-type">:</span></span><span id="local-6989586621679085165"><span class="annot"><span class="annottext">[(Int, Int)]
+</span><a href="#local-6989586621679085165"><span class="hs-identifier hs-var">ps</span></a></span></span><span class="hs-special">)</span><span> </span><span id="local-6989586621679085166"><span class="annot"><span class="annottext">Word8
+</span><a href="#local-6989586621679085166"><span class="hs-identifier hs-var">w</span></a></span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><a href="#local-6989586621679085164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080104"><span class="hs-identifier hs-var">mx</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[(Int, Int)]
-</span><a href="#local-6989586621679080112"><span class="hs-identifier hs-var">ps</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Word8
-</span><a href="#local-6989586621679080113"><span class="hs-identifier hs-var">w</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679085157"><span class="hs-identifier hs-var">mx</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[(Int, Int)]
+</span><a href="#local-6989586621679085165"><span class="hs-identifier hs-var">ps</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Word8
+</span><a href="#local-6989586621679085166"><span class="hs-identifier hs-var">w</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[(Int, Int)]
-</span><a href="#local-6989586621679080112"><span class="hs-identifier hs-var">ps</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(Int, Int) -&gt; Word8 -&gt; Word8
-</span><a href="#local-6989586621679080101"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080111"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679080110"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Word8
-</span><a href="#local-6989586621679080113"><span class="hs-identifier hs-var">w</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679085165"><span class="hs-identifier hs-var">ps</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(Int, Int) -&gt; Word8 -&gt; Word8
+</span><a href="#local-6989586621679085154"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679085164"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679085163"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Word8
+</span><a href="#local-6989586621679085166"><span class="hs-identifier hs-var">w</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="annot"><span class="hs-comment">-- | Show grid with the given byte -&gt; char mapping.</span></span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Advent.Grid.html#showGridWith"><span class="hs-identifier hs-type">showGridWith</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Word8</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Char</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span>
 </span><span id="line-140"></span><span id="showGridWith"><span class="annot"><span class="annottext">showGridWith :: (Word8 -&gt; Char) -&gt; Grid -&gt; FilePath
-</span><a href="Advent.Grid.html#showGridWith"><span class="hs-identifier hs-var hs-var">showGridWith</span></a></span></span><span> </span><span id="local-6989586621679080114"><span class="annot"><span class="annottext">Word8 -&gt; Char
-</span><a href="#local-6989586621679080114"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679080115"><span class="annot"><span class="annottext">Grid
-</span><a href="#local-6989586621679080115"><span class="hs-identifier hs-var">g</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Grid -&gt; CharFun -&gt; FilePath
+</span><a href="Advent.Grid.html#showGridWith"><span class="hs-identifier hs-var hs-var">showGridWith</span></a></span></span><span> </span><span id="local-6989586621679085167"><span class="annot"><span class="annottext">Word8 -&gt; Char
+</span><a href="#local-6989586621679085167"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679085168"><span class="annot"><span class="annottext">Grid
+</span><a href="#local-6989586621679085168"><span class="hs-identifier hs-var">g</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Grid -&gt; CharFun -&gt; FilePath
 forall a. Bounded2D a =&gt; a -&gt; CharFun -&gt; FilePath
 </span><a href="Advent.Vis.html#drawString"><span class="hs-identifier hs-var">drawString</span></a></span><span> </span><span class="annot"><span class="annottext">Grid
-</span><a href="#local-6989586621679080115"><span class="hs-identifier hs-var">g</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Char -&gt; (Word8 -&gt; Char) -&gt; Maybe Word8 -&gt; Char
+</span><a href="#local-6989586621679085168"><span class="hs-identifier hs-var">g</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Char -&gt; (Word8 -&gt; Char) -&gt; Maybe Word8 -&gt; Char
 forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
 </span><span class="hs-identifier hs-var">maybe</span></span><span> </span><span class="annot"><span class="annottext">Char
 </span><span class="hs-char">' '</span></span><span> </span><span class="annot"><span class="annottext">Word8 -&gt; Char
-</span><a href="#local-6989586621679080114"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Word8 -&gt; Char) -&gt; ((Int, Int) -&gt; Maybe Word8) -&gt; CharFun
+</span><a href="#local-6989586621679085167"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Word8 -&gt; Char) -&gt; ((Int, Int) -&gt; Maybe Word8) -&gt; CharFun
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Grid -&gt; (Int, Int) -&gt; Maybe Word8
 </span><a href="Advent.Grid.html#lookup"><span class="hs-identifier hs-var">lookup</span></a></span><span> </span><span class="annot"><span class="annottext">Grid
-</span><a href="#local-6989586621679080115"><span class="hs-identifier hs-var">g</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679085168"><span class="hs-identifier hs-var">g</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="annot"><span class="hs-comment">-- | Show a Grid.</span></span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Advent.Grid.html#showGrid"><span class="hs-identifier hs-type">showGrid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Advent.Grid.html#Grid"><span class="hs-identifier hs-type">Grid</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span>
